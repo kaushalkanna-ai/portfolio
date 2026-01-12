@@ -25,7 +25,7 @@ const Impact = () => {
             <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-900/10 via-white dark:via-slate-900 to-white dark:to-slate-900 pointer-events-none" />
 
             <div className="max-w-7xl mx-auto px-4 relative z-10">
-                <div className="flex flex-col md:flex-row justify-between items-end mb-12">
+                <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12">
                     <motion.h2
                         whileInView={{ opacity: 1, x: 0 }}
                         initial={{ opacity: 0, x: -50 }}
