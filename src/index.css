@@ -1,0 +1,261 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+    --color-scheme: light dark;
+}
+
+@variant dark (.dark &);
+
+@layer base {
+
+    :root {
+        color-scheme: light;
+    }
+
+    :root.dark {
+        color-scheme: dark;
+    }
+
+    body {
+        @apply bg-gray-50 text-gray-900;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    :root.dark body {
+        background-color: #0f172a;
+        color: #f8fafc;
+    }
+
+    html {
+        font-family: 'Inter', sans-serif;
+        scroll-behavior: smooth;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    body {
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: 'Outfit', sans-serif;
+    }
+
+    /* Smooth transitions for theme changes only */
+    :root,
+    :root.dark {
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+
+
+
+    @keyframes bounce {
+
+        0%,
+        100% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(10px);
+        }
+    }
+
+    .scroll-indicator {
+        animation: bounce 1.5s ease-in-out infinite;
+    }
+
+    @media (max-width: 768px) {
+        .hero-title {
+            animation-duration: 0.5s;
+        }
+
+        .hero-subtitle {
+            animation-duration: 0.5s;
+            animation-delay: 0.3s;
+        }
+
+        .hero-cta {
+            animation-duration: 0.3s;
+            animation-delay: 0.6s;
+        }
+    }
+
+    @keyframes slideInDown {
+        from {
+            transform: translateY(-100px);
+            opacity: 0;
+        }
+
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    @keyframes slideDown {
+        from {
+            opacity: 0;
+            max-height: 0;
+        }
+
+        to {
+            opacity: 1;
+            max-height: 500px;
+        }
+    }
+
+    .navbar-slide-in {
+        animation: slideInDown 0.5s ease-out forwards;
+    }
+
+    .mobile-menu-open {
+        animation: slideDown 0.3s ease-out forwards;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+        *,
+        *::before,
+        *::after {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+        }
+    }
+
+    .group.relative {
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+    }
+}
+
+/* Hybrid Pulse-Glitch Loader - Global Styles */
+@keyframes pulse-glow {
+
+    0%,
+    100% {
+        box-shadow: 0 0 15px rgba(59, 130, 246, 0.1);
+        transform: scale(1);
+    }
+
+    50% {
+        box-shadow: 0 0 30px rgba(59, 130, 246, 0.4);
+        transform: scale(1.05);
+    }
+}
+
+@keyframes spin-orbit {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes text-flicker {
+
+    0%,
+    19%,
+    21%,
+    23%,
+    25%,
+    54%,
+    56%,
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    20% {
+        opacity: 0.5;
+        transform: translateX(-1px);
+    }
+
+    24% {
+        opacity: 0.5;
+        transform: translateX(1px);
+    }
+
+    55% {
+        opacity: 0.8;
+    }
+}
+
+.loader-core {
+    width: 64px;
+    height: 64px;
+    position: relative;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.3) 0%, rgba(59, 130, 246, 0) 70%);
+    border: 1px solid rgba(59, 130, 246, 0.1);
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.2);
+    animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.loader-core::before {
+    content: "";
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    border-top: 2px solid #3b82f6;
+    border-right: 2px solid transparent;
+    animation: spin-orbit 1.5s linear infinite;
+}
+
+.loader-core::after {
+    content: "";
+    position: absolute;
+    inset: -12px;
+    border-radius: 50%;
+    border-bottom: 1px solid rgba(59, 130, 246, 0.3);
+    border-left: 1px solid transparent;
+    animation: spin-orbit 3s linear infinite reverse;
+}
+
+.loading-text {
+    margin-top: 2.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #64748b;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    position: relative;
+    animation: text-flicker 3s infinite;
+}
+
+.dark .loading-text {
+    color: #94a3b8;
+}
