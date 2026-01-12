@@ -7,7 +7,8 @@ import Button from './Button';
 
 const Writing = () => {
     return (
-        <section id="writing" className="py-20 bg-gray-50 dark:bg-slate-800/50 text-gray-900 dark:text-white relative overflow-hidden">
+        <section id="writing" className="py-20 bg-white dark:bg-slate-900 text-gray-900 dark:text-white relative overflow-hidden">
+            <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-900/20 via-white dark:via-slate-900 to-white dark:to-slate-900 pointer-events-none" />
             <div className="max-w-6xl mx-auto px-4 relative z-10">
                 <div className="flex flex-col md:flex-row justify-between items-end mb-12">
                     <motion.div
