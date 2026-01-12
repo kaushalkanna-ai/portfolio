@@ -16,7 +16,9 @@ const Writing = () => {
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.5 }}
                     >
-                        <h2 className="text-3xl md:text-4xl font-bold mb-4">Thought Leadership</h2>
+                        <h2 className="text-4xl md:text-5xl font-bold mb-6 border-l-4 border-blue-500 pl-4">
+                            Thought Leadership<span className="text-blue-500">.</span>
+                        </h2>
                         <p className="text-gray-600 dark:text-slate-400 max-w-xl text-lg">
                             Sharing insights on engineering leadership, system architecture, and the future of tech.
                         </p>
