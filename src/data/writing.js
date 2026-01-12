@@ -113,19 +113,36 @@ export const articles = [
         tags: ["Architecture", "Microservices", "Cloud"],
         icon: Cloud,
         link: "#",
+        keyTakeaways: [
+            "We mistakenly treated Microservices as a solution to code complexity; they are actually a solution to organizational scaling.",
+            "The 'Distributed Monolith' is the worst of both worlds: high latency without independent deployability.",
+            "Observability (Tracing/Logging) must be solved *before* you split the first service.",
+            "Don't split by data model (e.g., 'User Service'); split by Bounded Context (e.g., 'Identity Service')."
+        ],
         content: `
-            <p>The transition to microservices is often sold as a silver bullet for scalability. In reality, it trades code complexity for operational complexity.</p>
+            <p class="lead">The industry swung violently from "Monoliths are evil" to "Microservices or bust" around 2015. We are now seeing the correction. After migrating a monolithic e-commerce platform to 40+ microservices, I have the scars to prove that distributed systems are not a free lunch.</p>
 
-            <h3>When to Break the Monolith</h3>
-            <p>The most common mistake is breaking up a monolith too early. Monoliths are easy to deploy, debug, and reason about. You should only move to microservices when:</p>
+            <h2>The False Promise: "Decoupling"</h2>
+            <p>We sold the migration to the board with the promise of "decoupling." We argued that teams could move independently. In reality, we often traded <strong>compile-time coupling</strong> (easy to spot) for <strong>runtime coupling</strong> (hard to debug).</p>
+            <p>If Service A calls Service B, which calls Service C, and Service C is down, your users don't care that Service A is "decoupled." They just know the site is broken. We inadvertently built a <strong>Distributed Monolith</strong>: a system where every service had to be up for <em>anything</em> to work, but with the added penalty of network latency.</p>
+
+            <h2>When to Actually Split</h2>
+            <p>I now have a strict heuristic for breaking up a monolith. You should only split a service if:</p>
+            <ol>
+                <li><strong>Scale:</strong> The component has fundamentally different resource requirements (e.g., an image processing worker needs high CPU, but the API needs high I/O).</li>
+                <li><strong>Lifecycle:</strong> The component changes at a significantly different rate than the core application.</li>
+                <li><strong>Organizational boundaries:</strong> The team has grown so large that communication overhead exceeds the cost of a network call (Conway's Law).</li>
+            </ol>
+
+            <h2>The Hidden Tax: Infrastructure & Observability</h2>
+            <p>The cost of microservices is not in the code; it is in the "glue."</p>
             <ul>
-                <li>You need independent scaling of specific components.</li>
-                <li>Team domains are clearly defined and need independent deployment cycles.</li>
-                <li>The organizational structure (Conway's Law) demands it.</li>
+                <li><strong>Observability:</strong> In a monolith, I check one log file. In microservices, I need Distributed Tracing (Jaeger/OpenTelemetry) to understand why a request took 2 seconds.</li>
+                <li><strong>Consistency:</strong> ACID transactions are gone. You are now in the world of Eventual Consistency, Sagas, and Distributed Locks. This requires a much higher level of engineering maturity.</li>
             </ul>
 
-            <h3>The Hidden Costs</h3>
-            <p>Distributed tracing, eventual consistency, and inter-service communication latency are real challenges. Without a robust DevOps culture and observability stack (OpenTelemetry, Jaeger), microservices can become a nightmare.</p>
+            <h2>Conclusion: The Modular Monolith</h2>
+            <p>If I were to do it again today, I would start with a <strong>Modular Monolith</strong>. Enforce strict module boundaries within a single codebase. If relationships are messy in a monolith, they will be catastrophic over a network. Clean up the dependencies first; split the deployment unit second.</p>
         `
     },
     {
@@ -138,17 +155,34 @@ export const articles = [
         tags: ["AI", "LLM", "Engineering"],
         icon: Code,
         link: "#",
+        keyTakeaways: [
+            "The 'Demo to Production' gap is massive; generic LLM wrappers are not moats.",
+            "Latency is the new downtime. Streaming UI (SSE) and aggressive caching are mandatory.",
+            "Retrieval Augmented Generation (RAG) > Fine-Tuning for 90% of enterprise use cases.",
+            "You cannot 'prompt engineer' your way out of bad data quality."
+        ],
         content: `
-            <p>Deploying Large Language Models (LLMs) in production is vastly different from running a demo in a notebook. The challenges shift from "getting it to work" to "making it reliable, fast, and affordable."</p>
+            <p class="lead">Every company is now an "AI Company." But there is a massive chasm between a prototype running in a Python notebook and a production-grade AI application serving enterprise SLAs. The hype is about <em>capability</em>; the reality is about <em>reliability</em>.</p>
 
-            <h3>Latency Engineering</h3>
-            <p>Users expect instant responses. Streaming responses (Server-Sent Events) is mandatory for LLM applications. Additionally, aggressive caching and smaller, fine-tuned models for specific tasks can drastically reduce latency.</p>
+            <h2>The Latency Challenge</h2>
+            <p>Users have been trained by Google to expect sub-100ms responses. LLMs take seconds. This cognitive dissonance destroys UX.</p>
+            <p>To combat this, we adopted a comprehensive latency strategy:</p>
+            <ul>
+                <li><strong>Optimistic UI & Streaming:</strong> Never show a spinner. Use Server-Sent Events (SSE) to stream tokens immediately.</li>
+                <li><strong>Semantic Caching:</strong> We hash the "meaning" of a prompt (using embeddings) rather than the exact string. If a user asks "How do I reset my password?" and another asks "Password reset," we serve the cached answer instantly.</li>
+                <li><strong>Smaller Models:</strong> You don't need GPT-4 to summarize an email. Fine-tuned small models (like Llama 3 8B or Mistral) are 10x faster and 10x cheaper.</li>
+            </ul>
 
-            <h3>Guardrails & Safety</h3>
-            <p>You cannot trust the output of an LLM blindly. Implementing guardrails—both input and output validation—is critical to preventing prompt injection and ensuring brand safety.</p>
+            <h2>RAG vs. Context Windows</h2>
+            <p>The expanded context windows (128k, 1M tokens) led some engineers to get lazy. "Just dump the whole database into the prompt!" they said. This is a trap.</p>
+            <p>Filling the context window destroys <strong>Needle-in-a-Haystack</strong> performance and costs a fortune. <strong>Retrieval Augmented Generation (RAG)</strong> remains superior. The art is not in the generation; it is in the <em>retrieval</em>. We spent 80% of our engineering time optimizing the vector search and hybrid re-ranking algorithms, and only 20% on the prompt itself.</p>
 
-            <h3>Cost Optimization</h3>
-            <p>Token costs add up. Techniques like RAG (Retrieval-Augmented Generation) allow you to feed context efficiently without maximizing context windows unnecessarily. Using open-source models (Llama 3, Mistral) for lower-complexity tasks is a key optimization lever.</p>
+            <h2>The 'Moat' Fallacy</h2>
+            <p>If your startup is just a wrapper around OpenAI, you don't have a product; you have a feature. The real moat isn't the model (which is a commodity); it's the <strong>proprietary data</strong> and the <strong>integration workflow</strong>.</p>
+            <p>We focused on building an "Action Engine," not just a "Chatbot." The value comes when the AI can read a support ticket, query the database, draft a refund, and ask the agent for approval. The model is just the router; the backend integrations are these business logic.</p>
+
+            <h2>Conclusion</h2>
+            <p>Stop chasing the latest model release. Focus on evaluation pipelines (evals), data hygiene, and integration depth. That is where the enterprise value lives.</p>
         `
     }
 ];
