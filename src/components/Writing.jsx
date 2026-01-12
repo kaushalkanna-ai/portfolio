@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight, Clock, Calendar } from 'lucide-react';
 import { articles } from '../data/writing';
@@ -20,17 +21,12 @@ const Writing = () => {
                         </p>
                     </motion.div>
 
-                    <motion.a
-                        href="https://medium.com/@kaushaldontula" // Placeholder
-                        target="_blank"
-                        rel="noopener noreferrer"
+                    <Link
+                        to="/#writing"
                         className="hidden md:flex items-center gap-2 text-blue-600 dark:text-blue-400 font-medium hover:underline mt-4 md:mt-0"
-                        initial={{ opacity: 0, x: 20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.5 }}
                     >
                         View all articles <ArrowRight className="w-4 h-4" />
-                    </motion.a>
+                    </Link>
                 </div>
 
                 <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
@@ -57,10 +53,10 @@ const Writing = () => {
                             </div>
 
                             <h3 className="text-2xl font-bold mb-3 group-hover:text-blue-500 transition-colors">
-                                <a href={article.link} className="focus:outline-none">
+                                <Link to={`/writing/${article.slug}`} className="focus:outline-none">
                                     <span className="absolute inset-0" aria-hidden="true" />
                                     {article.title}
-                                </a>
+                                </Link>
                             </h3>
 
                             <p className="text-gray-600 dark:text-slate-400 mb-6 leading-relaxed flex-grow">

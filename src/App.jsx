@@ -19,6 +19,7 @@ const LoadingScreen = lazy(() => import('./components/LoadingScreen'));
 
 const CaseStudy = lazy(() => import('./pages/CaseStudy'));
 const Now = lazy(() => import('./pages/Now'));
+const BlogPost = lazy(() => import('./pages/BlogPost'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 
 const ScrollProgress = () => {
@@ -127,6 +128,11 @@ function App() {
                 <Route path="/now" element={
                   <Suspense fallback={<LoadingScreen message="Loading..." />}>
                     <Now />
+                  </Suspense>
+                } />
+                <Route path="/writing/:slug" element={
+                  <Suspense fallback={<LoadingScreen message="Loading Article..." />}>
+                    <BlogPost />
                   </Suspense>
                 } />
                 <Route path="*" element={
