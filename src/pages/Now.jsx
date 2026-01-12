@@ -92,9 +92,11 @@ const Now = () => {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ delay: 0.8 }}
-                        className="mt-20 pt-10 border-t border-gray-100 dark:border-white/5 text-center text-gray-500 dark:text-slate-500 italic text-sm"
+                        className="mt-20 pt-10 border-t border-gray-100 dark:border-white/5 text-center italic"
                     >
-                        Inspired by <a href="https://nownownow.com/abouthttps://nownownow.com/about" target="_blank" rel="noopener noreferrer" className="underline hover:text-blue-500">Derek Sivers</a>.
+                        <p className="text-gray-500 dark:text-gray-400 text-sm">
+                            Inspired by <a href="https://nownownow.com/about" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">Derek Sivers</a>.
+                        </p>
                     </motion.div>
                 </div>
             </section>
