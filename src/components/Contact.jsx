@@ -114,13 +114,8 @@ const Contact = () => {
                     </Button>
                 </motion.div>
 
-                <div className="mt-20 flex justify-center space-x-8">
-                    <a href="https://www.linkedin.com/in/kaushaldontula/" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">LinkedIn</a>
-                    <a href="https://github.com/kaushalkanna-ai" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">GitHub</a>
-                </div>
-
-                <div className="mt-12 text-sm text-gray-500 dark:text-slate-500">
-                    © {new Date().getFullYear()} Kaushal Dontula. All rights reserved.
+                <div className="mt-12">
+                    {/* Space for visual balance */}
                 </div>
             </div>
         </section>

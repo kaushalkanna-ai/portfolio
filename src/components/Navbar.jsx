@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import ThemeToggle from './ThemeToggle';
 import DownloadResumeButton from './DownloadResumeButton';
 
-const NAV_ITEMS = ['About', 'Experience', 'Projects', 'Education', 'Contact'];
+const NAV_ITEMS = ['About', 'Experience', 'Projects', 'Writing', 'Education', 'Contact'];
 
 const Navbar = () => {
     const [scrolled, setScrolled] = useState(false);

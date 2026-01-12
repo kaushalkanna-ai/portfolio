@@ -7,11 +7,13 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import ConsoleWelcome from './components/ConsoleWelcome';
 import SEO from './components/SEO';
+import Footer from './components/Footer';
 
 const About = lazy(() => import('./components/About'));
 const Education = lazy(() => import('./components/Education'));
 const Experience = lazy(() => import('./components/Experience'));
 const Projects = lazy(() => import('./components/Projects'));
+const Writing = lazy(() => import('./components/Writing'));
 const Contact = lazy(() => import('./components/Contact'));
 const LoadingScreen = lazy(() => import('./components/LoadingScreen'));
 
@@ -88,9 +90,11 @@ const Home = () => {
         <About />
         <Experience />
         <Projects />
+        <Writing />
         <Education />
         <Contact />
       </Suspense>
+      <Footer />
     </>
   );
 };
