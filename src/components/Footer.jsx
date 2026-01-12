@@ -36,8 +36,8 @@ const Footer = () => {
                 <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl -mr-20 -mb-20" />
             </div>
 
-            <div className="max-w-6xl mx-auto px-4 relative z-10">
-                <div className="grid md:grid-cols-4 gap-12 mb-16">
+            <div className="max-w-6xl mx-auto px-6 md:px-4 relative z-10">
+                <div className="grid md:grid-cols-4 gap-8 md:gap-12 mb-16">
                     {/* Brand Column */}
                     <div className="md:col-span-2">
                         <div className="flex items-center gap-2 mb-6">
@@ -98,14 +98,14 @@ const Footer = () => {
                                             to={link.to}
                                             smooth={true}
                                             duration={500}
-                                            className="text-gray-600 dark:text-slate-400 hover:text-blue-500 dark:hover:text-blue-400 cursor-pointer transition-colors"
+                                            className="text-gray-600 dark:text-slate-400 hover:text-blue-500 dark:hover:text-blue-400 cursor-pointer transition-colors block py-1"
                                         >
                                             {link.name}
                                         </Link>
                                     ) : (
                                         <a
                                             href={link.to}
-                                            className="text-gray-600 dark:text-slate-400 hover:text-blue-500 dark:hover:text-blue-400 cursor-pointer transition-colors"
+                                            className="text-gray-600 dark:text-slate-400 hover:text-blue-500 dark:hover:text-blue-400 cursor-pointer transition-colors block py-1"
                                         >
                                             {link.name}
                                         </a>
@@ -135,7 +135,7 @@ const Footer = () => {
                         © {new Date().getFullYear()} Kaushal Dontula. All rights reserved.
                     </p>
 
-                    <div className="flex items-center gap-4">
+                    <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6">
                         <p className="text-xs text-gray-400 dark:text-slate-600">
                             Built with React 19 & Tailwind v4
                         </p>
