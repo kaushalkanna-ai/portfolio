@@ -51,7 +51,7 @@ const Footer = () => {
                             Building high-performance engineering teams and delivering strategic product value.
                         </p>
                         <div className="flex gap-4">
-                            <SocialLink href="https://github.com/kaushalkanna-ai" icon={Github} label="GitHub" />
+
                             <SocialLink href="https://www.linkedin.com/in/kaushaldontula/" icon={Linkedin} label="LinkedIn" />
                             {/* <SocialLink href="https://twitter.com/yourhandle" icon={Twitter} label="Twitter" /> */}
                             <button
