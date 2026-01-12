@@ -2,7 +2,7 @@ import { Code, BookOpen, Headphones, Crosshair } from 'lucide-react';
 
 export const nowData = {
     updated: "January 12, 2026",
-    location: "Chicago, IL",
+    location: "Tampa, FL",
     sections: [
         {
             id: "focus",

@@ -124,7 +124,7 @@ const Footer = () => {
                         </div>
                         <p className="text-gray-600 dark:text-slate-400 text-sm">
                             Based in<br />
-                            Chicago, IL
+                            Tampa, FL
                         </p>
                     </div>
                 </div>
