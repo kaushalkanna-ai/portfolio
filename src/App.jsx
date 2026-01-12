@@ -12,8 +12,7 @@ import Footer from './components/Footer';
 const About = lazy(() => import('./components/About'));
 const Education = lazy(() => import('./components/Education'));
 const Experience = lazy(() => import('./components/Experience'));
-const Projects = lazy(() => import('./components/Projects'));
-const Writing = lazy(() => import('./components/Writing'));
+const Impact = lazy(() => import('./components/Impact'));
 const Contact = lazy(() => import('./components/Contact'));
 const LoadingScreen = lazy(() => import('./components/LoadingScreen'));
 
@@ -92,8 +91,7 @@ const Home = () => {
       <Suspense fallback={<LoadingScreen />}>
         <About />
         <Experience />
-        <Projects />
-        <Writing />
+        <Impact />
         <Education />
         <Contact />
       </Suspense>

@@ -57,7 +57,7 @@ const Hero = () => {
                     transition={{ delay: 1, duration: 0.5 }}
                     className="pointer-events-auto flex flex-col sm:flex-row gap-4 items-center justify-center"
                 >
-                    <Button href="#projects" variant="primary" size="lg">
+                    <Button href="#impact" variant="primary" size="lg">
                         View My Work
                     </Button>
                     <DownloadResumeButton variant="glass" />
