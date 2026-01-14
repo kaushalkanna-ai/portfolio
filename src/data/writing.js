@@ -31,7 +31,7 @@ export const articles = [
             <p>You cannot have 50 people reporting to one person, nor can you have 50 people working in a single monolithic repo without friction. You must move to small, cross-functional squads (Amazon’s "Two Pizza Teams").</p>
             <ul>
                 <li><strong>Define Clear Boundaries:</strong> Each squad owns a specific business domain (e.g., "Checkout", "Search", "Infrastructure").</li>
-                <li><strong>minimize Dependencies:</strong> If Team A relies on Team B for every deployment, you haven't decoupled; you've just created distributed latency.</li>
+                <li><strong>Minimize Dependencies:</strong> If Team A relies on Team B for every deployment, you haven't decoupled; you've just created distributed latency.</li>
                 <li><strong>Empower Decision Making:</strong> Teams must have the autonomy to make technical decisions within their domain, provided they adhere to global architectural standards.</li>
             </ul>
 

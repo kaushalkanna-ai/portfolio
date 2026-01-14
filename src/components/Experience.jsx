@@ -3,14 +3,14 @@ import { motion, useScroll, useSpring, AnimatePresence, useTransform } from 'fra
 
 const experiences = [
     {
-        role: "Senior Vice President of Engineering",
+        role: "Senior Vice President of Engineering & Product",
         company: "microDrive",
         period: "Feb 2022 – Present",
         location: "Tampa, FL",
         flag: "🇺🇸",
         points: [
             "Architected and led the development of a flagship **AI-powered social media intelligence platform**, leveraging **Machine Learning and NLP** to extract actionable audience insights from unstructured data.",
-            "Driven the strategic roadmap for **AI integration**, transforming traditional marketing tools into predictive analytics engines.",
+            "Drive the strategic roadmap for **AI integration**, transforming traditional marketing tools into predictive analytics engines.",
             "Successfully steered product launches by actively shaping the strategy and roadmap.",
             "Assessed and defined the project scope, ensuring a clear understanding of objectives and deliverables.",
             "Implemented effective solutions to address challenges and meet project goals.",
@@ -82,7 +82,7 @@ const experiences = [
             "Developed high-performance background processing pipelines with Celery to handle large-scale data ingestion and analysis.",
             "Actively developed in Django, ElasticSearch and PostgresDB.",
             "Involved in Unit testing and Integration testing of the code using PyTest.",
-            "Strongly followed PEP-8 coding standards and tested programs across test cases to ensure validity and effectiveness using PyChecker and PyLint."
+            "Enforced PEP-8 coding standards and tested programs across test cases to ensure validity and effectiveness using PyChecker and PyLint."
         ]
     },
     {
@@ -95,7 +95,7 @@ const experiences = [
             "Primary point of contact for NetSuite application support.",
             "Implemented designs, including experimentation and multiple iterations.",
             "Rapidly prototyped new capabilities to confirm feasibility.",
-            "Responsible for technical analysis of functional requirements, delivery of appropriate design documentation, and coding customisations to satisfy system gaps.",
+            "Analyzed functional requirements, delivery of appropriate design documentation, and coding customisations to satisfy system gaps.",
             "Designed and revised configurations and customisation of NetSuite as needed to meet evolving needs of the business including the creation of fields, workflow rules, custom reports, and dashboards."
         ]
     },
@@ -106,7 +106,7 @@ const experiences = [
         location: "Global",
         flag: "🌐",
         points: [
-            "Innovated in the home automation sector, simplifying integration techniques for enhanced user experiences."
+            "Founded a startup in the home automation sector, simplifying integration techniques for enhanced user experiences."
         ]
     },
     {
@@ -118,7 +118,7 @@ const experiences = [
         points: [
             "Developed full stack applications using Python and optimized client-side with HTML, CSS, JavaScript, Bootstrap, and jQuery.",
             "Fine-tuned database schemas, reducing query times by 40% and enhancing system responsiveness and reliability.",
-            "Involved in database schema design to reduce query time by 40%.",
+            "Designed database schemas to reduce query time by 40%.",
             "Participated in the daily standup, planning meeting, demo meeting, and planning section of each agile sprint.",
             "Increased code coverage with Unit tests in Python and JavaScript(Jasmine) to 85%."
         ]

@@ -11,7 +11,7 @@ export const nowData = {
             items: [
                 {
                     text: "Building the next generation of Agentic AI tools.",
-                    subtext: "Deep diving into LLM orchestration and autonomous verify-loops."
+                    subtext: "Deep-diving into LLM orchestration and autonomous verify-loops."
                 },
                 {
                     text: "Scaling Engineering at microDrive.",

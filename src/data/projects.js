@@ -89,7 +89,7 @@ export const projects = [
             { component: "Anomaly Detection", description: "Statistical AI module that flags metric deviations in the live stream." },
             { component: "Time Series DB", description: "Optimized storage for rapid retrieval of historical metric context." }
         ],
-        tech: ["Go", "React", "D3.js", "InfluxDB", "WebSocket"],
+        tech: ["Golang", "React", "D3.js", "InfluxDB", "WebSocket"],
         image: "/images/real-time-analytics.png",
         link: "#",
         repo: "#",
@@ -111,7 +111,7 @@ export const projects = [
         architectureHighlights: [
             { component: "API Gateway", description: "The unified entry point managing traffic and authentication for all services." },
             { component: "User/Order Services", description: "Decoupled domains allowing independent scaling and strictly defined data ownership." },
-            { component: "Shared Database -> Independent DBs", description: "The critical shift from a bottlenecked shared resource to isolated persistence." }
+            { component: "Database Decomposition", description: "The critical shift from a bottlenecked shared resource to isolated persistence." }
         ],
         tech: ["Java", "Spring Boot", "Docker", "PostgreSQL", "RabbitMQ"],
         image: "/images/microservices.png",
