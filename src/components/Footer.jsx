@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Link } from 'react-scroll'; // Assuming you use react-scroll for homepage sections
+import { Link as ScrollLink } from 'react-scroll';
+import { Link as RouterLink, useLocation } from 'react-router-dom';
 import { Github, Linkedin, Mail, Twitter, ChevronUp, Copy, Check } from 'lucide-react';
 
 const Footer = () => {
+    const location = useLocation();
     const [copied, setCopied] = useState(false);
     const email = "kaushal.dontula@gmail.com";
 
@@ -93,21 +95,30 @@ const Footer = () => {
                             {footerLinks.map(link => (
                                 <li key={link.name}>
                                     {link.type === 'scroll' ? (
-                                        <Link
-                                            to={link.to}
-                                            smooth={true}
-                                            duration={500}
-                                            className="text-gray-600 dark:text-slate-400 hover:text-blue-500 dark:hover:text-blue-400 cursor-pointer transition-colors block py-1"
-                                        >
-                                            {link.name}
-                                        </Link>
+                                        location.pathname === '/' ? (
+                                            <ScrollLink
+                                                to={link.to}
+                                                smooth={true}
+                                                duration={500}
+                                                className="text-gray-600 dark:text-slate-400 hover:text-blue-500 dark:hover:text-blue-400 cursor-pointer transition-colors block py-1"
+                                            >
+                                                {link.name}
+                                            </ScrollLink>
+                                        ) : (
+                                            <RouterLink
+                                                to={`/#${link.to}`}
+                                                className="text-gray-600 dark:text-slate-400 hover:text-blue-500 dark:hover:text-blue-400 cursor-pointer transition-colors block py-1"
+                                            >
+                                                {link.name}
+                                            </RouterLink>
+                                        )
                                     ) : (
-                                        <a
-                                            href={link.to}
+                                        <RouterLink
+                                            to={link.to}
                                             className="text-gray-600 dark:text-slate-400 hover:text-blue-500 dark:hover:text-blue-400 cursor-pointer transition-colors block py-1"
                                         >
                                             {link.name}
-                                        </a>
+                                        </RouterLink>
                                     )}
                                 </li>
                             ))}

@@ -43,7 +43,7 @@ const CaseStudy = () => {
                 <div className="max-w-5xl mx-auto w-full relative z-10">
                     <div className="mb-8">
                         <Button
-                            href="/#projects"
+                            href="/#impact"
                             variant="ghost"
                             size="sm"
                             icon={ArrowLeft}
@@ -196,10 +196,10 @@ const CaseStudy = () => {
                 {/* Navigation Footer */}
                 <div className="pt-20 border-t border-gray-200 dark:border-white/10 flex flex-col md:flex-row justify-between items-center gap-8">
                     <Link
-                        to="/#projects"
+                        to="/#impact"
                         className="text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors text-sm font-medium"
                     >
-                        Close & Back to Projects
+                        Close & Back to Work
                     </Link>
 
                     <Link

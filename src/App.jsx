@@ -95,7 +95,6 @@ const Home = () => {
         <Education />
         <Contact />
       </Suspense>
-      <Footer />
     </>
   );
 };
@@ -139,6 +138,7 @@ function App() {
                   </Suspense>
                 } />
               </Routes>
+              <Footer />
             </div>
           </div>
         </Router>
