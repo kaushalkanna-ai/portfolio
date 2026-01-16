@@ -21,10 +21,31 @@ const Now = lazy(() => import('./pages/Now'));
 const BlogPost = lazy(() => import('./pages/BlogPost'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 
+import Lenis from 'lenis';
+
 const ScrollProgress = () => {
   const progressRef = useRef(null);
 
   useEffect(() => {
+    // Initialize Lenis
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      direction: 'vertical',
+      gestureDirection: 'vertical',
+      smooth: true,
+      mouseMultiplier: 1,
+      smoothTouch: false,
+      touchMultiplier: 2,
+    });
+
+    const raf = (time) => {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    };
+
+    requestAnimationFrame(raf);
+
     let requestRunning = false;
 
     const handleScroll = () => {
@@ -42,7 +63,11 @@ const ScrollProgress = () => {
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+
+    return () => {
+      lenis.destroy();
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
   return (

@@ -30,7 +30,7 @@
 
     html {
         font-family: 'Inter', sans-serif;
-        scroll-behavior: smooth;
+        /* scroll-behavior: smooth; - Removed for Lenis */
         transition: background-color 0.3s ease, color 0.3s ease;
     }
 
