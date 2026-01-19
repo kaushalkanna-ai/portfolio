@@ -2,7 +2,7 @@
   "name": "dontula_portfolio",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://kaushal.dontula.com",
+  "homepage": "https://dontula.com",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
