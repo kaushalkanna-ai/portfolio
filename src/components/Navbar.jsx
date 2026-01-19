@@ -96,7 +96,11 @@ const Navbar = () => {
                                 <Link
                                     to={getLinkPath(item)}
                                     className="text-lg font-medium text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors block"
-                                    onClick={() => setIsOpen(false)}
+                                    onClick={() => {
+                                        setIsOpen(false);
+                                        // Safety timeout to ensure partial re-renders don't revert state
+                                        setTimeout(() => setIsOpen(false), 150);
+                                    }}
                                 >
                                     {item}
                                 </Link>
