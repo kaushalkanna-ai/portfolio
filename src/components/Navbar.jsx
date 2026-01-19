@@ -96,9 +96,22 @@ const Navbar = () => {
                                 <Link
                                     to={getLinkPath(item)}
                                     className="text-lg font-medium text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors block"
-                                    onClick={() => {
+                                    onClick={(e) => {
+                                        // 1. Force scroll if already on the same hash (fixing "scroll-behind" bug)
+                                        const targetHash = item === 'Work' ? '#impact' : `#${item.toLowerCase()}`;
+                                        if (location.hash === targetHash) {
+                                            const element = document.querySelector(targetHash);
+                                            if (element) {
+                                                // Small delay to ensure menu closing doesn't interfere with scroll calculation
+                                                setTimeout(() => {
+                                                    element.scrollIntoView({ behavior: 'smooth' });
+                                                }, 50);
+                                            }
+                                        }
+
+                                        // 2. Explicitly close menu
                                         setIsOpen(false);
-                                        // Safety timeout to ensure partial re-renders don't revert state
+                                        // Safety timeout
                                         setTimeout(() => setIsOpen(false), 150);
                                     }}
                                 >
