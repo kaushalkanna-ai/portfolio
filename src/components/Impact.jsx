@@ -20,7 +20,7 @@ const Impact = () => {
     };
 
     return (
-        <section id="impact" className="py-20 bg-white dark:bg-slate-900 text-gray-900 dark:text-white relative overflow-hidden">
+        <section id="impact" className="py-20 bg-white dark:bg-slate-900 text-gray-900 dark:text-white relative">
             {/* Shared Background from Experience/Writing */}
             <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-900/10 via-white dark:via-slate-900 to-white dark:to-slate-900 pointer-events-none" />
 
@@ -35,8 +35,8 @@ const Impact = () => {
                         Selected Work<span className="text-blue-500">.</span>
                     </motion.h2>
 
-                    {/* Tab Navigation */}
-                    <div className="flex gap-8 mt-6 md:mt-0 border-b border-gray-200 dark:border-white/10">
+                    {/* Tab Navigation - Desktop */}
+                    <div className="hidden md:flex gap-8 mt-6 md:mt-0 border-b border-gray-200 dark:border-white/10">
                         <button
                             onClick={() => setActiveTab('projects')}
                             className={`pb-3 text-lg font-medium transition-colors flex items-center gap-2 ${activeTab === 'projects' ? 'text-blue-500 border-b-2 border-blue-500' : 'text-gray-500 hover:text-gray-800 dark:text-slate-400 dark:hover:text-white'}`}
@@ -47,6 +47,26 @@ const Impact = () => {
                         <button
                             onClick={() => setActiveTab('writing')}
                             className={`pb-3 text-lg font-medium transition-colors flex items-center gap-2 ${activeTab === 'writing' ? 'text-blue-500 border-b-2 border-blue-500' : 'text-gray-500 hover:text-gray-800 dark:text-slate-400 dark:hover:text-white'}`}
+                        >
+                            <Terminal className="w-5 h-5" />
+                            Strategy
+                        </button>
+                    </div>
+                </div>
+
+                {/* Tab Navigation - Mobile Sticky */}
+                <div className="md:hidden sticky top-16 z-30 -mx-4 px-4 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-b border-gray-200 dark:border-white/10 mb-8 transition-all duration-300">
+                    <div className="flex gap-8">
+                        <button
+                            onClick={() => setActiveTab('projects')}
+                            className={`py-3 text-lg font-medium transition-colors flex items-center gap-2 ${activeTab === 'projects' ? 'text-blue-500 border-b-2 border-blue-500' : 'text-gray-500 hover:text-gray-800 dark:text-slate-400 dark:hover:text-white'}`}
+                        >
+                            <Code className="w-5 h-5" />
+                            Engineering
+                        </button>
+                        <button
+                            onClick={() => setActiveTab('writing')}
+                            className={`py-3 text-lg font-medium transition-colors flex items-center gap-2 ${activeTab === 'writing' ? 'text-blue-500 border-b-2 border-blue-500' : 'text-gray-500 hover:text-gray-800 dark:text-slate-400 dark:hover:text-white'}`}
                         >
                             <Terminal className="w-5 h-5" />
                             Strategy
