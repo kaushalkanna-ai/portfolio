@@ -18,6 +18,10 @@ const Navbar = () => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
+    useEffect(() => {
+        setIsOpen(false);
+    }, [location]);
+
     const getLinkPath = (item) => {
         if (item === 'Work') return '/#impact';
         return `/#${item.toLowerCase()}`;
