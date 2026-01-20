@@ -11,6 +11,7 @@ export const articles = [
         tags: ["Leadership", "Scaling", "Culture"],
         icon: Users,
         link: "#",
+        color: "from-violet-500 to-fuchsia-500",
         keyTakeaways: [
             "At 50 engineers, information osmosis fails. You must shift from implicit to explicit communication.",
             "Hire for 'Culture Add', not just 'Culture Fit' to prevent homogeneity.",
@@ -66,6 +67,7 @@ export const articles = [
         tags: ["Strategy", "Tech Debt", "Management"],
         icon: Zap,
         link: "#",
+        color: "from-amber-500 to-orange-500",
         keyTakeaways: [
             "Tech debt is a financial instrument: leverage it for speed, but service the interest before it bankrupts you.",
             "Translate code issues into business risk (stability) and opportunity cost (velocity) for stakeholders.",
@@ -113,6 +115,7 @@ export const articles = [
         tags: ["Architecture", "Microservices", "Cloud"],
         icon: Cloud,
         link: "#",
+        color: "from-sky-500 to-indigo-500",
         keyTakeaways: [
             "We mistakenly treated Microservices as a solution to code complexity; they are actually a solution to organizational scaling.",
             "The 'Distributed Monolith' is the worst of both worlds: high latency without independent deployability.",
@@ -155,6 +158,7 @@ export const articles = [
         tags: ["AI", "LLM", "Engineering"],
         icon: Code,
         link: "#",
+        color: "from-rose-500 to-pink-500",
         keyTakeaways: [
             "The 'Demo to Production' gap is massive; generic LLM wrappers are not moats.",
             "Latency is the new downtime. Streaming UI (SSE) and aggressive caching are mandatory.",

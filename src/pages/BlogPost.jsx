@@ -45,6 +45,7 @@ const BlogPost = () => {
                 {/* Navigation */}
                 <Link
                     to="/#impact"
+                    state={{ activeTab: 'writing' }}
                     className="inline-flex items-center gap-2 text-gray-500 dark:text-gray-400 hover:text-blue-500 mb-8 transition-colors group"
                 >
                     <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />

@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { ArrowRight, BookOpen, Code, Terminal } from 'lucide-react';
 import { projects } from '../data/projects';
 import { articles } from '../data/writing';
 
 const Impact = () => {
-    const [activeTab, setActiveTab] = useState('projects');
+    const location = useLocation();
+    const [activeTab, setActiveTab] = useState(location.state?.activeTab || 'projects');
 
     const tabVariants = {
         inactive: { borderBottomWidth: "0px", color: "#9ca3af" },
@@ -127,21 +128,26 @@ const Impact = () => {
                                 {articles.map((article, index) => (
                                     <Link to={`/writing/${article.slug}`} key={article.id} className="block h-full">
                                         <div className="group relative bg-white dark:bg-slate-800/90 md:dark:bg-slate-800/60 md:backdrop-blur-md rounded-2xl overflow-hidden shadow-xl border border-gray-200 dark:border-white/10 md:hover:border-blue-500/30 transition-all duration-300 h-full md:hover:-translate-y-2 flex flex-col">
-                                            <div className="p-8 h-full flex flex-col">
-                                                <div className="mb-4 flex items-center justify-between">
-                                                    <span className="text-xs font-bold tracking-wider uppercase text-blue-500 bg-blue-500/10 px-2 py-1 rounded">
-                                                        {article.category}
-                                                    </span>
-                                                    <span className="text-xs text-gray-400">{article.readTime}</span>
-                                                </div>
-                                                <h3 className="text-2xl font-bold mb-3 text-gray-900 dark:text-white group-hover:text-blue-500 transition-colors">
+                                            <div className={`absolute inset-0 bg-gradient-to-br ${article.color} opacity-0 md:group-hover:opacity-10 transition-opacity duration-500`} />
+                                            <div className="p-6 h-full flex flex-col items-start relative z-10">
+                                                <h3 className="text-xl font-bold mb-3 text-gray-900 dark:text-white group-hover:text-blue-500 transition-colors">
                                                     {article.title}
                                                 </h3>
-                                                <p className="text-gray-600 dark:text-slate-300 mb-6 leading-relaxed flex-grow">
+                                                <p className="text-gray-700 dark:text-slate-300 mb-4 text-sm leading-relaxed flex-grow">
                                                     {article.summary}
                                                 </p>
-                                                <div className="flex items-center text-blue-500 font-semibold mt-auto">
-                                                    Read Article <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                                                <div className="mb-4 text-xs text-blue-600 dark:text-blue-400 font-semibold border-l-2 border-blue-500 pl-3 py-1">
+                                                    Read Time: {article.readTime}
+                                                </div>
+                                                <div className="flex flex-wrap gap-2 mt-auto mb-4">
+                                                    {article.tags.map(t => (
+                                                        <span key={t} className="text-xs font-mono px-2 py-1 bg-gray-100 dark:bg-white/5 rounded border border-gray-300 dark:border-white/10 text-gray-700 dark:text-gray-300">
+                                                            {t}
+                                                        </span>
+                                                    ))}
+                                                </div>
+                                                <div className="flex items-center text-blue-500 text-sm font-semibold mt-auto">
+                                                    Read Article <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
                                                 </div>
                                             </div>
                                         </div>
