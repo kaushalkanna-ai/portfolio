@@ -4,7 +4,7 @@ import { motion, useScroll, useSpring, AnimatePresence, useTransform } from 'fra
 const experiences = [
     {
         role: "Senior Vice President of Engineering & Product",
-        company: "microDrive",
+        company: "MicroDrive",
         period: "Feb 2022 – Present",
         location: "Tampa, FL",
         flag: "🇺🇸",
@@ -26,7 +26,7 @@ const experiences = [
             "Architected high-throughput **ML data pipeline infrastructure** using **Golang**, Python, **Kafka**, and **Redis**, processing 1M+ events per second with 99.9% uptime and horizontal scalability.",
             "Led enterprise-wide **microservices migration** from monolithic architecture using **Docker** and **Kubernetes**, reducing deployment time from weeks to hours and achieving 99.95% system availability.",
             "Built internal **developer platform** with automated code quality checks and **ML-based security scanning**, reducing review time by 50% and catching 95% of vulnerabilities pre-deployment.",
-            "Utilized ElasticSearch and Postgres to enhance search functionality and database management.",
+            "Utilized ElasticSearch and PostgreSQL to enhance search functionality and database management.",
             "Managed SQL Server administration tasks, ensuring optimal performance and reliability.",
             "Led SQL development activities, including database design, query optimization, and performance tuning.",
             "Defined Electronic Data Interchange (EDI) specifications for seamless and standardized data exchange.",
@@ -80,7 +80,7 @@ const experiences = [
         points: [
             "Engineered backend solutions using Python (Django), optimizing data models for performance and scalability in **data-intensive applications**.",
             "Developed high-performance background processing pipelines with Celery to handle large-scale data ingestion and analysis.",
-            "Actively developed in Django, ElasticSearch and PostgresDB.",
+            "Actively developed in Django, ElasticSearch and PostgreSQL.",
             "Involved in Unit testing and Integration testing of the code using PyTest.",
             "Enforced PEP-8 coding standards and tested programs across test cases to ensure validity and effectiveness using PyChecker and PyLint."
         ]
