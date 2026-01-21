@@ -70,6 +70,10 @@ export const animateParticles = (ctx, canvasWidth, canvasHeight, particles, mous
 
     if (canvasWidth >= 768) {
         const maxDist = 150;
+        const maxDistSq = maxDist * maxDist;
+
+        ctx.beginPath();
+
         for (let i = 0; i < particles.length; i++) {
             const a = particles[i];
             for (let j = i + 1; j < particles.length; j++) {
@@ -79,18 +83,18 @@ export const animateParticles = (ctx, canvasWidth, canvasHeight, particles, mous
 
                 if (Math.abs(dx) > maxDist || Math.abs(dy) > maxDist) continue;
 
-                const distance = Math.sqrt(dx * dx + dy * dy);
+                const distanceSq = dx * dx + dy * dy;
 
-                if (distance < maxDist) {
-                    ctx.beginPath();
+                if (distanceSq < maxDistSq) {
+                    const distance = Math.sqrt(distanceSq);
                     let opacity = 0.25 * (1 - distance / maxDist);
 
                     if (mouse.x != null) {
                         const distToMouseX = a.x - mouse.x;
                         const distToMouseY = a.y - mouse.y;
                         if (Math.abs(distToMouseX) < mouse.radius && Math.abs(distToMouseY) < mouse.radius) {
-                            const distToMouse = Math.sqrt(distToMouseX * distToMouseX + distToMouseY * distToMouseY);
-                            if (distToMouse < mouse.radius) {
+                            const distToMouseSq = distToMouseX * distToMouseX + distToMouseY * distToMouseY;
+                            if (distToMouseSq < mouse.radius * mouse.radius) {
                                 opacity += 0.3;
                             }
                         }
@@ -100,9 +104,10 @@ export const animateParticles = (ctx, canvasWidth, canvasHeight, particles, mous
                     ctx.lineWidth = 1;
                     ctx.moveTo(a.x, a.y);
                     ctx.lineTo(b.x, b.y);
-                    ctx.stroke();
                 }
             }
         }
+
+        ctx.stroke();
     }
 };

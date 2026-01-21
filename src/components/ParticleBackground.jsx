@@ -48,7 +48,7 @@ const ParticleBackground = () => {
         };
 
         let lastFrameTime = 0;
-        const targetFPS = 60;
+        const targetFPS = performance.shouldReduceParticles ? 30 : 60;
         const frameInterval = 1000 / targetFPS;
 
         const animate = (currentTime = 0) => {
@@ -64,27 +64,37 @@ const ParticleBackground = () => {
         };
 
         const resizeCanvas = () => {
-            // Mobile Optimization: Ignore resize if width hasn't changed (address bar toggle)
             if (window.innerWidth === canvas.width && window.innerWidth < 768) return;
 
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
             mouse.radius = window.innerWidth < 768 ? 80 : 150;
-            initParticles();
+
+            if (window.requestIdleCallback) {
+                window.requestIdleCallback(() => initParticles(), { timeout: 1000 });
+            } else {
+                initParticles();
+            }
         };
 
         window.addEventListener('resize', resizeCanvas);
         window.addEventListener('mousemove', handleMouseMove);
-        // Optimization: Removed unused touchmove listener to improve scroll performance
         window.addEventListener('touchend', handleLeave);
         window.addEventListener('mouseout', handleLeave);
 
-        // Initial setup
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
         mouse.radius = window.innerWidth < 768 ? 80 : 150;
-        initParticles();
-        animate();
+
+        if (window.requestIdleCallback) {
+            window.requestIdleCallback(() => {
+                initParticles();
+                animate();
+            }, { timeout: 500 });
+        } else {
+            initParticles();
+            animate();
+        }
 
         return () => {
             window.removeEventListener('resize', resizeCanvas);
