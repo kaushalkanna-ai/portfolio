@@ -70,6 +70,10 @@ export const animateParticles = (ctx, canvasWidth, canvasHeight, particles, mous
 
     if (canvasWidth >= 768) {
         const maxDist = 150;
+        const maxDistSq = maxDist * maxDist;
+
+        const connectionsByOpacity = new Map();
+
         for (let i = 0; i < particles.length; i++) {
             const a = particles[i];
             for (let j = i + 1; j < particles.length; j++) {
@@ -79,30 +83,43 @@ export const animateParticles = (ctx, canvasWidth, canvasHeight, particles, mous
 
                 if (Math.abs(dx) > maxDist || Math.abs(dy) > maxDist) continue;
 
-                const distance = Math.sqrt(dx * dx + dy * dy);
+                const distanceSq = dx * dx + dy * dy;
 
-                if (distance < maxDist) {
-                    ctx.beginPath();
+                if (distanceSq < maxDistSq) {
+                    const distance = Math.sqrt(distanceSq);
                     let opacity = 0.25 * (1 - distance / maxDist);
 
                     if (mouse.x != null) {
                         const distToMouseX = a.x - mouse.x;
                         const distToMouseY = a.y - mouse.y;
                         if (Math.abs(distToMouseX) < mouse.radius && Math.abs(distToMouseY) < mouse.radius) {
-                            const distToMouse = Math.sqrt(distToMouseX * distToMouseX + distToMouseY * distToMouseY);
-                            if (distToMouse < mouse.radius) {
+                            const distToMouseSq = distToMouseX * distToMouseX + distToMouseY * distToMouseY;
+                            if (distToMouseSq < mouse.radius * mouse.radius) {
                                 opacity += 0.3;
                             }
                         }
                     }
 
-                    ctx.strokeStyle = getConnectionColor(theme, opacity);
-                    ctx.lineWidth = 1;
-                    ctx.moveTo(a.x, a.y);
-                    ctx.lineTo(b.x, b.y);
-                    ctx.stroke();
+                    const opacityKey = Math.round(opacity * 100) / 100;
+                    if (!connectionsByOpacity.has(opacityKey)) {
+                        connectionsByOpacity.set(opacityKey, []);
+                    }
+                    connectionsByOpacity.get(opacityKey).push({ ax: a.x, ay: a.y, bx: b.x, by: b.y });
                 }
             }
         }
+
+        connectionsByOpacity.forEach((connections, opacity) => {
+            ctx.beginPath();
+            ctx.strokeStyle = getConnectionColor(theme, opacity);
+            ctx.lineWidth = 1;
+
+            connections.forEach(({ ax, ay, bx, by }) => {
+                ctx.moveTo(ax, ay);
+                ctx.lineTo(bx, by);
+            });
+
+            ctx.stroke();
+        });
     }
 };

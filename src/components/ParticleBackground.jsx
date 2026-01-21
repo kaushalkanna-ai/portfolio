@@ -1,13 +1,13 @@
 import React, { useEffect, useRef } from 'react';
 import { useTheme } from '../context/ThemeContext';
 import { Particle, getConnectionColor, animateParticles } from '../utils/particles';
+import { detectPerformance, getOptimalParticleCount } from '../utils/performanceDetection';
 
 const ParticleBackground = () => {
     const canvasRef = useRef(null);
     const { theme } = useTheme();
     const themeRef = useRef(theme);
 
-    // Update theme ref without triggering re-initialization
     useEffect(() => {
         themeRef.current = theme;
     }, [theme]);
@@ -19,10 +19,11 @@ const ParticleBackground = () => {
         let particles = [];
         let mouse = { x: null, y: null, radius: 150 };
 
+        const performance = detectPerformance();
         const isMobile = window.innerWidth < 768;
 
         const handleMouseMove = (event) => {
-            if (isMobile) return;
+            if (isMobile || performance.shouldReduceParticles) return;
             const rect = canvas.getBoundingClientRect();
             mouse.x = event.clientX - rect.left;
             mouse.y = event.clientY - rect.top;
@@ -39,8 +40,7 @@ const ParticleBackground = () => {
 
         function initParticles() {
             particles = [];
-            let particleCount = Math.min(window.innerWidth / 10, 100);
-            if (window.innerWidth < 768) particleCount = 50;
+            const particleCount = getOptimalParticleCount(window.innerWidth, performance);
 
             for (let i = 0; i < particleCount; i++) {
                 particles.push(new Particle(canvas.width, canvas.height));
@@ -48,7 +48,7 @@ const ParticleBackground = () => {
         };
 
         let lastFrameTime = 0;
-        const targetFPS = 60;
+        const targetFPS = performance.shouldReduceParticles ? 30 : 60;
         const frameInterval = 1000 / targetFPS;
 
         const animate = (currentTime = 0) => {
@@ -64,27 +64,37 @@ const ParticleBackground = () => {
         };
 
         const resizeCanvas = () => {
-            // Mobile Optimization: Ignore resize if width hasn't changed (address bar toggle)
             if (window.innerWidth === canvas.width && window.innerWidth < 768) return;
 
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
             mouse.radius = window.innerWidth < 768 ? 80 : 150;
-            initParticles();
+
+            if (window.requestIdleCallback) {
+                window.requestIdleCallback(() => initParticles(), { timeout: 1000 });
+            } else {
+                initParticles();
+            }
         };
 
         window.addEventListener('resize', resizeCanvas);
         window.addEventListener('mousemove', handleMouseMove);
-        // Optimization: Removed unused touchmove listener to improve scroll performance
         window.addEventListener('touchend', handleLeave);
         window.addEventListener('mouseout', handleLeave);
 
-        // Initial setup
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
         mouse.radius = window.innerWidth < 768 ? 80 : 150;
-        initParticles();
-        animate();
+
+        if (window.requestIdleCallback) {
+            window.requestIdleCallback(() => {
+                initParticles();
+                animate();
+            }, { timeout: 500 });
+        } else {
+            initParticles();
+            animate();
+        }
 
         return () => {
             window.removeEventListener('resize', resizeCanvas);
