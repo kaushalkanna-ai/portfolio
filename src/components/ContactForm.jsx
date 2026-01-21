@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Send, Loader2, CheckCircle, AlertCircle } from 'lucide-react';
 import Button from './Button';
+import { trackFormSubmission } from './Analytics';
 
 const ContactForm = () => {
     const [formData, setFormData] = useState({
@@ -43,16 +44,18 @@ const ContactForm = () => {
             if (res.success) {
                 setStatus('success');
                 setFormData({ name: '', email: '', message: '' });
-                // Reset success message after 5 seconds
+                trackFormSubmission('Contact Form', true);
                 setTimeout(() => setStatus('idle'), 5000);
             } else {
                 setStatus('error');
                 setErrorMessage(res.message || "Something went wrong. Please try again.");
+                trackFormSubmission('Contact Form', false);
             }
         } catch (error) {
             console.error(error);
             setStatus('error');
             setErrorMessage("Failed to send message. Please checking your connection.");
+            trackFormSubmission('Contact Form', false);
         }
     };
 
