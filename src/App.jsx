@@ -8,6 +8,7 @@ import Hero from './components/Hero';
 import ConsoleWelcome from './components/ConsoleWelcome';
 import SEO from './components/SEO';
 import Footer from './components/Footer';
+import Analytics from './components/Analytics';
 
 const About = lazy(() => import('./components/About'));
 const Education = lazy(() => import('./components/Education'));
@@ -129,6 +130,7 @@ function App() {
     <HelmetProvider>
       <ThemeProvider>
         <Router>
+          <Analytics />
           <ConsoleWelcome />
           <div className="bg-white dark:bg-slate-900 min-h-screen text-gray-900 dark:text-gray-100 transition-colors duration-300">
             <ScrollProgress />
