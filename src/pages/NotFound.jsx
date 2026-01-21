@@ -1,12 +1,18 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Home, Compass } from 'lucide-react';
+import ReactGA from "react-ga4";
 import Button from '../components/Button';
 import SEO from '../components/SEO';
 
 const NotFound = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
+        ReactGA.event({
+            category: 'Error',
+            action: '404',
+            label: window.location.pathname
+        });
     }, []);
 
     return (

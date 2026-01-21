@@ -18,7 +18,7 @@ export const projects = [
             { component: "ElasticSearch", description: "Indexes AI-enriched metadata for instant complex querying and trend discovery." }
         ],
         tech: ["Python", "TensorFlow", "React", "Node.js", "AWS"],
-        image: "/images/social-media.png",
+        image: "/images/social-media.webp",
         link: "#",
         repo: "#",
         color: "from-blue-500 to-cyan-500"
@@ -42,7 +42,7 @@ export const projects = [
             { component: "API Gateway", description: "Orchestrates the flow between the user, the AI service, and the agent pools." }
         ],
         tech: ["Python", "FastAPI", "scikit-learn", "Redis", "Docker"],
-        image: "/images/chat-routing.png",
+        image: "/images/chat-routing.webp",
         link: "#",
         repo: "#",
         color: "from-emerald-500 to-teal-500"
@@ -66,7 +66,7 @@ export const projects = [
             { component: "Inference Service", description: "High-performance API wrapper serving the optimized AI models to production." }
         ],
         tech: ["Python", "Kubernetes", "Apache Airflow", "MLflow", "Terraform"],
-        image: "/images/ml-pipeline.png",
+        image: "/images/ml-pipeline.webp",
         link: "#",
         repo: "#",
         color: "from-purple-500 to-pink-500"
@@ -90,7 +90,7 @@ export const projects = [
             { component: "Time Series DB", description: "Optimized storage for rapid retrieval of historical metric context." }
         ],
         tech: ["Golang", "React", "D3.js", "InfluxDB", "WebSocket"],
-        image: "/images/real-time-analytics.png",
+        image: "/images/real-time-analytics.webp",
         link: "#",
         repo: "#",
         color: "from-orange-500 to-red-500"
@@ -114,7 +114,7 @@ export const projects = [
             { component: "Database Decomposition", description: "The critical shift from a bottlenecked shared resource to isolated persistence." }
         ],
         tech: ["Java", "Spring Boot", "Docker", "PostgreSQL", "RabbitMQ"],
-        image: "/images/microservices.png",
+        image: "/images/microservices.webp",
         link: "#",
         repo: "#",
         color: "from-indigo-500 to-blue-500"
@@ -138,7 +138,7 @@ export const projects = [
             { component: "Build & Test", description: "Ensures functional correctness before any logic is accepted." }
         ],
         tech: ["Python", "Jenkins", "SonarQube", "Docker", "Shell"],
-        image: "/images/code-quality.png",
+        image: "/images/code-quality.webp",
         link: "#",
         repo: "#",
         color: "from-slate-700 to-gray-600"

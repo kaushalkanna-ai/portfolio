@@ -5,7 +5,7 @@ const SEO = ({ title, description, image, url }) => {
     const siteTitle = 'Kaushal Dontula | SVP Engineering & Product';
     const siteDescription = 'Senior Engineering Executive architecting scalable AI & Cloud solutions. View my portfolio for projects in Machine Learning, Microservices, and Strategic Leadership.';
     const siteUrl = 'https://dontula.com';
-    const defaultImage = 'https://dontula.com/images/social-preview.png';
+    const defaultImage = 'https://dontula.com/images/social-preview.webp';
 
     const fullTitle = title ? `${title} | Kaushal Dontula` : siteTitle;
     const metaDescription = description || siteDescription;
