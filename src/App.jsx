@@ -1,8 +1,9 @@
 import React, { lazy, Suspense, useEffect, useState, useRef } from 'react';
-import { LazyMotion, domAnimation } from 'framer-motion';
+import { LazyMotion, domAnimation, AnimatePresence, motion } from 'framer-motion';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import { ThemeProvider } from './context/ThemeContext';
+import { detectPerformance } from './utils/performanceDetection';
 
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -126,6 +127,95 @@ const Home = () => {
   );
 };
 
+// Animated Routes wrapper with page transitions
+const AnimatedRoutes = () => {
+  const location = useLocation();
+  const performance = detectPerformance();
+  const shouldAnimate = !performance.prefersReducedMotion && !performance.animationsDisabled;
+
+  const pageVariants = {
+    initial: shouldAnimate ? { opacity: 0, y: 20 } : { opacity: 1, y: 0 },
+    animate: { opacity: 1, y: 0 },
+    exit: shouldAnimate ? { opacity: 0, y: -20 } : { opacity: 1, y: 0 }
+  };
+
+  const pageTransition = {
+    type: 'tween',
+    ease: 'anticipate',
+    duration: 0.4
+  };
+
+  return (
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
+        <Route path="/" element={
+          <motion.div
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            variants={pageVariants}
+            transition={pageTransition}
+          >
+            <Home />
+          </motion.div>
+        } />
+        <Route path="/projects/:slug" element={
+          <Suspense fallback={<LoadingScreen message="Loading Case Study..." />}>
+            <motion.div
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              variants={pageVariants}
+              transition={pageTransition}
+            >
+              <CaseStudy />
+            </motion.div>
+          </Suspense>
+        } />
+        <Route path="/now" element={
+          <Suspense fallback={<LoadingScreen message="Loading..." />}>
+            <motion.div
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              variants={pageVariants}
+              transition={pageTransition}
+            >
+              <Now />
+            </motion.div>
+          </Suspense>
+        } />
+        <Route path="/writing/:slug" element={
+          <Suspense fallback={<LoadingScreen message="Loading Article..." />}>
+            <motion.div
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              variants={pageVariants}
+              transition={pageTransition}
+            >
+              <BlogPost />
+            </motion.div>
+          </Suspense>
+        } />
+        <Route path="*" element={
+          <Suspense fallback={<LoadingScreen message="Searching..." />}>
+            <motion.div
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              variants={pageVariants}
+              transition={pageTransition}
+            >
+              <NotFound />
+            </motion.div>
+          </Suspense>
+        } />
+      </Routes>
+    </AnimatePresence>
+  );
+};
+
 function App() {
   return (
     <HelmetProvider>
@@ -145,29 +235,7 @@ function App() {
 
               <div className="relative z-10">
                 <Navbar />
-                <Routes>
-                  <Route path="/" element={<Home />} />
-                  <Route path="/projects/:slug" element={
-                    <Suspense fallback={<LoadingScreen message="Loading Case Study..." />}>
-                      <CaseStudy />
-                    </Suspense>
-                  } />
-                  <Route path="/now" element={
-                    <Suspense fallback={<LoadingScreen message="Loading..." />}>
-                      <Now />
-                    </Suspense>
-                  } />
-                  <Route path="/writing/:slug" element={
-                    <Suspense fallback={<LoadingScreen message="Loading Article..." />}>
-                      <BlogPost />
-                    </Suspense>
-                  } />
-                  <Route path="*" element={
-                    <Suspense fallback={<LoadingScreen message="Searching..." />}>
-                      <NotFound />
-                    </Suspense>
-                  } />
-                </Routes>
+                <AnimatedRoutes />
                 <Footer />
               </div>
             </div>

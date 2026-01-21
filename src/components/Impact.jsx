@@ -108,8 +108,15 @@ const Impact = () => {
                                                         </span>
                                                     ))}
                                                 </div>
-                                                <div className="flex items-center text-blue-600 dark:text-blue-400 text-sm font-bold mt-auto">
-                                                    View Case Study <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
+                                                <div className="flex items-center text-blue-600 dark:text-blue-400 text-sm font-bold mt-auto group-hover:text-blue-700 dark:group-hover:text-blue-300 transition-colors">
+                                                    View Case Study
+                                                    <motion.div
+                                                        className="inline-block ml-1"
+                                                        animate={{ x: [0, 4, 0] }}
+                                                        transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                                                    >
+                                                        <ArrowRight className="w-4 h-4" />
+                                                    </motion.div>
                                                 </div>
                                             </div>
                                         </div>
