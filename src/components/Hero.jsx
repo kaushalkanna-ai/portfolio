@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, lazy, Suspense } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import ParticleBackground from './ParticleBackground';
 import DownloadResumeButton from './DownloadResumeButton';
 import Button from './Button';
+
+const ParticleBackground = lazy(() => import('./ParticleBackground'));
 
 const phrases = [
     'Senior Engineering & Product Executive',
@@ -26,7 +27,9 @@ const Hero = () => {
         <section className="h-screen w-full flex flex-col justify-center items-center bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-white relative overflow-hidden">
 
             <div className="absolute inset-0 z-0">
-                <ParticleBackground />
+                <Suspense fallback={<div className="w-full h-full bg-gray-50 dark:bg-gray-900" />}>
+                    <ParticleBackground />
+                </Suspense>
             </div>
 
             <div className="absolute inset-0 bg-white/10 dark:bg-gray-900/10 z-0 pointer-events-none" />
