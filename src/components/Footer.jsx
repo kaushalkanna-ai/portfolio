@@ -1,19 +1,10 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Link as ScrollLink } from 'react-scroll';
 import { Link as RouterLink, useLocation } from 'react-router-dom';
-import { Github, Linkedin, Mail, Twitter, ChevronUp, Copy, Check } from 'lucide-react';
+import { Linkedin, ChevronUp } from 'lucide-react';
 
 const Footer = () => {
     const location = useLocation();
-    const [copied, setCopied] = useState(false);
-    const email = "kaushal.dontula@gmail.com";
-
-    const handleCopy = () => {
-        navigator.clipboard.writeText(email);
-        setCopied(true);
-        setTimeout(() => setCopied(false), 2000);
-    };
 
     const scrollToTop = () => {
         window.scrollTo({
@@ -52,39 +43,7 @@ const Footer = () => {
                             Building high-performance engineering teams and delivering strategic product value.
                         </p>
                         <div className="flex gap-4">
-
                             <SocialLink href="https://www.linkedin.com/in/kaushaldontula/" icon={Linkedin} label="LinkedIn" />
-                            {/* <SocialLink href="https://twitter.com/yourhandle" icon={Twitter} label="Twitter" /> */}
-                            <button
-                                onClick={handleCopy}
-                                className="w-10 h-10 rounded-full bg-gray-100 dark:bg-slate-800 flex items-center justify-center text-gray-600 dark:text-slate-400 hover:bg-blue-500 hover:text-white transition-all duration-300 relative group"
-                                aria-label="Copy Email"
-                            >
-                                <AnimatePresence mode="wait">
-                                    {copied ? (
-                                        <motion.div
-                                            key="check"
-                                            initial={{ scale: 0 }}
-                                            animate={{ scale: 1 }}
-                                            exit={{ scale: 0 }}
-                                        >
-                                            <Check className="w-5 h-5" />
-                                        </motion.div>
-                                    ) : (
-                                        <motion.div
-                                            key="mail"
-                                            initial={{ scale: 0 }}
-                                            animate={{ scale: 1 }}
-                                            exit={{ scale: 0 }}
-                                        >
-                                            <Mail className="w-5 h-5" />
-                                        </motion.div>
-                                    )}
-                                </AnimatePresence>
-                                <span className="absolute -top-10 left-1/2 -translate-x-1/2 bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
-                                    {copied ? 'Copied!' : 'Copy Email'}
-                                </span>
-                            </button>
                         </div>
                     </div>
 
