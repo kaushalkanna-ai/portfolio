@@ -91,17 +91,17 @@ const CaseStudy = () => {
                 <div className="grid md:grid-cols-3 gap-6">
                     <div className="bg-gray-50 dark:bg-slate-800/50 p-8 rounded-2xl border border-gray-100 dark:border-white/5">
                         <Target className="w-8 h-8 text-blue-500 mb-4" />
-                        <h3 className="text-lg font-bold mb-2">The Goal</h3>
+                        <h2 className="text-lg font-bold mb-2">The Goal</h2>
                         <p className="text-gray-600 dark:text-slate-400 leading-relaxed">Transform unstructured data into actionable intelligence.</p>
                     </div>
                     <div className="bg-gray-50 dark:bg-slate-800/50 p-8 rounded-2xl border border-gray-100 dark:border-white/5">
                         <Zap className="w-8 h-8 text-yellow-500 mb-4" />
-                        <h3 className="text-lg font-bold mb-2">The Impact</h3>
+                        <h2 className="text-lg font-bold mb-2">The Impact</h2>
                         <p className="text-gray-600 dark:text-slate-400 leading-relaxed">{project.impact}</p>
                     </div>
                     <div className="bg-gray-50 dark:bg-slate-800/50 p-8 rounded-2xl border border-gray-100 dark:border-white/5">
                         <Calendar className="w-8 h-8 text-green-500 mb-4" />
-                        <h3 className="text-lg font-bold mb-2">The Timeline</h3>
+                        <h2 className="text-lg font-bold mb-2">The Timeline</h2>
                         <p className="text-gray-600 dark:text-slate-400 leading-relaxed">3 Months Architecture to Production</p>
                     </div>
                 </div>
