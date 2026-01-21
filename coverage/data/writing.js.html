@@ -1,0 +1,661 @@
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Code coverage report for data/writing.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="../favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+    
+<body>
+<div class='wrapper'>
+    <div class='pad1'>
+        <h1><a href="../index.html">All files</a> / <a href="index.html">data</a> writing.js</h1>
+        <div class='clearfix'>
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">100% </span>
+                <span class="quiet">Statements</span>
+                <span class='fraction'>1/1</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">100% </span>
+                <span class="quiet">Branches</span>
+                <span class='fraction'>0/0</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">100% </span>
+                <span class="quiet">Functions</span>
+                <span class='fraction'>0/0</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">100% </span>
+                <span class="quiet">Lines</span>
+                <span class='fraction'>1/1</span>
+            </div>
+        
+            
+        </div>
+        <p class="quiet">
+            Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
+        </p>
+        <template id="filterTemplate">
+            <div class="quiet">
+                Filter:
+                <input type="search" id="fileSearch">
+            </div>
+        </template>
+    </div>
+    <div class='status-line high'></div>
+    <pre><table class="coverage">
+<tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
+<a name='L2'></a><a href='#L2'>2</a>
+<a name='L3'></a><a href='#L3'>3</a>
+<a name='L4'></a><a href='#L4'>4</a>
+<a name='L5'></a><a href='#L5'>5</a>
+<a name='L6'></a><a href='#L6'>6</a>
+<a name='L7'></a><a href='#L7'>7</a>
+<a name='L8'></a><a href='#L8'>8</a>
+<a name='L9'></a><a href='#L9'>9</a>
+<a name='L10'></a><a href='#L10'>10</a>
+<a name='L11'></a><a href='#L11'>11</a>
+<a name='L12'></a><a href='#L12'>12</a>
+<a name='L13'></a><a href='#L13'>13</a>
+<a name='L14'></a><a href='#L14'>14</a>
+<a name='L15'></a><a href='#L15'>15</a>
+<a name='L16'></a><a href='#L16'>16</a>
+<a name='L17'></a><a href='#L17'>17</a>
+<a name='L18'></a><a href='#L18'>18</a>
+<a name='L19'></a><a href='#L19'>19</a>
+<a name='L20'></a><a href='#L20'>20</a>
+<a name='L21'></a><a href='#L21'>21</a>
+<a name='L22'></a><a href='#L22'>22</a>
+<a name='L23'></a><a href='#L23'>23</a>
+<a name='L24'></a><a href='#L24'>24</a>
+<a name='L25'></a><a href='#L25'>25</a>
+<a name='L26'></a><a href='#L26'>26</a>
+<a name='L27'></a><a href='#L27'>27</a>
+<a name='L28'></a><a href='#L28'>28</a>
+<a name='L29'></a><a href='#L29'>29</a>
+<a name='L30'></a><a href='#L30'>30</a>
+<a name='L31'></a><a href='#L31'>31</a>
+<a name='L32'></a><a href='#L32'>32</a>
+<a name='L33'></a><a href='#L33'>33</a>
+<a name='L34'></a><a href='#L34'>34</a>
+<a name='L35'></a><a href='#L35'>35</a>
+<a name='L36'></a><a href='#L36'>36</a>
+<a name='L37'></a><a href='#L37'>37</a>
+<a name='L38'></a><a href='#L38'>38</a>
+<a name='L39'></a><a href='#L39'>39</a>
+<a name='L40'></a><a href='#L40'>40</a>
+<a name='L41'></a><a href='#L41'>41</a>
+<a name='L42'></a><a href='#L42'>42</a>
+<a name='L43'></a><a href='#L43'>43</a>
+<a name='L44'></a><a href='#L44'>44</a>
+<a name='L45'></a><a href='#L45'>45</a>
+<a name='L46'></a><a href='#L46'>46</a>
+<a name='L47'></a><a href='#L47'>47</a>
+<a name='L48'></a><a href='#L48'>48</a>
+<a name='L49'></a><a href='#L49'>49</a>
+<a name='L50'></a><a href='#L50'>50</a>
+<a name='L51'></a><a href='#L51'>51</a>
+<a name='L52'></a><a href='#L52'>52</a>
+<a name='L53'></a><a href='#L53'>53</a>
+<a name='L54'></a><a href='#L54'>54</a>
+<a name='L55'></a><a href='#L55'>55</a>
+<a name='L56'></a><a href='#L56'>56</a>
+<a name='L57'></a><a href='#L57'>57</a>
+<a name='L58'></a><a href='#L58'>58</a>
+<a name='L59'></a><a href='#L59'>59</a>
+<a name='L60'></a><a href='#L60'>60</a>
+<a name='L61'></a><a href='#L61'>61</a>
+<a name='L62'></a><a href='#L62'>62</a>
+<a name='L63'></a><a href='#L63'>63</a>
+<a name='L64'></a><a href='#L64'>64</a>
+<a name='L65'></a><a href='#L65'>65</a>
+<a name='L66'></a><a href='#L66'>66</a>
+<a name='L67'></a><a href='#L67'>67</a>
+<a name='L68'></a><a href='#L68'>68</a>
+<a name='L69'></a><a href='#L69'>69</a>
+<a name='L70'></a><a href='#L70'>70</a>
+<a name='L71'></a><a href='#L71'>71</a>
+<a name='L72'></a><a href='#L72'>72</a>
+<a name='L73'></a><a href='#L73'>73</a>
+<a name='L74'></a><a href='#L74'>74</a>
+<a name='L75'></a><a href='#L75'>75</a>
+<a name='L76'></a><a href='#L76'>76</a>
+<a name='L77'></a><a href='#L77'>77</a>
+<a name='L78'></a><a href='#L78'>78</a>
+<a name='L79'></a><a href='#L79'>79</a>
+<a name='L80'></a><a href='#L80'>80</a>
+<a name='L81'></a><a href='#L81'>81</a>
+<a name='L82'></a><a href='#L82'>82</a>
+<a name='L83'></a><a href='#L83'>83</a>
+<a name='L84'></a><a href='#L84'>84</a>
+<a name='L85'></a><a href='#L85'>85</a>
+<a name='L86'></a><a href='#L86'>86</a>
+<a name='L87'></a><a href='#L87'>87</a>
+<a name='L88'></a><a href='#L88'>88</a>
+<a name='L89'></a><a href='#L89'>89</a>
+<a name='L90'></a><a href='#L90'>90</a>
+<a name='L91'></a><a href='#L91'>91</a>
+<a name='L92'></a><a href='#L92'>92</a>
+<a name='L93'></a><a href='#L93'>93</a>
+<a name='L94'></a><a href='#L94'>94</a>
+<a name='L95'></a><a href='#L95'>95</a>
+<a name='L96'></a><a href='#L96'>96</a>
+<a name='L97'></a><a href='#L97'>97</a>
+<a name='L98'></a><a href='#L98'>98</a>
+<a name='L99'></a><a href='#L99'>99</a>
+<a name='L100'></a><a href='#L100'>100</a>
+<a name='L101'></a><a href='#L101'>101</a>
+<a name='L102'></a><a href='#L102'>102</a>
+<a name='L103'></a><a href='#L103'>103</a>
+<a name='L104'></a><a href='#L104'>104</a>
+<a name='L105'></a><a href='#L105'>105</a>
+<a name='L106'></a><a href='#L106'>106</a>
+<a name='L107'></a><a href='#L107'>107</a>
+<a name='L108'></a><a href='#L108'>108</a>
+<a name='L109'></a><a href='#L109'>109</a>
+<a name='L110'></a><a href='#L110'>110</a>
+<a name='L111'></a><a href='#L111'>111</a>
+<a name='L112'></a><a href='#L112'>112</a>
+<a name='L113'></a><a href='#L113'>113</a>
+<a name='L114'></a><a href='#L114'>114</a>
+<a name='L115'></a><a href='#L115'>115</a>
+<a name='L116'></a><a href='#L116'>116</a>
+<a name='L117'></a><a href='#L117'>117</a>
+<a name='L118'></a><a href='#L118'>118</a>
+<a name='L119'></a><a href='#L119'>119</a>
+<a name='L120'></a><a href='#L120'>120</a>
+<a name='L121'></a><a href='#L121'>121</a>
+<a name='L122'></a><a href='#L122'>122</a>
+<a name='L123'></a><a href='#L123'>123</a>
+<a name='L124'></a><a href='#L124'>124</a>
+<a name='L125'></a><a href='#L125'>125</a>
+<a name='L126'></a><a href='#L126'>126</a>
+<a name='L127'></a><a href='#L127'>127</a>
+<a name='L128'></a><a href='#L128'>128</a>
+<a name='L129'></a><a href='#L129'>129</a>
+<a name='L130'></a><a href='#L130'>130</a>
+<a name='L131'></a><a href='#L131'>131</a>
+<a name='L132'></a><a href='#L132'>132</a>
+<a name='L133'></a><a href='#L133'>133</a>
+<a name='L134'></a><a href='#L134'>134</a>
+<a name='L135'></a><a href='#L135'>135</a>
+<a name='L136'></a><a href='#L136'>136</a>
+<a name='L137'></a><a href='#L137'>137</a>
+<a name='L138'></a><a href='#L138'>138</a>
+<a name='L139'></a><a href='#L139'>139</a>
+<a name='L140'></a><a href='#L140'>140</a>
+<a name='L141'></a><a href='#L141'>141</a>
+<a name='L142'></a><a href='#L142'>142</a>
+<a name='L143'></a><a href='#L143'>143</a>
+<a name='L144'></a><a href='#L144'>144</a>
+<a name='L145'></a><a href='#L145'>145</a>
+<a name='L146'></a><a href='#L146'>146</a>
+<a name='L147'></a><a href='#L147'>147</a>
+<a name='L148'></a><a href='#L148'>148</a>
+<a name='L149'></a><a href='#L149'>149</a>
+<a name='L150'></a><a href='#L150'>150</a>
+<a name='L151'></a><a href='#L151'>151</a>
+<a name='L152'></a><a href='#L152'>152</a>
+<a name='L153'></a><a href='#L153'>153</a>
+<a name='L154'></a><a href='#L154'>154</a>
+<a name='L155'></a><a href='#L155'>155</a>
+<a name='L156'></a><a href='#L156'>156</a>
+<a name='L157'></a><a href='#L157'>157</a>
+<a name='L158'></a><a href='#L158'>158</a>
+<a name='L159'></a><a href='#L159'>159</a>
+<a name='L160'></a><a href='#L160'>160</a>
+<a name='L161'></a><a href='#L161'>161</a>
+<a name='L162'></a><a href='#L162'>162</a>
+<a name='L163'></a><a href='#L163'>163</a>
+<a name='L164'></a><a href='#L164'>164</a>
+<a name='L165'></a><a href='#L165'>165</a>
+<a name='L166'></a><a href='#L166'>166</a>
+<a name='L167'></a><a href='#L167'>167</a>
+<a name='L168'></a><a href='#L168'>168</a>
+<a name='L169'></a><a href='#L169'>169</a>
+<a name='L170'></a><a href='#L170'>170</a>
+<a name='L171'></a><a href='#L171'>171</a>
+<a name='L172'></a><a href='#L172'>172</a>
+<a name='L173'></a><a href='#L173'>173</a>
+<a name='L174'></a><a href='#L174'>174</a>
+<a name='L175'></a><a href='#L175'>175</a>
+<a name='L176'></a><a href='#L176'>176</a>
+<a name='L177'></a><a href='#L177'>177</a>
+<a name='L178'></a><a href='#L178'>178</a>
+<a name='L179'></a><a href='#L179'>179</a>
+<a name='L180'></a><a href='#L180'>180</a>
+<a name='L181'></a><a href='#L181'>181</a>
+<a name='L182'></a><a href='#L182'>182</a>
+<a name='L183'></a><a href='#L183'>183</a>
+<a name='L184'></a><a href='#L184'>184</a>
+<a name='L185'></a><a href='#L185'>185</a>
+<a name='L186'></a><a href='#L186'>186</a>
+<a name='L187'></a><a href='#L187'>187</a>
+<a name='L188'></a><a href='#L188'>188</a>
+<a name='L189'></a><a href='#L189'>189</a>
+<a name='L190'></a><a href='#L190'>190</a>
+<a name='L191'></a><a href='#L191'>191</a>
+<a name='L192'></a><a href='#L192'>192</a>
+<a name='L193'></a><a href='#L193'>193</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Code, Cloud, Users, Zap } from 'lucide-react';
+&nbsp;
+export const articles = [
+    {
+        id: 1,
+        title: "Scaling Engineering Teams from 5 to 50",
+        summary: "Lessons learned in culture, process, and hiring during a period of hyper-growth. How to maintain velocity without sacrificing quality.",
+        date: "Dec 12, 2025",
+        readTime: "8 min read",
+        slug: "scaling-engineering-teams",
+        tags: ["Leadership", "Scaling", "Culture"],
+        icon: Users,
+        link: "#",
+        color: "from-violet-500 to-fuchsia-500",
+        keyTakeaways: [
+            "At 50 engineers, information osmosis fails. You must shift from implicit to explicit communication.",
+            "Hire for 'Culture Add', not just 'Culture Fit' to prevent homogeneity.",
+            "The Manager's role shifts from Player-Coach to Unblocker-Strategist.",
+            "Standardized onboarding is the highest leverage activity for maintaining velocity."
+        ],
+        content: `
+            &lt;p class="lead"&gt;Scaling an engineering team is one of the most perilous transitions a leader faces. It is a fundamental rewrite of your organizational operating system. What worked at 5 engineers will actively destroy you at 50.&lt;/p&gt;
+            
+            &lt;p&gt;I’ve navigated this hyper-growth phase multiple times, and the pattern is always the same: things break in specific, predictable ways. If you anticipate them, you can scale velocity along with headcount. If you don't, you simply scale chaos.&lt;/p&gt;
+&nbsp;
+            &lt;h2&gt;The 'Breaking Point' of Osmotic Communication&lt;/h2&gt;
+            &lt;p&gt;At 5 engineers, everyone knows everything. You sit in the same room (or Zoom), and decisions happen continuously and organically. Communication is &lt;em&gt;osmotic&lt;/em&gt;.&lt;/p&gt;
+            &lt;p&gt;At 50 engineers, that osmosis evaporates. Yet, many leaders try to maintain the "flat structure" where everyone is in every meeting. The result is paralysis. You must shift from &lt;strong&gt;implicit&lt;/strong&gt; context to &lt;strong&gt;explicit&lt;/strong&gt; documentation and async communication.&lt;/p&gt;
+            &lt;blockquote&gt;"If it isn't written down, it didn't happen." This becomes the golden rule of scaling.&lt;/blockquote&gt;
+&nbsp;
+            &lt;h2&gt;Strategy 1: Decoupling Teams &amp; Domains&lt;/h2&gt;
+            &lt;p&gt;You cannot have 50 people reporting to one person, nor can you have 50 people working in a single monolithic repo without friction. You must move to small, cross-functional squads (Amazon’s "Two Pizza Teams").&lt;/p&gt;
+            &lt;ul&gt;
+                &lt;li&gt;&lt;strong&gt;Define Clear Boundaries:&lt;/strong&gt; Each squad owns a specific business domain (e.g., "Checkout", "Search", "Infrastructure").&lt;/li&gt;
+                &lt;li&gt;&lt;strong&gt;Minimize Dependencies:&lt;/strong&gt; If Team A relies on Team B for every deployment, you haven't decoupled; you've just created distributed latency.&lt;/li&gt;
+                &lt;li&gt;&lt;strong&gt;Empower Decision Making:&lt;/strong&gt; Teams must have the autonomy to make technical decisions within their domain, provided they adhere to global architectural standards.&lt;/li&gt;
+            &lt;/ul&gt;
+&nbsp;
+            &lt;h2&gt;Strategy 2: Hiring for Velocity AND Culture&lt;/h2&gt;
+            &lt;p&gt;The biggest risk in rapid scaling is diluting the engineering culture that made you successful in the first place. However, hiring clones of your founding engineers is also skipping a step.&lt;/p&gt;
+            &lt;p&gt;We shifted our mindset from &lt;strong&gt;"Culture Fit"&lt;/strong&gt; (do I want to have a beer with this person?) to &lt;strong&gt;"Culture Add"&lt;/strong&gt; (what perspective is this team missing?).&lt;/p&gt;
+            &lt;p&gt;To maintain the bar while doubling the team:&lt;/p&gt;
+            &lt;ol&gt;
+                &lt;li&gt;&lt;strong&gt;Standardize the Interview Process:&lt;/strong&gt; Every candidate must go through the same loop with properly calibrated rubrics. "Gut feel" scales poorly.&lt;/li&gt;
+                &lt;li&gt;&lt;strong&gt;The 'Bar Raiser':&lt;/strong&gt; Introduce an interviewer from a different team whose sole job is to assess if this candidate is better than the average of the current team.&lt;/li&gt;
+            &lt;/ol&gt;
+&nbsp;
+            &lt;h2&gt;Strategy 3: The Manager as 'Gardener'&lt;/h2&gt;
+            &lt;p&gt;In the early days, engineering managers are often "Player-Coaches"—writing code 50% of the time. As you scale, this model collapses. The manager's role must shift to:&lt;/p&gt;
+            &lt;ul&gt;
+                &lt;li&gt;&lt;strong&gt;Unblocking:&lt;/strong&gt; Removing obstacles before the team even sees them.&lt;/li&gt;
+                &lt;li&gt;&lt;strong&gt;Gardening:&lt;/strong&gt; Pruning processes that no longer work and nurturing the careers of their reports.&lt;/li&gt;
+                &lt;li&gt;&lt;strong&gt;Alignment:&lt;/strong&gt; Ensuring the team knows &lt;em&gt;why&lt;/em&gt; they are building what they are building.&lt;/li&gt;
+            &lt;/ul&gt;
+&nbsp;
+            &lt;h2&gt;Conclusion&lt;/h2&gt;
+            &lt;p&gt;Scaling is not about doing more of the same. It is about reinvention. The processes that feel "bureaucratic" at 5 people become the "safety rails" that allow you to move fast at 50 without crashing the train. Embrace the structure, document everything, and trust your teams.&lt;/p&gt;
+        `
+    },
+    {
+        id: 2,
+        title: "The ROI of Technical Debt",
+        summary: "A framework for prioritizing refactoring against feature work. Communicating the business value of clean code to stakeholders.",
+        date: "Nov 05, 2025",
+        readTime: "6 min read",
+        slug: "roi-technical-debt",
+        tags: ["Strategy", "Tech Debt", "Management"],
+        icon: Zap,
+        link: "#",
+        color: "from-amber-500 to-orange-500",
+        keyTakeaways: [
+            "Tech debt is a financial instrument: leverage it for speed, but service the interest before it bankrupts you.",
+            "Translate code issues into business risk (stability) and opportunity cost (velocity) for stakeholders.",
+            "Implement the '20% Tax': Dedicate 20% of every sprint to debt pay-down.",
+            "Never ask for permission to refactor; it is part of the job of writing code."
+        ],
+        content: `
+            &lt;p class="lead"&gt;"Technical Debt" is a metaphor that is often misunderstood. It is not just "bad code." It is a conscious decision to borrow against the future to ship faster today. The problem isn't taking on debt; it's failing to service the interest.&lt;/p&gt;
+&nbsp;
+            &lt;p&gt;As an engineering leader, your job isn't to eliminate debt—that’s impossible and often counter-productive. Your job is to manage the portfolio of debt to ensure the business remains solvent and agile.&lt;/p&gt;
+&nbsp;
+            &lt;h2&gt;Reframing the Conversation: Risk &amp; Speed&lt;/h2&gt;
+            &lt;p&gt;Stakeholders (CEOs, Sales VPs) do not care about "clean code" or "unit test coverage." They care about &lt;strong&gt;Revenue, Risk, and Velocity&lt;/strong&gt;. You must translate technical problems into their language.&lt;/p&gt;
+            &lt;ul&gt;
+                &lt;li&gt;&lt;strong&gt;Stop saying:&lt;/strong&gt; "We need to refactor the payment microservice because the code is spaghetti."&lt;/li&gt;
+                &lt;li&gt;&lt;strong&gt;Start saying:&lt;/strong&gt; "We need to stabilize the payment flow because currently, we risk a 4-hour outage during Black Friday, costing us $200k/hour."&lt;/li&gt;
+            &lt;/ul&gt;
+            &lt;p&gt;When you frame debt in terms of &lt;em&gt;Strategic Risk&lt;/em&gt; or &lt;em&gt;Opportunity Cost&lt;/em&gt; (e.g., "This debt is slowing down new feature development by 30%"), you get buy-in instantly.&lt;/p&gt;
+&nbsp;
+            &lt;h2&gt;The 20% Rule (The "Glacial Movement")&lt;/h2&gt;
+            &lt;p&gt;I strongly advocate for a "20% Tax" on every sprint or development cycle. This capacity is reserved exclusively for technical debt reduction, platform hardening, and developer experience improvements.&lt;/p&gt;
+            &lt;blockquote&gt;"We don't ask for permission to write unit tests, and we shouldn't ask for permission to maintain our codebase. It is the cost of doing business."&lt;/blockquote&gt;
+            &lt;p&gt;This approach transforms debt repayment from a massive, terrifying "Rewrite Project" (which almost always fails) into a continuous, manageable habit. It’s like flossing; do it daily, and you avoid the root canal.&lt;/p&gt;
+&nbsp;
+            &lt;h2&gt;Prioritization Framework: The Debt Quadrant&lt;/h2&gt;
+            &lt;p&gt;Not all debt is created equal. I use a simple 2x2 matrix to prioritize:&lt;/p&gt;
+            &lt;ol&gt;
+                &lt;li&gt;&lt;strong&gt;High Risk / Low Effort:&lt;/strong&gt; Fix immediately (e.g., security patches).&lt;/li&gt;
+                &lt;li&gt;&lt;strong&gt;High Risk / High Effort:&lt;/strong&gt; Plan as a strategic initiative (e.g., database migration).&lt;/li&gt;
+                &lt;li&gt;&lt;strong&gt;Low Risk / Low Effort:&lt;/strong&gt; Let junior engineers tackle these for onboarding/learning.&lt;/li&gt;
+                &lt;li&gt;&lt;strong&gt;Low Risk / High Effort:&lt;/strong&gt; Ignore. This is "perfect code" vanity.&lt;/li&gt;
+            &lt;/ol&gt;
+&nbsp;
+            &lt;h2&gt;Conclusion&lt;/h2&gt;
+            &lt;p&gt;Tech debt is a tool. Use it to ship the MVP and beat the competitor to market. But remember: if you don't pay it back, the interest—in the form of slower deployments, bugs, and developer burnout—will eventually compound beyond your ability to pay.&lt;/p&gt;
+        `
+    },
+    {
+        id: 3,
+        title: "Microservices: A Retrospective",
+        summary: "What we got right, what we got wrong, and when you should actually break the monolith. Real-world architectural trade-offs.",
+        date: "Oct 20, 2025",
+        readTime: "10 min read",
+        slug: "microservices-retrospective",
+        tags: ["Architecture", "Microservices", "Cloud"],
+        icon: Cloud,
+        link: "#",
+        color: "from-sky-500 to-indigo-500",
+        keyTakeaways: [
+            "We mistakenly treated Microservices as a solution to code complexity; they are actually a solution to organizational scaling.",
+            "The 'Distributed Monolith' is the worst of both worlds: high latency without independent deployability.",
+            "Observability (Tracing/Logging) must be solved *before* you split the first service.",
+            "Don't split by data model (e.g., 'User Service'); split by Bounded Context (e.g., 'Identity Service')."
+        ],
+        content: `
+            &lt;p class="lead"&gt;The industry swung violently from "Monoliths are evil" to "Microservices or bust" around 2015. We are now seeing the correction. After migrating a monolithic e-commerce platform to 40+ microservices, I have the scars to prove that distributed systems are not a free lunch.&lt;/p&gt;
+&nbsp;
+            &lt;h2&gt;The False Promise: "Decoupling"&lt;/h2&gt;
+            &lt;p&gt;We sold the migration to the board with the promise of "decoupling." We argued that teams could move independently. In reality, we often traded &lt;strong&gt;compile-time coupling&lt;/strong&gt; (easy to spot) for &lt;strong&gt;runtime coupling&lt;/strong&gt; (hard to debug).&lt;/p&gt;
+            &lt;p&gt;If Service A calls Service B, which calls Service C, and Service C is down, your users don't care that Service A is "decoupled." They just know the site is broken. We inadvertently built a &lt;strong&gt;Distributed Monolith&lt;/strong&gt;: a system where every service had to be up for &lt;em&gt;anything&lt;/em&gt; to work, but with the added penalty of network latency.&lt;/p&gt;
+&nbsp;
+            &lt;h2&gt;When to Actually Split&lt;/h2&gt;
+            &lt;p&gt;I now have a strict heuristic for breaking up a monolith. You should only split a service if:&lt;/p&gt;
+            &lt;ol&gt;
+                &lt;li&gt;&lt;strong&gt;Scale:&lt;/strong&gt; The component has fundamentally different resource requirements (e.g., an image processing worker needs high CPU, but the API needs high I/O).&lt;/li&gt;
+                &lt;li&gt;&lt;strong&gt;Lifecycle:&lt;/strong&gt; The component changes at a significantly different rate than the core application.&lt;/li&gt;
+                &lt;li&gt;&lt;strong&gt;Organizational boundaries:&lt;/strong&gt; The team has grown so large that communication overhead exceeds the cost of a network call (Conway's Law).&lt;/li&gt;
+            &lt;/ol&gt;
+&nbsp;
+            &lt;h2&gt;The Hidden Tax: Infrastructure &amp; Observability&lt;/h2&gt;
+            &lt;p&gt;The cost of microservices is not in the code; it is in the "glue."&lt;/p&gt;
+            &lt;ul&gt;
+                &lt;li&gt;&lt;strong&gt;Observability:&lt;/strong&gt; In a monolith, I check one log file. In microservices, I need Distributed Tracing (Jaeger/OpenTelemetry) to understand why a request took 2 seconds.&lt;/li&gt;
+                &lt;li&gt;&lt;strong&gt;Consistency:&lt;/strong&gt; ACID transactions are gone. You are now in the world of Eventual Consistency, Sagas, and Distributed Locks. This requires a much higher level of engineering maturity.&lt;/li&gt;
+            &lt;/ul&gt;
+&nbsp;
+            &lt;h2&gt;Conclusion: The Modular Monolith&lt;/h2&gt;
+            &lt;p&gt;If I were to do it again today, I would start with a &lt;strong&gt;Modular Monolith&lt;/strong&gt;. Enforce strict module boundaries within a single codebase. If relationships are messy in a monolith, they will be catastrophic over a network. Clean up the dependencies first; split the deployment unit second.&lt;/p&gt;
+        `
+    },
+    {
+        id: 4,
+        title: "AI in Production: Beyond the Hype",
+        summary: "Practical strategies for deploying LLMs at scale. Handling latency, cost, and hallucination in enterprise environments.",
+        date: "Sep 15, 2025",
+        readTime: "7 min read",
+        slug: "ai-production-strategies",
+        tags: ["AI", "LLM", "Engineering"],
+        icon: Code,
+        link: "#",
+        color: "from-rose-500 to-pink-500",
+        keyTakeaways: [
+            "The 'Demo to Production' gap is massive; generic LLM wrappers are not moats.",
+            "Latency is the new downtime. Streaming UI (SSE) and aggressive caching are mandatory.",
+            "Retrieval Augmented Generation (RAG) &gt; Fine-Tuning for 90% of enterprise use cases.",
+            "You cannot 'prompt engineer' your way out of bad data quality."
+        ],
+        content: `
+            &lt;p class="lead"&gt;Every company is now an "AI Company." But there is a massive chasm between a prototype running in a Python notebook and a production-grade AI application serving enterprise SLAs. The hype is about &lt;em&gt;capability&lt;/em&gt;; the reality is about &lt;em&gt;reliability&lt;/em&gt;.&lt;/p&gt;
+&nbsp;
+            &lt;h2&gt;The Latency Challenge&lt;/h2&gt;
+            &lt;p&gt;Users have been trained by Google to expect sub-100ms responses. LLMs take seconds. This cognitive dissonance destroys UX.&lt;/p&gt;
+            &lt;p&gt;To combat this, we adopted a comprehensive latency strategy:&lt;/p&gt;
+            &lt;ul&gt;
+                &lt;li&gt;&lt;strong&gt;Optimistic UI &amp; Streaming:&lt;/strong&gt; Never show a spinner. Use Server-Sent Events (SSE) to stream tokens immediately.&lt;/li&gt;
+                &lt;li&gt;&lt;strong&gt;Semantic Caching:&lt;/strong&gt; We hash the "meaning" of a prompt (using embeddings) rather than the exact string. If a user asks "How do I reset my password?" and another asks "Password reset," we serve the cached answer instantly.&lt;/li&gt;
+                &lt;li&gt;&lt;strong&gt;Smaller Models:&lt;/strong&gt; You don't need GPT-4 to summarize an email. Fine-tuned small models (like Llama 3 8B or Mistral) are 10x faster and 10x cheaper.&lt;/li&gt;
+            &lt;/ul&gt;
+&nbsp;
+            &lt;h2&gt;RAG vs. Context Windows&lt;/h2&gt;
+            &lt;p&gt;The expanded context windows (128k, 1M tokens) led some engineers to get lazy. "Just dump the whole database into the prompt!" they said. This is a trap.&lt;/p&gt;
+            &lt;p&gt;Filling the context window destroys &lt;strong&gt;Needle-in-a-Haystack&lt;/strong&gt; performance and costs a fortune. &lt;strong&gt;Retrieval Augmented Generation (RAG)&lt;/strong&gt; remains superior. The art is not in the generation; it is in the &lt;em&gt;retrieval&lt;/em&gt;. We spent 80% of our engineering time optimizing the vector search and hybrid re-ranking algorithms, and only 20% on the prompt itself.&lt;/p&gt;
+&nbsp;
+            &lt;h2&gt;The 'Moat' Fallacy&lt;/h2&gt;
+            &lt;p&gt;If your startup is just a wrapper around OpenAI, you don't have a product; you have a feature. The real moat isn't the model (which is a commodity); it's the &lt;strong&gt;proprietary data&lt;/strong&gt; and the &lt;strong&gt;integration workflow&lt;/strong&gt;.&lt;/p&gt;
+            &lt;p&gt;We focused on building an "Action Engine," not just a "Chatbot." The value comes when the AI can read a support ticket, query the database, draft a refund, and ask the agent for approval. The model is just the router; the backend integrations are these business logic.&lt;/p&gt;
+&nbsp;
+            &lt;h2&gt;Conclusion&lt;/h2&gt;
+            &lt;p&gt;Stop chasing the latest model release. Focus on evaluation pipelines (evals), data hygiene, and integration depth. That is where the enterprise value lives.&lt;/p&gt;
+        `
+    }
+];
+&nbsp;</pre></td></tr></table></pre>
+
+                <div class='push'></div><!-- for sticky footer -->
+            </div><!-- /wrapper -->
+            <div class='footer quiet pad2 space-top1 center small'>
+                Code coverage generated by
+                <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
+                at 2026-01-21T03:19:54.093Z
+            </div>
+        <script src="../prettify.js"></script>
+        <script>
+            window.onload = function () {
+                prettyPrint();
+            };
+        </script>
+        <script src="../sorter.js"></script>
+        <script src="../block-navigation.js"></script>
+    </body>
+</html>
+    
