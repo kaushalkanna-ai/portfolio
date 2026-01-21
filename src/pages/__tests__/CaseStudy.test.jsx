@@ -24,14 +24,10 @@ describe('CaseStudy Page', () => {
             </ThemeProvider>
         );
 
-        // Check for project title (level 1 heading)
         expect(screen.getByRole('heading', { level: 1, name: project.title })).toBeInTheDocument();
 
-        // Check for project description (maybe partial match)
-        // Note: Project descriptions can be long, testing a substring
         expect(screen.getByText(project.description)).toBeInTheDocument();
 
-        // Check for "Back to Portfolio" button
         expect(screen.getByText(/Back to Portfolio/i)).toBeInTheDocument();
     });
 

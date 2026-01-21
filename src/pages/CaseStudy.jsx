@@ -12,7 +12,6 @@ const CaseStudy = () => {
     const projectIndex = projects.findIndex(p => p.slug === slug);
     const project = projects[projectIndex];
 
-    // Determine Next Project
     const nextProject = projectIndex < projects.length - 1 ? projects[projectIndex + 1] : projects[0];
 
     useEffect(() => {

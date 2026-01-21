@@ -42,14 +42,13 @@ describe('Particle Utils', () => {
             const initialX = p.x;
             const initialY = p.y;
             p.update({ x: null, y: null }, 100, 100);
-            // x and y should change by vx and vy
-            expect(p.x).not.toBe(initialX); // unless vx is 0 (unlikely random)
+            expect(p.x).not.toBe(initialX);
         });
 
         it('bounces off walls', () => {
             const p = new Particle(100, 100);
-            p.x = -10; // out of bounds left
-            p.vx = -1; // moving left
+            p.x = -10;
+            p.vx = -1;
             p.update({ x: null, y: null }, 100, 100);
             p.x = -1;
             p.vx = -1;
@@ -61,7 +60,6 @@ describe('Particle Utils', () => {
             const p = new Particle(100, 100);
             p.x = 50;
             p.y = 50;
-            // Mouse close
             const mouse = { x: 55, y: 55, radius: 100 };
             p.vx = 0;
             p.vy = 0;
@@ -123,15 +121,13 @@ describe('Particle Utils', () => {
         });
 
         it('draws connections when particles are close (large screen)', () => {
-            // Mock particles close to each other
             const p1 = { update: vi.fn(), draw: vi.fn(), x: 100, y: 100 };
-            const p2 = { update: vi.fn(), draw: vi.fn(), x: 120, y: 120 }; // distance < maxDist (150)
+            const p2 = { update: vi.fn(), draw: vi.fn(), x: 120, y: 120 };
             const particles = [p1, p2];
             const mouse = { x: null, y: null };
 
             animateParticles(ctx, width, height, particles, mouse, theme);
 
-            // Should draw line
             expect(ctx.beginPath).toHaveBeenCalled();
             expect(ctx.moveTo).toHaveBeenCalledWith(100, 100);
             expect(ctx.lineTo).toHaveBeenCalledWith(120, 120);
@@ -142,12 +138,10 @@ describe('Particle Utils', () => {
             const p1 = { update: vi.fn(), draw: vi.fn(), x: 100, y: 100 };
             const p2 = { update: vi.fn(), draw: vi.fn(), x: 120, y: 120 };
             const particles = [p1, p2];
-            // Mouse close to particles
             const mouse = { x: 110, y: 110, radius: 100 };
 
             animateParticles(ctx, width, height, particles, mouse, theme);
 
-            // Check if stroke happens (it should)
             expect(ctx.stroke).toHaveBeenCalled();
         });
 
@@ -157,7 +151,6 @@ describe('Particle Utils', () => {
             const particles = [p1, p2];
             const mouse = { x: null, y: null };
 
-            // Small screen width < 768
             animateParticles(ctx, 500, height, particles, mouse, theme);
 
             expect(ctx.moveTo).not.toHaveBeenCalled();

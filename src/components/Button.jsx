@@ -12,17 +12,14 @@ const Button = ({
     icon: Icon,
     ...props
 }) => {
-    // Base styles
     const baseStyles = "inline-flex items-center justify-center font-semibold rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed";
 
-    // Size variants
     const sizeStyles = {
         sm: "px-4 py-2 text-sm",
         md: "px-6 py-3 text-base",
         lg: "px-8 py-4 text-lg",
     };
 
-    // Style variants
     const variantStyles = {
         primary: "bg-gradient-to-r from-blue-600 to-cyan-600 dark:from-blue-500 dark:to-cyan-500 text-white shadow-lg shadow-blue-500/20 dark:shadow-cyan-500/20 hover:shadow-blue-500/40 dark:hover:shadow-cyan-500/40 hover:brightness-110",
         secondary: "bg-white dark:bg-slate-800 text-gray-900 dark:text-white border border-gray-200 dark:border-slate-700 hover:border-blue-500 dark:hover:border-cyan-400 hover:shadow-lg",
@@ -33,13 +30,11 @@ const Button = ({
 
     const combinedClassName = `${baseStyles} ${sizeStyles[size]} ${variantStyles[variant]} ${className}`;
 
-    // Animation props
     const animationProps = {
         whileHover: { scale: 1.05 },
         whileTap: { scale: 0.95 }
     };
 
-    // Render content with icon if present
     const content = (
         <>
             {Icon && <Icon className={`w-5 h-5 ${children ? 'mr-2' : ''}`} />}
@@ -47,9 +42,7 @@ const Button = ({
         </>
     );
 
-    // Render logic
     if (href) {
-        // Internal link (use Link usually, but use <a> if target is set, e.g. for PDFs)
         if (href.startsWith('/') && !props.target) {
             const MotionLink = motion.create(Link);
             return (
@@ -58,7 +51,6 @@ const Button = ({
                 </MotionLink>
             );
         }
-        // External or hash link
         return (
             <motion.a href={href} className={combinedClassName} {...animationProps} {...props}>
                 {content}

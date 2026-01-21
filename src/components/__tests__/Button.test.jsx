@@ -32,14 +32,8 @@ describe('Button Component', () => {
                 <Button href="/internal">Internal Link</Button>
             </BrowserRouter>
         );
-        // It should still be a link, but verifying it uses Link component is hard directly.
-        // However, checking href attribute handles both.
-        // The implementation uses motion.create(Link).
-        // If we want to verify distinct branch, we just ensure it renders and has href.
         const link = screen.getByRole('link', { name: 'Internal Link' });
         expect(link).toHaveAttribute('href', '/internal');
-        // If it was external, it would be motion.a.
-        // We can check if it has target attribute (should not).
         expect(link).not.toHaveAttribute('target');
     });
 });

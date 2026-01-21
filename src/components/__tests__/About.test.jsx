@@ -11,10 +11,8 @@ describe('About Component', () => {
             </ThemeProvider>
         );
 
-        // "About Me" is in a text node, followed by a span. getByText should find it.
         expect(screen.getByText(/About Me/i, { selector: 'h2', hidden: true })).toBeInTheDocument();
 
-        // "Product" appears multiple times. Check that at least one exists.
         const productTexts = screen.getAllByText(/Product/i, { exact: false, hidden: true });
         expect(productTexts.length).toBeGreaterThan(0);
     });
@@ -25,7 +23,6 @@ describe('About Component', () => {
                 <About />
             </ThemeProvider>
         );
-        // Tags wrapper also has hidden variant
         expect(screen.getByText('Technical Leadership', { hidden: true })).toBeInTheDocument();
     });
 });

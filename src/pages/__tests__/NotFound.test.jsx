@@ -34,7 +34,6 @@ describe('NotFound Page', () => {
         );
 
         expect(screen.getByText(/404/i)).toBeInTheDocument();
-        // Updated expectation to match "Lost in Space?" or similar if "Page not found" isn't there
         expect(screen.getByText(/Lost in Space/i)).toBeInTheDocument();
     });
 

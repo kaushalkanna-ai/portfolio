@@ -126,8 +126,6 @@ const Home = () => {
   );
 };
 
-// Imports fixed
-
 function App() {
   return (
     <HelmetProvider>

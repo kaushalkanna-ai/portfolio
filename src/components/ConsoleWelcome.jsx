@@ -23,7 +23,6 @@ const ConsoleWelcome = () => {
             'line-height: 1.5',
         ].join(';');
 
-        // Cleaner, more readable "KAUSHAL" ASCII art
         const asciiArt = `
   _  __               _           _ 
  | |/ /__ _ _   _ ___| |__   __ _| |

@@ -12,7 +12,6 @@ describe('DownloadResumeButton Component', () => {
         );
         const link = screen.getByRole('link', { name: /View Resume/i });
         expect(link).toBeInTheDocument();
-        // Default variant primary results in certain classes but we just check presence
     });
 
     it('renders with nav variant', () => {
@@ -21,7 +20,7 @@ describe('DownloadResumeButton Component', () => {
                 <DownloadResumeButton variant="nav" />
             </BrowserRouter>
         );
-        const link = screen.getByRole('link', { name: /Resume/i }); // Text changes to "Resume"
+        const link = screen.getByRole('link', { name: /Resume/i });
         expect(link).toBeInTheDocument();
     });
 
