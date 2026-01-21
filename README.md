@@ -4,6 +4,7 @@
 ![React](https://img.shields.io/badge/React-19-blue?style=for-the-badge&logo=react)
 ![Tailwind](https://img.shields.io/badge/Tailwind-v4-38bdf8?style=for-the-badge&logo=tailwindcss)
 ![Vite](https://img.shields.io/badge/Vite-Fast-646cff?style=for-the-badge&logo=vite)
+![Coverage](https://img.shields.io/badge/Coverage-98%25-brightgreen?style=for-the-badge)
 
 > **"Bridging the gap between deeply technical execution and high-level product strategy."**
 
@@ -68,14 +69,51 @@ This command runs the production build (`vite build`) and pushes the `dist` fold
 
 ---
 
+## 🧪 Testing
+
+The project maintains **98%+ test coverage** using Vitest and React Testing Library.
+
+### Running Tests
+
+```bash
+# Run all tests
+npm test
+
+# Run tests with coverage report
+npm run test:coverage
+
+# Run tests in watch mode
+npm run test:watch
+```
+
+### Coverage Highlights
+
+- **Overall Coverage:** 98.37% (Lines)
+- **Components:** 97.97% average
+- **Utilities:** 100% coverage
+
+Key tested areas:
+- UI components (Hero, Navbar, Footer, etc.)
+- Form validation and submission
+- Theme switching
+- Particle animation system
+- Routing and navigation
+
+---
+
 ## 📂 Project Structure
 
 ```
 src/
-├── components/   # Reusable UI components (Hero, Navbar, Impact, Footer)
-├── data/         # Content sources (projects.js, writing.js)
-├── pages/        # Route views (Home, CaseStudy, BlogPost, Now)
-└── context/      # Global state (ThemeContext)
+├── components/      # Reusable UI components (Hero, Navbar, Impact, Footer)
+│   └── __tests__/   # Component unit tests
+├── data/            # Content sources (projects.js, writing.js)
+├── pages/           # Route views (Home, CaseStudy, BlogPost, Now)
+│   └── __tests__/   # Page unit tests
+├── utils/           # Utility functions (particles.js)
+│   └── __tests__/   # Utility unit tests
+├── context/         # Global state (ThemeContext)
+└── test/            # Test setup and configuration
 ```
 
 ---
