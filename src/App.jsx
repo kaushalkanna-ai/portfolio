@@ -1,4 +1,5 @@
 import React, { lazy, Suspense, useEffect, useState, useRef } from 'react';
+import { LazyMotion, domAnimation } from 'framer-motion';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import { ThemeProvider } from './context/ThemeContext';
@@ -125,50 +126,55 @@ const Home = () => {
   );
 };
 
+// Imports fixed
+
 function App() {
   return (
     <HelmetProvider>
       <ThemeProvider>
-        <Router>
-          <Analytics />
-          <ConsoleWelcome />
-          <div className="bg-white dark:bg-slate-900 min-h-screen text-gray-900 dark:text-gray-100 transition-colors duration-300">
-            <ScrollProgress />
+        <LazyMotion features={domAnimation}>
+          <Router>
+            <Analytics />
+            <ConsoleWelcome />
+            <div className="bg-white dark:bg-slate-900 min-h-screen text-gray-900 dark:text-gray-100 transition-colors duration-300">
+              <ScrollProgress />
 
-            <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
-              <div className="absolute top-[20%] left-[10%] w-[500px] h-[500px] bg-blue-500 rounded-full mix-blend-screen filter blur-[80px] md:blur-[120px] opacity-20 dark:opacity-20 animate-pulse max-md:animate-none" />
-              <div className="hidden md:block absolute bottom-[20%] right-[10%] w-[500px] h-[500px] bg-teal-500 rounded-full mix-blend-screen filter blur-[120px] opacity-20 dark:opacity-20 animate-pulse max-md:animate-none" />
-            </div>
+              <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
+                {/* Optimized Background: Radial Gradients instead of Blur/Mix-Blend */}
+                <div className="absolute top-[20%] left-[10%] w-[500px] h-[500px] bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-500/20 to-transparent animate-pulse max-md:animate-none" />
+                <div className="hidden md:block absolute bottom-[20%] right-[10%] w-[500px] h-[500px] bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-teal-500/20 to-transparent animate-pulse" />
+              </div>
 
-            <div className="relative z-10">
-              <Navbar />
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/projects/:slug" element={
-                  <Suspense fallback={<LoadingScreen message="Loading Case Study..." />}>
-                    <CaseStudy />
-                  </Suspense>
-                } />
-                <Route path="/now" element={
-                  <Suspense fallback={<LoadingScreen message="Loading..." />}>
-                    <Now />
-                  </Suspense>
-                } />
-                <Route path="/writing/:slug" element={
-                  <Suspense fallback={<LoadingScreen message="Loading Article..." />}>
-                    <BlogPost />
-                  </Suspense>
-                } />
-                <Route path="*" element={
-                  <Suspense fallback={<LoadingScreen message="Searching..." />}>
-                    <NotFound />
-                  </Suspense>
-                } />
-              </Routes>
-              <Footer />
+              <div className="relative z-10">
+                <Navbar />
+                <Routes>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/projects/:slug" element={
+                    <Suspense fallback={<LoadingScreen message="Loading Case Study..." />}>
+                      <CaseStudy />
+                    </Suspense>
+                  } />
+                  <Route path="/now" element={
+                    <Suspense fallback={<LoadingScreen message="Loading..." />}>
+                      <Now />
+                    </Suspense>
+                  } />
+                  <Route path="/writing/:slug" element={
+                    <Suspense fallback={<LoadingScreen message="Loading Article..." />}>
+                      <BlogPost />
+                    </Suspense>
+                  } />
+                  <Route path="*" element={
+                    <Suspense fallback={<LoadingScreen message="Searching..." />}>
+                      <NotFound />
+                    </Suspense>
+                  } />
+                </Routes>
+                <Footer />
+              </div>
             </div>
-          </div>
-        </Router>
+          </Router>
+        </LazyMotion>
       </ThemeProvider>
     </HelmetProvider>
   );
