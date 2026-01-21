@@ -17,7 +17,6 @@ const Education = lazy(() => import('./components/Education'));
 const Experience = lazy(() => import('./components/Experience'));
 const Impact = lazy(() => import('./components/Impact'));
 const Contact = lazy(() => import('./components/Contact'));
-const Skills = lazy(() => import('./components/Skills'));
 const LoadingScreen = lazy(() => import('./components/LoadingScreen'));
 
 const CaseStudy = lazy(() => import('./pages/CaseStudy'));
@@ -120,7 +119,6 @@ const Home = () => {
       <Suspense fallback={<LoadingScreen />}>
         <About />
         <Experience />
-        <Skills />
         <Impact />
         <Education />
         <Contact />

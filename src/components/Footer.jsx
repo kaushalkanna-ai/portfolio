@@ -16,7 +16,6 @@ const Footer = () => {
     const footerLinks = [
         { name: 'About', to: 'about', type: 'scroll' },
         { name: 'Experience', to: 'experience', type: 'scroll' },
-        { name: 'Skills', to: 'skills', type: 'scroll' },
         { name: 'Work', to: 'impact', type: 'scroll' },
         { name: 'Now', to: '/now', type: 'router' },
         { name: 'Education', to: 'education', type: 'scroll' },
