@@ -108,7 +108,7 @@ const Impact = () => {
                                                         </span>
                                                     ))}
                                                 </div>
-                                                <div className="flex items-center text-blue-500 text-sm font-semibold mt-auto">
+                                                <div className="flex items-center text-blue-600 dark:text-blue-400 text-sm font-bold mt-auto">
                                                     View Case Study <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
                                                 </div>
                                             </div>

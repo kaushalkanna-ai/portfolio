@@ -49,7 +49,7 @@ const Footer = () => {
 
                     {/* Navigation Column */}
                     <div>
-                        <h4 className="font-bold text-lg mb-6">Navigation</h4>
+                        <h3 className="font-bold text-lg mb-6">Navigation</h3>
                         <ul className="space-y-3">
                             {footerLinks.map(link => (
                                 <li key={link.name}>
@@ -86,7 +86,7 @@ const Footer = () => {
 
                     {/* Status / Location Column */}
                     <div>
-                        <h4 className="font-bold text-lg mb-6">Status</h4>
+                        <h3 className="font-bold text-lg mb-6">Status</h3>
                         <div className="flex items-center gap-2 mb-4">
                             <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
                             <span className="text-gray-600 dark:text-slate-400">Open to opportunities</span>
