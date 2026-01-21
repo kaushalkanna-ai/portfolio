@@ -22,6 +22,7 @@ Built with a focus on **performance**, **maintainability**, and **developer expe
 - **Styling:** [Tailwind CSS v4](https://tailwindcss.com/)
 - **Animations:** [Framer Motion](https://www.framer.com/motion/)
 - **Routing:** [React Router v7](https://reactrouter.com/)
+- **Testing:** [Vitest](https://vitest.dev/) + [React Testing Library](https://testing-library.com/react)
 - **Deployment:** GitHub Pages
 
 ---
@@ -77,13 +78,13 @@ The project maintains **98%+ test coverage** using Vitest and React Testing Libr
 
 ```bash
 # Run all tests
-npm test
+npm run test
 
 # Run tests with coverage report
 npm run test:coverage
 
-# Run tests in watch mode
-npm run test:watch
+# Run tests in UI mode
+npm run test:ui
 ```
 
 ### Coverage Highlights
