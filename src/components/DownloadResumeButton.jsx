@@ -1,9 +1,9 @@
 import React from 'react';
 import Button from './Button';
 import { Eye } from 'lucide-react';
+import { trackDownload } from './Analytics';
 
 const DownloadResumeButton = ({ variant = 'primary', className = '' }) => {
-    // Map old variants to new Button variants
     const getButtonProps = () => {
         switch (variant) {
             case 'nav':
@@ -20,11 +20,15 @@ const DownloadResumeButton = ({ variant = 'primary', className = '' }) => {
                 };
             default:
                 return {
-                    variant: 'primary', // Changed from secondary to primary as default for consistency
+                    variant: 'primary',
                     size: 'lg',
                     className: className
                 };
         }
+    };
+
+    const handleClick = () => {
+        trackDownload('Kaushal_Dontula_Resume.pdf');
     };
 
     return (
@@ -34,6 +38,7 @@ const DownloadResumeButton = ({ variant = 'primary', className = '' }) => {
             rel="noopener noreferrer"
             icon={Eye}
             aria-label="View Resume"
+            onClick={handleClick}
             {...getButtonProps()}
         >
             {variant === 'nav' ? 'Resume' : 'View Resume'}

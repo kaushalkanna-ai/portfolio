@@ -5,6 +5,7 @@ import { projects } from '../data/projects';
 import { ArrowLeft, ArrowRight, Target, Zap, Calendar, ExternalLink, Github } from 'lucide-react';
 import Button from '../components/Button';
 import SEO from '../components/SEO';
+import { trackProjectView } from '../components/Analytics';
 
 const CaseStudy = () => {
     const { slug } = useParams();
@@ -16,7 +17,10 @@ const CaseStudy = () => {
 
     useEffect(() => {
         window.scrollTo(0, 0);
-    }, [slug]);
+        if (project) {
+            trackProjectView(slug);
+        }
+    }, [slug, project]);
 
     if (!project) {
         return (
