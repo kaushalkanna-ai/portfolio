@@ -12,8 +12,8 @@ const ContactForm = () => {
     const [status, setStatus] = useState('idle'); // idle, submitting, success, error
     const [errorMessage, setErrorMessage] = useState('');
 
-    // TODO: Replace with actual Access Key from User
-    const ACCESS_KEY = "YOUR_ACCESS_KEY_HERE";
+    // Access Key for Web3Forms
+    const ACCESS_KEY = "5615857f-6dc4-4b6a-9bd9-1853feb303c1";
 
     const handleChange = (e) => {
         const { name, value } = e.target;
