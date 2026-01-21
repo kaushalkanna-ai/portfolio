@@ -72,7 +72,7 @@ export const animateParticles = (ctx, canvasWidth, canvasHeight, particles, mous
         const maxDist = 150;
         const maxDistSq = maxDist * maxDist;
 
-        ctx.beginPath();
+        const connectionsByOpacity = new Map();
 
         for (let i = 0; i < particles.length; i++) {
             const a = particles[i];
@@ -100,14 +100,26 @@ export const animateParticles = (ctx, canvasWidth, canvasHeight, particles, mous
                         }
                     }
 
-                    ctx.strokeStyle = getConnectionColor(theme, opacity);
-                    ctx.lineWidth = 1;
-                    ctx.moveTo(a.x, a.y);
-                    ctx.lineTo(b.x, b.y);
+                    const opacityKey = Math.round(opacity * 100) / 100;
+                    if (!connectionsByOpacity.has(opacityKey)) {
+                        connectionsByOpacity.set(opacityKey, []);
+                    }
+                    connectionsByOpacity.get(opacityKey).push({ ax: a.x, ay: a.y, bx: b.x, by: b.y });
                 }
             }
         }
 
-        ctx.stroke();
+        connectionsByOpacity.forEach((connections, opacity) => {
+            ctx.beginPath();
+            ctx.strokeStyle = getConnectionColor(theme, opacity);
+            ctx.lineWidth = 1;
+
+            connections.forEach(({ ax, ay, bx, by }) => {
+                ctx.moveTo(ax, ay);
+                ctx.lineTo(bx, by);
+            });
+
+            ctx.stroke();
+        });
     }
 };
