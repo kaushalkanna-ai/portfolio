@@ -1,43 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://kaushalkanna-ai.github.io/dontula_portfolio/</loc>
-    <lastmod>2026-01-12</lastmod>
+    <loc>https://dontula.com/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://kaushalkanna-ai.github.io/dontula_portfolio/#projects</loc>
+    <loc>https://dontula.com/now</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- Main Project Routes -->
+  <url>
+    <loc>https://dontula.com/projects/social-media-intelligence-platform</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://kaushalkanna-ai.github.io/dontula_portfolio/projects/social-media-intelligence-platform</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://kaushalkanna-ai.github.io/dontula_portfolio/projects/intelligent-chat-routing-system</loc>
+    <loc>https://dontula.com/projects/intelligent-chat-routing-system</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
    <url>
-    <loc>https://kaushalkanna-ai.github.io/dontula_portfolio/projects/scalable-ml-pipeline</loc>
+    <loc>https://dontula.com/projects/scalable-ml-pipeline</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
    <url>
-    <loc>https://kaushalkanna-ai.github.io/dontula_portfolio/projects/real-time-analytics-dashboard</loc>
+    <loc>https://dontula.com/projects/real-time-analytics-dashboard</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
    <url>
-    <loc>https://kaushalkanna-ai.github.io/dontula_portfolio/projects/microservices-architecture-migration</loc>
+    <loc>https://dontula.com/projects/microservices-architecture-migration</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
    <url>
-    <loc>https://kaushalkanna-ai.github.io/dontula_portfolio/projects/automated-code-quality-platform</loc>
+    <loc>https://dontula.com/projects/automated-code-quality-platform</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

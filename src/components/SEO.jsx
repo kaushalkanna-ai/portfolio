@@ -4,8 +4,8 @@ import { Helmet } from 'react-helmet-async';
 const SEO = ({ title, description, image, url }) => {
     const siteTitle = 'Kaushal Dontula | SVP Engineering & Product';
     const siteDescription = 'Senior Engineering Executive architecting scalable AI & Cloud solutions. View my portfolio for projects in Machine Learning, Microservices, and Strategic Leadership.';
-    const siteUrl = 'https://kaushalkanna-ai.github.io/dontula_portfolio/';
-    const defaultImage = 'https://kaushalkanna-ai.github.io/dontula_portfolio/images/social-preview.png';
+    const siteUrl = 'https://dontula.com';
+    const defaultImage = 'https://dontula.com/images/social-preview.png';
 
     const fullTitle = title ? `${title} | Kaushal Dontula` : siteTitle;
     const metaDescription = description || siteDescription;
