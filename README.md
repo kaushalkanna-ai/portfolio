@@ -1,4 +1,4 @@
-# Kaushal Dontula | SVP Engineering & Product
+# Kaushal Dontula | Engineering & Product
 
 ![Portfolio Banner](https://img.shields.io/badge/Status-Production_Ready-success?style=for-the-badge)
 ![React](https://img.shields.io/badge/React-19-blue?style=for-the-badge&logo=react)

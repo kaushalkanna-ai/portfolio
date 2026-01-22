@@ -2,7 +2,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 
 const SEO = ({ title, description, image, url, type = 'website' }) => {
-    const siteTitle = 'Kaushal Dontula | SVP Engineering & Product';
+    const siteTitle = 'Kaushal Dontula | Engineering & Product';
     const siteDescription = 'Senior Engineering Executive architecting scalable AI & Cloud solutions. View my portfolio for projects in Machine Learning, Microservices, and Strategic Leadership.';
     const siteUrl = 'https://dontula.com';
     const defaultImage = 'https://dontula.com/images/social-preview.webp';
@@ -16,7 +16,7 @@ const SEO = ({ title, description, image, url, type = 'website' }) => {
         "@context": "https://schema.org",
         "@type": "Person",
         "name": "Kaushal Dontula",
-        "jobTitle": "SVP Engineering & Product",
+        "jobTitle": "Engineering & Product",
         "description": metaDescription,
         "url": siteUrl,
         "image": metaImage,
