@@ -70,9 +70,9 @@ const Education = () => {
                         </h3>
                         <div className="bg-gray-100 dark:bg-slate-700/30 p-6 rounded-xl border border-gray-300 dark:border-slate-600/30 hover:border-teal-500/30 transition-colors">
                             <h4 className="font-bold text-gray-900 dark:text-white text-lg">YouthBuild USA</h4>
-                            <p className="text-gray-700 dark:text-slate-300 mt-2">Education Support</p>
+                            <p className="text-gray-700 dark:text-slate-300 mt-2">Education & Mentorship Support</p>
                             <p className="text-gray-600 dark:text-slate-400 text-sm mt-4 leading-relaxed">
-                                Supporting education initiatives to help young people unleash their intelligence and positive energy to transform their lives and rebuild their communities.
+                                Supporting education and career-readiness programs that help young adults build practical skills, finish their schooling, and strengthen their local communities.
                             </p>
                         </div>
                     </motion.div>

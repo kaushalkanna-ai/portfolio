@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { Link as ScrollLink } from 'react-scroll';
 import { Link as RouterLink, useLocation } from 'react-router-dom';
-import { Linkedin, ChevronUp } from 'lucide-react';
+import { Linkedin, Github, ChevronUp } from 'lucide-react';
 
 const Footer = () => {
     const location = useLocation();
@@ -44,6 +44,7 @@ const Footer = () => {
                         </p>
                         <div className="flex gap-4">
                             <SocialLink href="https://www.linkedin.com/in/kaushaldontula/" icon={Linkedin} label="LinkedIn" />
+                            <SocialLink href="https://github.com/kaushalkanna-ai" icon={Github} label="GitHub" />
                         </div>
                     </div>
 
@@ -89,7 +90,7 @@ const Footer = () => {
                         <h3 className="font-bold text-lg mb-6">Status</h3>
                         <div className="flex items-center gap-2 mb-4">
                             <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                            <span className="text-gray-600 dark:text-slate-400">Open to opportunities</span>
+                            <span className="text-gray-600 dark:text-slate-400">Open to executive & advisory roles</span>
                         </div>
                         <p className="text-gray-600 dark:text-slate-400 text-sm">
                             Based in<br />

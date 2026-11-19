@@ -1,7 +1,7 @@
 export const experiences = [
     {
         role: "Senior Vice President of Engineering & Product",
-        company: "MicroDrive",
+        company: "microDrive",
         period: "Feb 2022 – Present",
         location: "Tampa, FL",
         flag: "🇺🇸",
