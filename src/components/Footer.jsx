@@ -90,7 +90,7 @@ const Footer = () => {
                         <h3 className="font-bold text-lg mb-6">Status</h3>
                         <div className="flex items-center gap-2 mb-4">
                             <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                            <span className="text-gray-600 dark:text-slate-400">Open to executive & advisory roles</span>
+                            <span className="text-gray-600 dark:text-slate-400">Open to Engineering Leadership & Product roles</span>
                         </div>
                         <p className="text-gray-600 dark:text-slate-400 text-sm">
                             Based in<br />
