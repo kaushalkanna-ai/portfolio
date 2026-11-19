@@ -40,7 +40,7 @@ const Footer = () => {
                         </div>
                         <p className="text-gray-600 dark:text-slate-400 mb-8 max-w-sm leading-relaxed">
                             Architecting scalable AI & Cloud solutions.
-                            Building AI-native products, high-velocity engineering organizations, and resilient platforms.
+                            Leading engineering teams and building practical, reliable software products.
                         </p>
                         <div className="flex gap-4">
                             <SocialLink href="https://www.linkedin.com/in/kaushaldontula/" icon={Linkedin} label="LinkedIn" />

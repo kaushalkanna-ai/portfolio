@@ -33,19 +33,19 @@ const About = () => {
                             variants={{ hidden: { y: 20, opacity: 0 }, visible: { y: 0, opacity: 1 } }}
                             className="text-lg text-gray-700 dark:text-slate-300 mb-6 leading-relaxed"
                         >
-                            As a Senior Vice President of Engineering & Product, I lead the intersection of deep systems architecture and commercial product strategy. I build high-velocity, globally distributed teams that turn ambitious technical bets into durable, market-leading products.
+                            I serve as Senior Vice President of Engineering & Product, splitting my time between system architecture and product direction. Over the past decade I have built and led engineering groups across the US, Europe, and India, taking products from early architecture sketches to production scale.
                         </motion.p>
                         <motion.p
                             variants={{ hidden: { y: 20, opacity: 0 }, visible: { y: 0, opacity: 1 } }}
                             className="text-lg text-gray-700 dark:text-slate-300 mb-6 leading-relaxed"
                         >
-                            With over a decade of hands-on architecture experience, I specialize in productionizing AI-native systems—from agentic workflows and LLM orchestration with rigorous eval pipelines to high-throughput distributed backends, cloud-native infrastructure, and internal developer platforms.
+                            My background is hands-on backend and distributed systems work. Lately, most of my energy goes into getting AI features past the demo stage: multi-agent workflows, LLM routing and cost controls, automated evaluation suites, and the cloud and developer platforms that keep releases predictable.
                         </motion.p>
                         <motion.p
                             variants={{ hidden: { y: 20, opacity: 0 }, visible: { y: 0, opacity: 1 } }}
                             className="text-lg text-gray-700 dark:text-slate-300 mb-6 leading-relaxed"
                         >
-                            My focus is moving beyond prototypes to reliable enterprise scale. By connecting platform resilience, AI-accelerated developer experience, and clear business outcomes, I ensure every release compounds both engineering velocity and customer value.
+                            Good engineering only counts when customers feel it and the business numbers back it up. I like working closely with product managers, engineers, and executives to cut through complexity, keep technical debt manageable, and ship software teams are proud to run at 3 a.m.
                         </motion.p>
 
 

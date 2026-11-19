@@ -24,7 +24,7 @@ const Contact = () => {
                     transition={{ delay: 0.2, duration: 0.5 }}
                     className="text-lg text-gray-700 dark:text-slate-300 mb-12 max-w-2xl mx-auto leading-relaxed"
                 >
-                    Exploring executive engineering or product leadership, AI architecture advisory, or strategic collaboration? Drop a note—I'm always glad to connect with builders and leaders solving ambitious technical problems.
+                    Want to talk engineering leadership, AI architecture, or an advisory role? Send a message below. I read everything myself and usually reply within a couple of days.
                 </motion.p>
 
                 <motion.div

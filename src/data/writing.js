@@ -4,7 +4,7 @@ export const articles = [
     {
         id: 7,
         title: "AI Unit Economics: Protecting SaaS Gross Margins at Scale",
-        summary: "AI breaks the near-zero marginal cost assumption of classic SaaS. A playbook for aligning architecture, pricing, and FinOps to keep AI-native products margin-accretive.",
+        summary: "AI breaks the near-zero marginal cost assumption of classic SaaS. Practical ways to line up architecture, pricing, and FinOps before inference bills eat your margin.",
         date: "Nov 04, 2026",
         readTime: "7 min read",
         slug: "ai-unit-economics-saas-margins",
@@ -13,45 +13,34 @@ export const articles = [
         link: "#",
         color: "from-emerald-500 to-cyan-600",
         keyTakeaways: [
-            "Variable inference spend turns architecture decisions directly into gross-margin decisions.",
-            "Seat-based pricing breaks under autonomous workflows; pair base subscriptions with usage or outcome tiers.",
-            "Model routing, prompt caching, and small distilled models routinely cut inference COGS by 50–70% without hurting quality.",
-            "Instrument cost-per-workflow alongside latency SLOs so product and finance review unit economics in real time."
+            "Variable token spend turns model routing into a real P&L decision.",
+            "Pure seat-based pricing breaks down once automated workflows do more of the work.",
+            "Simple routing and caching usually cut inference spend by more than half.",
+            "Track cost per completed workflow alongside latency, not just on a monthly invoice."
         ],
         content: `
-            <p class="lead">Traditional B2B SaaS spoiled executives with 80%+ gross margins because serving one additional customer request cost fractions of a cent. AI-native software rewrites that P&L: every reasoning loop, retrieval pass, and agentic workflow carries real variable compute cost.</p>
+            <p class="lead">Traditional B2B SaaS made executives comfortable with 80%+ gross margins. Serving one more API call cost almost nothing. AI features flip that math overnight, because every reasoning step, retrieval pass, and agent loop carries real variable compute cost.</p>
 
-            <p>When AI usage takes off inside an enterprise product, unmonitored token consumption can quietly compress gross margins by 15 to 25 points. Managing AI unit economics is no longer a back-office finance exercise—it is a joint Engineering and Product Strategy discipline.</p>
+            <p>The tricky part is that the problem hides during pilots. Ten beta customers barely move your cloud bill. Six months later, when a few enterprise accounts turn on automated workflows across their whole team, token spend can quietly shave 15 or 20 points off gross margin.</p>
 
-            <h2>Architecture Is Now Gross Margin</h2>
-            <p>In classic SaaS, over-provisioning a microservice barely moved the board deck. In AI systems, sending every classification or extraction request to a frontier reasoning model can burn millions annually. High-leverage engineering teams treat inference routing as a core financial lever:</p>
-            <ul>
-                <li><strong>Complexity-Based Model Routing:</strong> Reserve frontier reasoning models for ambiguous synthesis and multi-step planning; route structured extraction, tagging, and triage to fast, distilled models.</li>
-                <li><strong>Layered Caching:</strong> Pair provider prompt-prefix caching (for static system context and schemas) with semantic caching for recurring enterprise queries.</li>
-                <li><strong>Context Discipline:</strong> Trim bloated RAG payloads and redundant tool definitions—fewer input tokens improve both precision and margin.</li>
-            </ul>
+            <h2>Routing Traffic Like a Real Budget</h2>
+            <p>In most codebases I review, the first version sends everything to the largest frontier model available. Tagging a support ticket? Frontier model. Extracting five JSON fields? Same frontier model. That makes sense during week one when you are validating demand. Leaving it that way in production burns cash fast.</p>
+            <p>Once a feature sticks, we split inference into tiers. Routine extraction, classification, and short summaries go to small, fast models (often self-hosted on vLLM). Frontier reasoning models stay reserved for ambiguous synthesis where their extra accuracy actually shows up in evals. Pair that with prompt-prefix caching for long system instructions and a Redis semantic cache for common queries, and most teams cut inference COGS by 50% to 70% right away.</p>
+            <p>Trimming bloated RAG context helps twice: you pay for fewer input tokens, and the model stops getting distracted by irrelevant paragraphs.</p>
 
-            <h2>Evolving Beyond Pure Seat-Based Pricing</h2>
-            <p>Autonomous workflows expose the structural flaw of pure per-seat pricing: if your AI platform helps a 20-person operations team handle 3x the volume—or automate work that previously required 50 seats—seat-only pricing penalizes your own product's success.</p>
-            <blockquote>"If your AI delivers measurable labor leverage, price closer to the work completed—not just the humans logging in."</blockquote>
-            <p>The most durable enterprise models combine a <strong>predictable platform floor</strong> (giving CFOs budget certainty) with <strong>transparent usage credits or outcome-aligned tiers</strong> tied to resolved tickets, processed workflows, or intelligence runs.</p>
+            <h2>Where Seat Pricing Starts to Hurt</h2>
+            <p>If your product helps a 20-person operations team handle triple the volume, pure per-seat pricing works against you. Customers get real value, yet your revenue stays flat while your token bill triples.</p>
+            <p>CFOs still hate completely unpredictable utility bills, so pure pay-as-you-go rarely lands well in enterprise procurement either. The middle ground that works best in practice is a predictable platform base fee paired with included usage buckets or outcome tiers (resolved tickets, processed campaigns, intelligence runs) that expand naturally with customer adoption.</p>
 
-            <h2>Instrumenting Cost-Per-Workflow</h2>
-            <p>You cannot optimize what you only see on a monthly cloud invoice. Emit token, retrieval, and tool-execution costs as first-class telemetry attributes tagged by <code>tenant_id</code>, <code>feature</code>, and <code>workflow_type</code>:</p>
-            <ol>
-                <li><strong>Margin Dashboards by Feature:</strong> Review cost-per-successful-outcome alongside adoption and retention every sprint.</li>
-                <li><strong>Per-Tenant Guardrails:</strong> Enforce soft alerts and graceful model-downgrade policies before runaway agent loops erode account profitability.</li>
-                <li><strong>Continuous Distillation:</strong> Periodically benchmark high-volume frontier prompts against smaller fine-tuned models using your production eval set.</li>
-            </ol>
-
-            <h2>Conclusion</h2>
-            <p>Winning AI-native companies don't sacrifice margins for adoption—or cripple product magic with rigid rate limits. By uniting FinOps telemetry, tiered inference architecture, and value-aligned pricing, Engineering and Product leaders can turn AI scale into durable, compounding profitability.</p>
+            <h2>Put Cost in Your Telemetry</h2>
+            <p>Waiting for a monthly cloud bill is too late to spot a runaway prompt loop. Emit token, embedding, and tool costs as regular OpenTelemetry tags on every request, tied to <code>tenant_id</code> and <code>feature</code>. Once product managers can see cost per completed workflow next to adoption and p95 latency, architecture and pricing conversations get grounded very quickly.</p>
+            <p>Every quarter, pull your top ten most expensive prompts and benchmark them against newer small models on your eval set. Inference prices move fast, and keeping your routing layer flexible lets you capture those savings without rewriting product code.</p>
         `
     },
     {
         id: 5,
         title: "From Copilots to Autonomous Agents in Production",
-        summary: "Why unconstrained autonomy fails in the enterprise—and how bounded workflows, standardized tool protocols, and continuous evals turn agents into reliable systems.",
+        summary: "Why open-ended agent loops fail in enterprise environments, and how explicit state machines, MCP tool permissions, and trajectory evals make them dependable.",
         date: "Oct 18, 2026",
         readTime: "8 min read",
         slug: "autonomous-agents-in-production",
@@ -60,46 +49,39 @@ export const articles = [
         link: "#",
         color: "from-cyan-500 to-blue-600",
         keyTakeaways: [
-            "Treat agents as distributed systems, not chatbots: every tool call needs budgets, timeouts, and idempotency.",
-            "Bounded autonomy beats open-ended loops—keep deterministic state machines around probabilistic reasoning.",
-            "Standardized tool contracts (like MCP) decouple agent reasoning from brittle bespoke API glue.",
-            "Your evaluation suite is your real specification; without continuous evals, prompt changes are blind deploys."
+            "Every tool call needs timeouts, step caps, and idempotency just like any distributed service.",
+            "Keep workflow state in deterministic code and limit models to bounded reasoning steps.",
+            "Centralizing tools behind MCP gives security one place to enforce RBAC and audit logs.",
+            "Record full execution traces and turn every live mistake into a permanent eval case."
         ],
         content: `
-            <p class="lead">First-generation enterprise AI lived in sidebars: a copilot suggested text and a human clicked accept. Today, organizations are wiring agents directly into production workflows—triaging incidents, updating CRMs, and executing multi-step operational tasks. That shift changes the engineering bar completely.</p>
+            <p class="lead">The first wave of workplace AI stayed safely in sidebars. A copilot drafted an email or suggested a snippet, and a human decided whether to paste it. Wiring agents directly into production workflows (triaging tickets, updating CRM records, kicking off internal jobs) raises the stakes completely.</p>
 
-            <p>When a copilot hallucinates, a user ignores it. When an autonomous agent hallucinates inside a write-enabled workflow, it creates a production incident. Shipping agents reliably requires bringing classic distributed-systems discipline to probabilistic models.</p>
+            <p>When a chat sidebar makes something up, the user sighs and moves on. When a write-enabled agent makes something up, you have a customer-facing incident.</p>
 
-            <h2>Bounded Autonomy Over Open-Ended Loops</h2>
-            <p>The fastest way to break an agentic system is to hand a frontier model thirty tools and a vague objective. Error rates compound multiplicatively across steps: a 95% per-step reliability drops below 60% over a ten-step trajectory.</p>
-            <p>In production, the highest-performing systems pair <strong>deterministic orchestration</strong> with <strong>bounded reasoning nodes</strong>:</p>
+            <h2>Why Open-Ended Loops Break Down</h2>
+            <p>Handing a model twenty tools and a broad prompt looks magical in a three-minute video. In production, small error rates multiply fast. Even at 95% accuracy per step, a ten-step autonomous chain succeeds less than 60% of the time.</p>
+            <p>What actually holds up under real SLAs is much less flashy: keep workflow transitions, retries, and permissions in normal deterministic code (a state machine), and drop model calls into narrow, well-defined nodes where judgment is genuinely needed.</p>
             <ul>
-                <li><strong>Explicit State Machines:</strong> Let code govern workflow transitions, retries, and permissions; use models where ambiguity actually exists.</li>
-                <li><strong>Tiered Approval Gates:</strong> Read-only queries run autonomously, low-blast-radius writes log asynchronously, and high-impact mutations pause for human-in-the-loop sign-off.</li>
-                <li><strong>Hard Guardrails:</strong> Enforce step limits, token ceilings, and strict schema validation at every tool boundary.</li>
+                <li>Read-only lookups can run without friction.</li>
+                <li>Low-risk internal writes can execute automatically with clear audit logs and easy undo.</li>
+                <li>Customer-facing or financial mutations pause at an explicit human approval gate.</li>
             </ul>
+            <p>Set hard ceilings on step count, runtime, and token spend from day one. An agent stuck retrying a broken API endpoint at 2 a.m. will quietly drain your budget if nobody caps it.</p>
 
-            <h2>Context Engineering & Standardized Tool Contracts</h2>
-            <p>Prompt engineering has matured into <strong>context engineering</strong>: curating the exact state, memory, and tool schemas an agent sees at each turn. Dumping raw documentation or sprawling API specs into the context window degrades reasoning quality and inflates latency.</p>
-            <p>Adopting standardized protocols such as the <strong>Model Context Protocol (MCP)</strong> turns ad-hoc integrations into governed, auditable interfaces. Security teams get a single choke point for RBAC, rate limits, and audit trails, while product teams reuse capabilities across multiple agents without rewriting glue code.</p>
+            <h2>Standardizing Tool Access with MCP</h2>
+            <p>Early agent prototypes usually accumulate messy one-off API wrappers scattered across repos. That turns into a nightmare the moment enterprise security asks who accessed which customer record and why.</p>
+            <p>Putting internal tools behind a standard interface like the Model Context Protocol (MCP) cleans this up. Security gets a single gateway for per-tenant RBAC, rate limits, and immutable audit trails. Product squads stop rebuilding the same CRM or database connectors over and over. Equally important: keep each agent's tool list short. Stuffing forty tool schemas into a prompt hurts tool-selection accuracy and slows down every turn.</p>
 
-            <h2>Evals as the New CI/CD</h2>
-            <blockquote>"If you wouldn't ship backend code without automated tests, never ship an agent without trajectory evals."</blockquote>
-            <p>Traditional unit tests check deterministic outputs; agentic systems demand multi-layered evaluation pipelines:</p>
-            <ol>
-                <li><strong>Offline Golden Datasets:</strong> Curated real-world scenarios scored automatically on tool-selection accuracy, policy compliance, and groundedness before every release.</li>
-                <li><strong>LLM-as-a-Judge + Deterministic Checks:</strong> Combine strict programmatic assertions (valid JSON, authorized tool calls) with rubric-based grading for nuance.</li>
-                <li><strong>Production Tracing & Replay:</strong> Capture full reasoning traces and convert every live failure into a permanent regression test.</li>
-            </ol>
-
-            <h2>Conclusion</h2>
-            <p>The teams winning with autonomous agents aren't chasing the flashiest demo—they're building boringly reliable control planes around powerful models. Design for containment, invest early in evals, and earn autonomy one verified workflow at a time.</p>
+            <h2>Treat Trajectory Evals Like Unit Tests</h2>
+            <blockquote>If you would not merge backend code without automated tests, do not ship a prompt or tool change without running trajectory evals.</blockquote>
+            <p>We score candidate changes against a golden set of real anonymized runs before anything hits production. Programmatic checks verify strict rules first (valid JSON arguments, zero unauthorized tool calls, respected step budgets), and rubric graders score final answer quality. Whenever something goes sideways in production, we pull the OpenTelemetry trace and add it straight into the regression suite so that failure only happens once.</p>
         `
     },
     {
         id: 8,
         title: "Designing AI-Native Product Roadmaps Beyond 'Bolt-On' Features",
-        summary: "Why chat sidebars and sparkle buttons plateau quickly—and how product leaders redesign core workflows around asynchronous intelligence and compounding data flywheels.",
+        summary: "Why chat drawers and sparkle buttons lose steam after launch, and how to rethink customer workflows around background intelligence and earned trust.",
         date: "Sep 12, 2026",
         readTime: "7 min read",
         slug: "ai-native-product-roadmaps",
@@ -108,44 +90,37 @@ export const articles = [
         link: "#",
         color: "from-indigo-500 to-purple-600",
         keyTakeaways: [
-            "Bolting a chat sidebar onto a legacy CRUD app forces users to learn prompting instead of removing friction.",
-            "AI-native roadmaps invert the workflow: systems proactively prepare decisions, and humans review exceptions.",
-            "Trust is earned through progressive disclosure—citations, confidence signals, and reversible actions.",
-            "Build proprietary feedback flywheels where every human approval or edit directly improves the product."
+            "Adding a chat drawer to an existing CRUD screen forces users to do the prompting work.",
+            "Better AI features run in the background on real events and surface exceptions for review.",
+            "Inline source citations and one-click undo build far more adoption than flashy demos.",
+            "Every user edit or rejection is valuable training and eval signal if you capture it cleanly."
         ],
         content: `
-            <p class="lead">The first wave of enterprise AI roadmaps looked remarkably similar: take an existing SaaS product, add a chat drawer on the right rail, sprinkle a few sparkle icons over text inputs, and announce an "AI Suite." Most of those features saw an initial spike in curiosity followed by steep drop-off.</p>
+            <p class="lead">Look at how most SaaS companies shipped their first AI roadmap: keep every existing screen untouched, bolt a chat sidebar onto the right edge, scatter a few sparkle icons over text boxes, and call it a launch. Usage usually spikes in week one and falls off a cliff by week four.</p>
 
-            <p>Users don't want another prompt box to manage—they want the underlying job done faster and with fewer errors. Moving from "AI-assisted" to truly <strong>AI-native product strategy</strong> requires rethinking the workflow itself.</p>
+            <p>Busy operators rarely wake up wishing they had another blank prompt box to type into. They just want tedious multi-step work off their plate.</p>
 
-            <h2>Workflow Inversion: From Pull to Proactive</h2>
-            <p>Legacy software is synchronous and pull-based: a human logs in, runs five filters, exports a view, and drafts an action. AI-native software flips the interaction model:</p>
-            <ul>
-                <li><strong>Ambient Execution:</strong> Trigger analysis automatically on business events (a spike in negative brand sentiment, an escalated enterprise ticket, a stalled pipeline deal) rather than waiting for a prompt.</li>
-                <li><strong>Exception-First Interfaces:</strong> Surface concise, pre-assembled briefs and proposed actions so operators spend 80% of their time on judgment calls instead of data gathering.</li>
-                <li><strong>Structured Outputs Over Prose:</strong> Render diffs, ranked priorities, and one-click approvals directly inside existing domain objects instead of walls of conversational text.</li>
-            </ul>
+            <h2>Flip the Workflow from Pull to Push</h2>
+            <p>Conventional software waits for someone to log in, pick five filters, export a view, and figure out what changed. Intelligence works much better when it runs quietly in the background on real business events.</p>
+            <p>Think about a sudden spike in negative customer sentiment or an enterprise renewal slipping off track. Instead of waiting for an account manager to ask a chatbot what is happening, the system detects the shift, gathers the relevant threads and metrics, drafts a concrete action plan, and drops a short brief right into their queue. The human starts at 80% done and spends their time making the call.</p>
+            <p>Whenever possible, skip walls of prose. Show structured diffs, ranked lists, and clean approve/edit buttons inside the screens people already live in.</p>
 
-            <h2>Designing for Earned Trust</h2>
-            <blockquote>"In enterprise software, a confident wrong answer destroys ten times more trust than a missing feature."</blockquote>
-            <p>Product leaders must treat <strong>verifiability</strong> as a first-class UX requirement:</p>
+            <h2>Trust Takes Months to Build and Seconds to Lose</h2>
+            <p>Enterprise users remember one confident hallucination far longer than ten accurate summaries. A few small UX habits do the heavy lifting here:</p>
             <ol>
-                <li><strong>Inline Provenance:</strong> Link every synthesized claim or metric back to its exact underlying source record.</li>
-                <li><strong>Graduated Autonomy:</strong> Start new capabilities in shadow or draft-only mode, expose acceptance rates, and unlock automated execution only once teams trust the precision.</li>
-                <li><strong>Safe Undo & Auditability:</strong> Make every AI-driven state change inspectable and reversible in one click.</li>
+                <li>Link every synthesized claim or metric straight back to the exact source record so users can verify it in one click.</li>
+                <li>Roll out new capabilities in draft or shadow mode first. Once teams see the acceptance rate hit 90%+, they will ask you to automate the next step.</li>
+                <li>Make every AI-initiated edit easy to inspect and reverse.</li>
             </ol>
 
-            <h2>Building the Data Flywheel Into the UX</h2>
-            <p>Every time a user edits a drafted response, rejects a routing recommendation, or approves a generated brief, your product captures high-signal preference data. Design your UX to harvest those micro-corrections effortlessly and feed them back into your evaluation datasets, retrieval ranking, and domain tuning.</p>
-
-            <h2>Conclusion</h2>
-            <p>Stop asking "Where can we add an LLM button?" Start asking "If intelligence were abundant and asynchronous, which entire steps in our customer's workflow should disappear?" That question separates enduring category leaders from bolt-on features.</p>
+            <h2>Capture the Edits</h2>
+            <p>Every time a customer rewrites a drafted reply, dismisses an alert, or tweaks a recommendation, your product just received free domain feedback. Log those micro-corrections cleanly (with customer consent and privacy controls) and pipe them back into your eval datasets and retrieval tuning. Over a year, that feedback loop becomes much harder for competitors to copy than any prompt.</p>
         `
     },
     {
         id: 6,
         title: "Platform Engineering in the Era of AI-Assisted Development",
-        summary: "When AI accelerates code generation by orders of magnitude, the bottleneck moves to verification, architecture, and operations. Here is how modern IDPs adapt.",
+        summary: "When coding agents make writing code fast and cheap, the real slowdown moves to PR review, architecture checks, and safe deploys. Here is how internal platforms need to adapt.",
         date: "Jul 24, 2026",
         readTime: "7 min read",
         slug: "platform-engineering-ai-era",
@@ -154,44 +129,36 @@ export const articles = [
         link: "#",
         color: "from-emerald-500 to-teal-500",
         keyTakeaways: [
-            "AI coding tools made writing code cheap; reviewing, verifying, and operating it is now the primary constraint.",
-            "Golden paths and Internal Developer Platforms (IDPs) act as high-leverage guardrails for both humans and coding agents.",
-            "Shift verification left: automated architecture linting, ephemeral environments, and security gates must run on every PR.",
-            "Measure engineering health by change failure rate and lead time to stable production—never lines of code generated."
+            "Code generation sped up dramatically, making review and verification the main delivery bottleneck.",
+            "Clean golden paths and typed contracts help both new hires and coding agents stay accurate.",
+            "Automate architecture boundaries, preview environments, and security scans before human review.",
+            "Judge engineering health by change failure rate and lead time, never lines of code."
         ],
         content: `
-            <p class="lead">For decades, typing code was treated as the core bottleneck of software delivery. AI coding assistants and autonomous engineering agents shattered that assumption. Teams can now generate pull requests faster than senior engineers can meaningfully review them.</p>
+            <p class="lead">For most of my career, writing code was treated as the main constraint on shipping software. AI coding tools changed that almost overnight. Engineers can now open pull requests faster than senior teammates can carefully review them.</p>
 
-            <p>Without a corresponding upgrade to your <strong>Internal Developer Platform (IDP)</strong>, faster code generation doesn't create velocity—it creates review fatigue, architectural drift, and fragile production releases.</p>
+            <p>If your CI pipeline and internal developer platform stay stuck in 2022, faster code output just turns into review queues, duplicated helpers, and nervous Friday deploys.</p>
 
-            <h2>The Shift from Authoring to Verification</h2>
-            <p>When code volume doubles, human-only code review collapses under its own weight. Platform engineering teams must re-architect CI/CD as an automated <strong>verification engine</strong>:</p>
+            <h2>Turn CI into a Real Verification Engine</h2>
+            <p>Asking staff engineers to catch formatting nits, missing null checks, and subtle dependency leaks by hand does not scale when PR volume doubles. Push everything mechanical onto the platform before a human even gets tagged:</p>
             <ul>
-                <li><strong>Ephemeral Preview Environments:</strong> Every pull request spins up an isolated environment with realistic seed data and automated integration suites.</li>
-                <li><strong>Architectural Fitness Functions:</strong> Enforce module boundaries, API contracts, and dependency rules mechanically in CI so neither humans nor agents silently violate system design.</li>
-                <li><strong>Shift-Left Security & Policy-as-Code:</strong> SAST, secret detection, CVE scanning, and IAM least-privilege checks run automatically before a reviewer ever looks at the diff.</li>
+                <li>Spin up isolated preview environments on every pull request with realistic seed data and automated smoke tests.</li>
+                <li>Enforce module boundaries and API schemas right in CI so neither a rushed developer nor a coding agent accidentally reaches across service lines.</li>
+                <li>Run secret scanning, SAST, and dependency CVE checks automatically as required merge gates.</li>
             </ul>
+            <p>Once the platform guarantees a branch builds, passes integration suites, respects architectural rules, and carries no known vulnerabilities, human reviewers can spend their time on design trade-offs and edge cases.</p>
 
-            <h2>Golden Paths for Humans and Agents Alike</h2>
-            <p>A great IDP makes the right way the easiest way. Interestingly, well-structured golden paths—standardized service templates, typed contracts, clean observability defaults, and concise repository instructions—benefit AI coding agents just as much as new hires.</p>
-            <blockquote>"Good platform hygiene is now an AI multiplier. Clean abstractions make both engineers and agents dramatically more accurate."</blockquote>
+            <h2>Clean Repos Help Agents Too</h2>
+            <p>One pleasant surprise over the past year: investments we made for human developer experience paid off twice with AI coding assistants. Clear service templates, strict TypeScript or Go types, consistent folder layouts, and short up-to-date READMEs cut agent mistakes noticeably. Messy repos confuse people and models in the exact same ways.</p>
 
-            <h2>Rethinking Engineering Metrics</h2>
-            <p>Leaders who celebrate PR counts or lines of code written are measuring noise. In an AI-accelerated org, the metrics that matter are rooted in end-to-end delivery resilience:</p>
-            <ol>
-                <li><strong>Lead Time from Commit to Verified Production:</strong> How fast does a change move safely through automated gates?</li>
-                <li><strong>Change Failure Rate & MTTR:</strong> Are releases staying boring and recoverable as output rises?</li>
-                <li><strong>Review Latency & Cognitive Load:</strong> Are senior engineers spending time on architectural judgment rather than style nits?</li>
-            </ol>
-
-            <h2>Conclusion</h2>
-            <p>AI didn't make platform engineering optional—it made it existential. Invest in deterministic verification, paved golden paths, and deep observability so your organization turns raw code speed into compounding product velocity.</p>
+            <h2>Stop Counting PRs and Lines of Code</h2>
+            <p>Every few months someone asks whether we should track lines of AI-generated code. I always push back. Generating more code is easy; maintaining less code while shipping faster is the actual goal. Stick to the fundamentals: lead time from commit to safe production, change failure rate, recovery time when something breaks, and how long PRs sit waiting for review.</p>
         `
     },
     {
         id: 9,
         title: "Eval-Driven Product Development: Replacing Vibes with Measurable Quality",
-        summary: "How Product and Engineering teams co-author living evaluation suites to govern probabilistic AI systems, ship model upgrades safely, and align quality with business KPIs.",
+        summary: "How product managers and engineers write living evaluation suites together so model upgrades stop feeling like a gamble.",
         date: "May 28, 2026",
         readTime: "6 min read",
         slug: "eval-driven-product-development",
@@ -200,44 +167,32 @@ export const articles = [
         link: "#",
         color: "from-blue-600 to-indigo-500",
         keyTakeaways: [
-            "In probabilistic software, an evaluation suite—not a static PRD—is the true contract of product quality.",
-            "Product Managers and domain SMEs must co-own failure taxonomies and grading rubrics alongside engineers.",
-            "Decouple model upgrades from release anxiety: strong evals let you swap models in hours instead of months.",
-            "Correlate offline eval scores with live customer metrics (acceptance rate, escalations, retention) so teams don't overfit."
+            "Testing five prompts by hand breaks down as soon as real customer traffic arrives.",
+            "PMs and domain experts need to co-write failure cases and pass/fail rubrics with engineering.",
+            "Solid eval suites let you swap to cheaper, faster models in days instead of quarters.",
+            "Always check offline eval scores against live user edits, escalations, and retention."
         ],
         content: `
-            <p class="lead">Too many AI teams still ship on "vibe checks"—running five hand-picked prompts in a staging tab, deciding the output looks sharper, and pushing to production. That works until a subtle prompt tweak breaks an edge case for your largest enterprise customer.</p>
+            <p class="lead">Plenty of smart teams still ship AI changes on gut feel. Someone tweaks a system prompt, tests five familiar queries in staging, likes how the tone reads, and pushes to production. Two days later, a quiet regression breaks a workflow for an enterprise account nobody tested.</p>
 
-            <p>Just as Test-Driven Development transformed deterministic software reliability, <strong>Eval-Driven Product Development (EDPD)</strong> is becoming the core operating rhythm for serious AI organizations.</p>
+            <p>With deterministic software, unit and integration tests catch those regressions before merge. With probabilistic models, an automated evaluation suite fills the same role, except product managers need to be in the room helping build it.</p>
 
-            <h2>The Living PRD: Co-Authoring Evals Before Prompts</h2>
-            <p>Before an engineer writes a single system prompt or retrieval pipeline, Product, Engineering, and domain experts should agree on what "good" and "unacceptable" look like in concrete examples:</p>
-            <ul>
-                <li><strong>Curated Failure Modes:</strong> Collect 50 to 200 real edge cases—ambiguous queries, missing permissions, adversarial inputs, and multi-hop reasoning tasks.</li>
-                <li><strong>Binary Pass/Fail Criteria:</strong> Favor crisp, objective checks ("Did it cite an authorized source?", "Did it respect schema and policy bounds?") over vague 1-to-5 scores that drift across reviewers.</li>
-                <li><strong>Error Analysis Rituals:</strong> Spend 60 minutes every week reading real production traces as a cross-functional leadership group; every surprising failure becomes a new test case.</li>
-            </ul>
+            <h2>Write the Rubric Before the Prompt</h2>
+            <p>Before writing prompt text or tuning retrieval, get Product, Engineering, and one or two domain SMEs together to gather 50 to 150 real scenarios: messy customer inputs, edge cases with missing permissions, ambiguous questions, and known traps.</p>
+            <p>Skip vague 1-to-5 quality ratings where reviewers constantly disagree on what a "3" versus a "4" means. Binary pass/fail checks hold up much better: Did it pull from an authorized document? Did it include a verifiable citation? Did it avoid inventing numbers? Once a week, sit down together for an hour and read twenty real production traces. Almost every surprising failure you spot turns into a fresh test case.</p>
 
-            <h2>Unlocking Speed Through Model Portability</h2>
-            <blockquote>"Teams with weak evals are locked into yesterday's expensive model. Teams with strong evals adopt faster, cheaper models the week they launch."</blockquote>
-            <p>Foundation models evolve every few months. When your product is backed by a trusted automated evaluation harness, migrating to a newer, faster, or 60% cheaper model stops being a scary multi-quarter rewrite—it becomes a routine CI benchmark run.</p>
+            <h2>Why Evals Give You Leverage Over Vendors</h2>
+            <blockquote>Teams without good evals stay stuck paying for last year's model out of fear. Teams with good evals switch the week a faster, cheaper model drops.</blockquote>
+            <p>Model releases keep landing every couple of months. Without a trusted benchmark, testing a new model feels like a multi-week manual QA project, so teams put it off and overpay. With evals wired into CI, testing a newly released model takes an afternoon.</p>
 
-            <h2>Closing the Loop to Business Outcomes</h2>
-            <p>Offline evals are necessary, never sufficient. Anchor your offline rubric to live online indicators:</p>
-            <ol>
-                <li><strong>Implicit Signals:</strong> Edit distance on AI drafts, re-query rates, and undo clicks reveal friction long before churn shows up.</li>
-                <li><strong>Shadow & Canary Rollouts:</strong> Run candidate prompts or models in shadow mode against live traffic to measure divergence before exposing customers.</li>
-                <li><strong>Executive Quality Scorecards:</strong> Track groundedness, policy compliance, and latency SLOs right beside revenue and uptime.</li>
-            </ol>
-
-            <h2>Conclusion</h2>
-            <p>Evals are not a QA tax bolted onto the end of a sprint—they are the bridge between product intent and engineering execution. Build the rubric first, automate it in CI, and turn probabilistic AI into a disciplined engineering craft.</p>
+            <h2>Keep Offline Scores Honest</h2>
+            <p>It is easy to overfit a static eval dataset and celebrate a 96% score while customers quietly stop using the feature. Pair offline benchmarks with live behavioral checks: how often users heavily edit an AI draft, how often they re-ask the same question, and whether support escalations actually drop. Run big prompt or model changes in shadow mode against live traffic first so you see real divergence before customers do.</p>
         `
     },
     {
         id: 1,
         title: "Scaling Engineering Teams from 5 to 50",
-        summary: "Lessons learned in culture, high-leverage squad topology, and hiring through hyper-growth—maintaining velocity and quality in an AI-augmented org.",
+        summary: "What breaks in communication, hiring, and management as an engineering group grows tenfold, and the habits that keep teams moving fast.",
         date: "Dec 12, 2025",
         readTime: "8 min read",
         slug: "scaling-engineering-teams",
@@ -246,53 +201,33 @@ export const articles = [
         link: "#",
         color: "from-violet-500 to-fuchsia-500",
         keyTakeaways: [
-            "At 50 engineers, information osmosis fails. You must shift from implicit to explicit written context.",
-            "Hire for 'Culture Add' and systems judgment, not just 'Culture Fit' or syntax speed.",
-            "The Manager's role shifts from Player-Coach to Unblocker-Strategist.",
-            "Standardized onboarding and clear domain ownership are the highest-leverage activities for sustaining velocity."
+            "Around 15 to 20 engineers, informal word-of-mouth stops working and written RFCs become mandatory.",
+            "Hire for systems judgment and perspective the team is missing, not carbon copies of early hires.",
+            "Managers have to let go of being the top coder so they can clear blockers and grow leaders.",
+            "Clean onboarding and clear domain ownership beat adding more status meetings."
         ],
         content: `
-            <p class="lead">Scaling an engineering team is one of the most perilous transitions a leader faces. It is a fundamental rewrite of your organizational operating system. What worked at 5 engineers will actively slow you down—or break you—at 50.</p>
-            
-            <p>I've navigated this hyper-growth phase multiple times, and the pattern is consistent: things break in specific, predictable ways. If you anticipate them, you scale product leverage alongside headcount. If you don't, you simply scale coordination overhead.</p>
+            <p class="lead">Growing an engineering org from 5 people to 50 breaks almost every habit that made the early team fast. I have been through that stretch a few times now, and the failure modes show up right on schedule.</p>
 
-            <h2>The 'Breaking Point' of Osmotic Communication</h2>
-            <p>At 5 engineers, everyone knows everything. You sit in the same room (or channel), and decisions happen continuously and organically. Communication is <em>osmotic</em>.</p>
-            <p>At 50 engineers, that osmosis evaporates. Yet many leaders try to preserve the "flat structure" where everyone is in every meeting. The result is paralysis. You must shift from <strong>implicit</strong> tribal knowledge to <strong>explicit</strong> RFCs, architecture decision records (ADRs), and async communication.</p>
-            <blockquote>"If it isn't written down, it didn't happen." This becomes the golden rule of scaling—and it also creates the written context modern AI tools need to assist your teams effectively.</blockquote>
+            <h2>When Word-of-Mouth Runs Out</h2>
+            <p>With five engineers, everyone hears every decision naturally. You sit near each other or share one Slack channel, and context spreads without effort.</p>
+            <p>By twenty or thirty engineers, that informal flow disappears. The mistake I see most often is trying to keep the "flat startup feel" by inviting everyone to every architecture call. Suddenly nobody has uninterrupted time to build. Writing short RFCs and Architecture Decision Records (ADRs) feels slightly formal at first, yet it buys back hours every week and keeps distributed teams across time zones aligned. Bonus: clear written context also makes onboarding and AI dev tools far more effective.</p>
 
-            <h2>Strategy 1: Decoupling Teams & Domains</h2>
-            <p>You cannot have 50 people reporting to one person, nor can you have 50 people stepping on each other in tightly coupled codebases. Move to small, autonomous, cross-functional squads with crisp domain ownership:</p>
-            <ul>
-                <li><strong>Define Clear Boundaries:</strong> Each squad owns a business domain end-to-end (e.g., "Intelligence Core", "Platform", "Growth").</li>
-                <li><strong>Minimize Cross-Team Dependencies:</strong> If Squad A waits on Squad B for every release, you haven't decoupled—you've built organizational latency.</li>
-                <li><strong>Empower Decision Making:</strong> Teams should own technical decisions inside their domain within clear global architecture and security guardrails.</li>
-            </ul>
+            <h2>Split Ownership Along Real Domains</h2>
+            <p>Fifty engineers cannot report to one person, and they should not be tripping over each other in the same deployment queue. Organize around small cross-functional squads that own a clear slice of the product (data ingestion, platform, core app) from design through on-call.</p>
+            <p>Watch cross-team handoffs closely. If Squad A has to file a ticket with Squad B every time they ship a small feature, you still have a bottleneck. Give squads real authority inside their domain while keeping shared security, observability, and API conventions clear.</p>
 
-            <h2>Strategy 2: Hiring for Judgment AND Culture Add</h2>
-            <p>The biggest risk in rapid scaling is diluting the engineering bar. Equally risky is hiring clones of your founding team. Shift from <strong>"Culture Fit"</strong> to <strong>"Culture Add"</strong>—asking what perspective, architectural depth, or product instinct the team is missing.</p>
-            <p>As AI tooling handles more routine implementation, calibrate interviews for <strong>system design, debugging under ambiguity, and product judgment</strong>:</p>
-            <ol>
-                <li><strong>Standardize the Interview Loop:</strong> Run structured, rubric-driven evaluations. "Gut feel" scales poorly and introduces bias.</li>
-                <li><strong>The 'Bar Raiser':</strong> Include a calibrated interviewer from another domain focused purely on long-term technical and leadership trajectory.</li>
-            </ol>
+            <h2>Hiring Without Dropping the Bar</h2>
+            <p>Rapid hiring tempts teams to cut corners or hire clones of the founding group. Neither ages well. Instead of asking whether someone feels like a "culture fit," ask what perspective or strength the group currently lacks. Standardize interview rubrics early, include a calibrated interviewer from a sibling team, and focus interviews on system design, debugging under ambiguity, and product judgment rather than memorized trivia.</p>
 
-            <h2>Strategy 3: The Manager as 'Gardener'</h2>
-            <p>Early on, engineering managers act as "Player-Coaches." As you scale, trying to remain the top individual contributor starves the team of direction. The leader's leverage shifts to:</p>
-            <ul>
-                <li><strong>Unblocking:</strong> Removing organizational, cross-functional, and platform friction before it stalls delivery.</li>
-                <li><strong>Gardening:</strong> Pruning outdated processes and investing intentionally in staff-plus and manager career growth.</li>
-                <li><strong>Alignment:</strong> Ensuring every engineer understands <em>why</em> a bet matters to customers and the business.</li>
-            </ul>
-
-            <h2>Conclusion</h2>
-            <p>Scaling is not doing more of the same—it is deliberate reinvention. The lightweight structures that feel like overhead at 5 people become the safety rails that let 50 engineers move with startup speed and enterprise reliability.</p>
+            <h2>Letting Go of the Keyboard</h2>
+            <p>Early engineering managers usually code half the week. Past twenty engineers, hanging onto critical-path tickets slows the whole group down. Your highest leverage moves to unblocking cross-functional friction, coaching senior ICs and new managers, and making sure every squad knows why their work matters to customers.</p>
         `
     },
     {
         id: 2,
         title: "The ROI of Technical Debt",
-        summary: "A pragmatic framework for balancing refactoring against feature delivery—and preventing AI-accelerated velocity from compounding silent debt.",
+        summary: "How to talk about refactoring with executives, carve out steady pay-down capacity, and keep fast shipping from turning into a rewrite.",
         date: "Nov 05, 2025",
         readTime: "6 min read",
         slug: "roi-technical-debt",
@@ -301,46 +236,35 @@ export const articles = [
         link: "#",
         color: "from-amber-500 to-orange-500",
         keyTakeaways: [
-            "Tech debt is a financial instrument: leverage it deliberately for speed, but service the interest before it compounds.",
-            "Translate architectural issues into business risk (reliability) and opportunity cost (delivery velocity) for executives.",
-            "Implement the '20% Tax': dedicate consistent sprint capacity to continuous debt pay-down and platform hardening.",
-            "AI-assisted coding makes code cheap to produce, which raises the ROI of disciplined architecture and refactoring."
+            "Taking on short-term debt to hit a real market window is fine if you schedule repayment.",
+            "Frame cleanup work around outage risk and delivery speed, not code aesthetics.",
+            "Reserve roughly 20% of ongoing capacity so debt never piles up into a risky rewrite.",
+            "Ignore low-risk legacy code that rarely changes; focus only where pain actually compounds."
         ],
         content: `
-            <p class="lead">"Technical Debt" is one of the most misunderstood metaphors in software. It isn't simply "messy code." It is a conscious decision to borrow against future maintainability to capture market speed today. The mistake isn't taking on debt—it's ignoring the compounding interest.</p>
+            <p class="lead">Engineers often use "technical debt" to mean any code written by someone else six months ago. Used properly, though, it is a useful financial idea: sometimes you deliberately take a shortcut to hit a real launch date, knowing you will pay interest until you clean it up.</p>
 
-            <p>As an engineering and product executive, your job isn't to achieve zero debt—that's both impossible and commercially naive. Your job is to manage the portfolio so the organization stays fast, resilient, and solvent.</p>
+            <p>Zero tech debt is a fantasy, and chasing it stalls the business. Letting interest pile up unchecked is just as dangerous.</p>
 
-            <h2>Reframing the Conversation: Risk & Velocity</h2>
-            <p>Boards and business leaders rarely care about abstract refactoring or lint rules. They care deeply about <strong>Revenue, Risk, and Time-to-Market</strong>. Translate technical reality into those terms:</p>
+            <h2>Speak in Risk and Delivery Speed</h2>
+            <p>CEOs and sales leaders rarely care that a module looks messy or lacks strict typing. They care deeply about uptime during peak sales and how long new customer features take to ship.</p>
             <ul>
-                <li><strong>Stop saying:</strong> "We need two sprints to refactor the billing service because the code is messy."</li>
-                <li><strong>Start saying:</strong> "Stabilizing the billing flow eliminates a high-probability outage risk during peak renewals and cuts feature delivery lead time by 30%."</li>
+                <li><strong>Weak pitch:</strong> "We need two sprints to refactor the billing service because the code is spaghetti."</li>
+                <li><strong>Stronger pitch:</strong> "Stabilizing the billing service removes our biggest outage risk ahead of peak renewals and cuts lead time on upcoming pricing features by about 30%."</li>
             </ul>
-            <p>When debt is framed as <em>Strategic Risk</em> or <em>Opportunity Cost</em>, alignment with Product and Finance becomes straightforward.</p>
+            <p>Tie cleanup work to reliability risk or lost roadmap speed, and getting executive support stops feeling like an uphill battle.</p>
 
-            <h2>The 20% Rule (Continuous Amortization)</h2>
-            <p>Reserve roughly 20% of ongoing engineering capacity for platform hardening, dependency hygiene, observability, and targeted debt reduction.</p>
-            <blockquote>"We don't ask permission to write automated tests, and we shouldn't ask permission to keep our architecture healthy. It is part of shipping production software."</blockquote>
-            <p>Continuous amortization turns debt management from terrifying, multi-quarter "Big Rewrite" projects (which routinely stall product momentum) into a steady operational habit. In an era where AI-generated code can inflate duplication rapidly if left unchecked, this discipline matters more than ever.</p>
+            <h2>Budget the 20% Maintenance Habit</h2>
+            <p>The healthiest teams I have run keep roughly 20% of each sprint dedicated to dependency upgrades, test stability, observability, and targeted refactoring. Nobody asks for a special board vote to write tests, and routine codebase upkeep belongs in the same bucket. Steady maintenance prevents the dreaded multi-quarter "full rewrite" that freezes the product while competitors catch up. With AI tools making it easier than ever to generate duplicate code quickly, keeping that cleanup cadence matters even more.</p>
 
-            <h2>Prioritization Framework: The Debt Quadrant</h2>
-            <p>Not all technical debt deserves immediate attention. Prioritize ruthlessly with a 2x2 lens:</p>
-            <ol>
-                <li><strong>High Risk / Low Effort:</strong> Fix immediately (security exposures, fragile hot-path queries, missing alerts).</li>
-                <li><strong>High Risk / High Effort:</strong> Fund as a phased strategic initiative with clear milestones (core schema splits, platform migrations).</li>
-                <li><strong>Low Risk / Low Effort:</strong> Clean up opportunistically via the Boy Scout Rule during adjacent feature work.</li>
-                <li><strong>Low Risk / High Effort:</strong> Leave alone. Don't burn cycles chasing aesthetic perfection in cold code paths.</li>
-            </ol>
-
-            <h2>Conclusion</h2>
-            <p>Treat technical debt like capital. Deploy it intentionally to validate products and win markets—then service it continuously so your engineering velocity accelerates rather than grinds to a halt.</p>
+            <h2>Pick Your Battles</h2>
+            <p>I sort cleanup items along two axes: business risk and effort. High-risk, low-effort fixes (missing alerts, security patches, slow hot-path queries) get done immediately. High-risk, high-effort items (database splits, platform migrations) get scoped as real roadmap projects with clear milestones. Low-risk, high-effort eyesores sitting in cold code that nobody touches? Leave them alone and spend your energy where customers actually feel the difference.</p>
         `
     },
     {
         id: 3,
         title: "Microservices: A Retrospective",
-        summary: "What we got right, what we got wrong, and when you should actually break the monolith. Real-world lessons from large-scale migrations.",
+        summary: "Hard lessons from breaking up a monolithic platform: what worked, where we over-split, and why I default to a modular monolith today.",
         date: "Oct 20, 2025",
         readTime: "10 min read",
         slug: "microservices-retrospective",
@@ -349,41 +273,37 @@ export const articles = [
         link: "#",
         color: "from-sky-500 to-indigo-500",
         keyTakeaways: [
-            "Microservices don't fix tangled code—they solve organizational scaling and independent lifecycle bottlenecks.",
-            "The 'Distributed Monolith' is the worst of both worlds: network latency without independent deployability.",
-            "Observability (OpenTelemetry tracing, structured logs, SLOs) must exist *before* you extract the first service.",
-            "Split by Bounded Context and scaling profile—not by database table."
+            "Microservices solve team coordination and scaling differences, not messy code.",
+            "Splitting too early creates a distributed monolith: network hops without true independence.",
+            "Put OpenTelemetry tracing and clear SLOs in place before extracting service number one.",
+            "Start with a modular monolith and split only when scale or org boundaries force your hand."
         ],
         content: `
-            <p class="lead">The industry swung hard from "monoliths are legacy" to "microservices by default," and we're now living through a healthy, pragmatic correction. After leading migrations from monolithic platforms to dozens of distributed services, I have the scars to prove that distributed systems are never a free lunch.</p>
+            <p class="lead">Around 2015, the default advice across the industry was simple: monoliths are bad, split everything into microservices. After leading migrations off decade-old monoliths and running dozens of services in production, I have a much more cautious view.</p>
 
-            <h2>The False Promise of Instant "Decoupling"</h2>
-            <p>Migrations are often pitched to executives with the promise that teams will suddenly ship independently. In practice, poorly drawn boundaries simply trade <strong>compile-time coupling</strong> (easy to inspect and refactor) for <strong>runtime coupling</strong> (painful to debug across networks).</p>
-            <p>If Service A synchronously calls Service B, which calls Service C, and Service C degrades, users don't care that your architecture diagram looks modular. You've built a <strong>Distributed Monolith</strong>: tightly coupled availability with the added tax of serialization, retries, and tail latency.</p>
+            <h2>How You Accidentally Build a Distributed Monolith</h2>
+            <p>Every migration gets pitched around team autonomy. In reality, if you split a tangled codebase along the wrong lines, you trade compile-time coupling (which your IDE shows you immediately) for runtime coupling across network hops.</p>
+            <p>When Service A synchronously calls Service B, which calls Service C, and a deploy to Service C slows down the chain, users just see a broken site. You end up coordinating lockstep deploys across five repos while paying extra latency and retry overhead on every request.</p>
 
-            <h2>When to Actually Split</h2>
-            <p>Use a strict heuristic before extracting a service from a monolith. Split only when at least one of these forces is undeniable:</p>
+            <h2>Three Good Reasons to Actually Split</h2>
+            <p>Today I only pull a component out of a monolith when at least one of these pressures is obvious:</p>
             <ol>
-                <li><strong>Distinct Scaling Profiles:</strong> A workload has fundamentally different compute needs (e.g., GPU-backed inference or high-throughput stream ingestion vs. standard CRUD APIs).</li>
-                <li><strong>Independent Change Cadence:</strong> A domain deploys daily while the surrounding core changes rarely—or carries strict compliance isolation requirements.</li>
-                <li><strong>Organizational Boundaries:</strong> Team coordination overhead within a shared deployment unit genuinely exceeds the operational cost of network boundaries (Conway's Law).</li>
+                <li><strong>Very different hardware needs:</strong> GPU inference workers or heavy stream consumers should scale separately from standard web APIs.</li>
+                <li><strong>Different release or compliance rules:</strong> A billing or auth boundary that changes slowly and needs tight audit isolation.</li>
+                <li><strong>Team contention:</strong> Enough engineers are shipping daily in one repo that merge queues and coordinated deploys genuinely cost more than network calls.</li>
             </ol>
 
-            <h2>The Hidden Tax: Observability & Consistency</h2>
-            <p>The real cost of microservices isn't writing endpoints—it's operating the connective tissue:</p>
-            <ul>
-                <li><strong>End-to-End Observability:</strong> Before splitting service #1, standardize on OpenTelemetry distributed tracing, correlation IDs, and clear service-level objectives (SLOs).</li>
-                <li><strong>Data Consistency:</strong> Local ACID transactions give way to eventual consistency, outbox patterns, idempotency keys, and Sagas. Teams need real maturity here before multiplying services.</li>
-            </ul>
+            <h2>Pay the Observability Tax Up Front</h2>
+            <p>Debugging one monolith log file is easy. Tracking a slow checkout request across twelve services without OpenTelemetry tracing, correlation IDs, and clear service SLOs is miserable. You also leave local ACID transactions behind and step into eventual consistency, outbox tables, and idempotent retries. Make sure your platform and on-call tooling are ready before multiplying services.</p>
 
-            <h2>Conclusion: Start with a Modular Monolith</h2>
-            <p>If you're designing a new platform today, default to a <strong>Modular Monolith</strong> with strict in-process module boundaries and clean data ownership. If boundaries are blurry inside one repo, putting HTTP between them only makes the mess distributed. Earn your boundaries first; split the deployment unit when scale demands it.</p>
+            <h2>Where I Start Now</h2>
+            <p>For a brand-new product, I almost always start with a modular monolith: one deployable unit with strict internal package boundaries and separate database schemas per domain. If you cannot keep module boundaries clean inside a single repository, putting HTTP between them only makes the tangle harder to debug. Clean up the boundaries first, then split out services when real traffic or team size justifies the overhead.</p>
         `
     },
     {
         id: 4,
         title: "AI in Production: Beyond the Hype",
-        summary: "Practical strategies for shipping LLM and AI systems at enterprise scale—balancing latency, unit economics, context engineering, and reliability.",
+        summary: "Field notes on running LLM features under real enterprise SLAs: handling latency, cutting token bills, and getting retrieval right.",
         date: "Sep 15, 2025",
         readTime: "7 min read",
         slug: "ai-production-strategies",
@@ -392,32 +312,29 @@ export const articles = [
         link: "#",
         color: "from-rose-500 to-pink-500",
         keyTakeaways: [
-            "The demo-to-production gap is an engineering problem: reliability, evals, and unit economics separate products from toys.",
-            "Latency and cost are solved through model routing—pairing small specialized models with frontier reasoning only where needed.",
-            "Hybrid retrieval + context engineering beats blindly stuffing massive context windows.",
-            "Proprietary data, deep workflow integration, and continuous evaluation loops are the only durable enterprise moats."
+            "Getting an AI demo working takes an afternoon; hitting enterprise latency and accuracy takes real systems work.",
+            "Stream responses early, cache aggressively, and route simple work to smaller models.",
+            "Hybrid search and clean chunking beat stuffing huge context windows.",
+            "Workflow integration and clean proprietary data outlast every quarterly model release."
         ],
         content: `
-            <p class="lead">Every software company now ships AI features, yet a wide chasm still separates an impressive prototype from a production AI system meeting enterprise SLAs. The hype is about model <em>capability</em>; production engineering is about <em>reliability, latency, and unit economics</em>.</p>
+            <p class="lead">Almost every product deck now promises AI. Getting a prototype working in a notebook takes a couple of hours. Running that same feature for thousands of enterprise users with tight latency budgets, predictable bills, and low hallucination rates is a completely different job.</p>
 
-            <h2>Solving Latency & Unit Economics with Model Routing</h2>
-            <p>Users expect snappy software, while heavy reasoning models can take seconds and burn margin at scale. Relying on a single frontier model for every request is an architectural anti-pattern.</p>
-            <p>Production AI stacks treat inference as a tiered routing problem:</p>
+            <h2>Fixing Latency Without Ruining Margin</h2>
+            <p>People expect web apps to feel instant, while large reasoning models can take several seconds to respond. Waiting for a full completion behind a blank spinner kills engagement quickly.</p>
+            <p>Three practical habits solve most of the pain:</p>
             <ul>
-                <li><strong>Model Tiering:</strong> Route high-volume classification, extraction, and summarization to fast, distilled small models—reserving frontier reasoning models for complex synthesis and multi-step planning.</li>
-                <li><strong>Streaming & Progressive UX:</strong> Stream structured responses via SSE and show intermediate state so perceived latency stays low.</li>
-                <li><strong>Prompt & Semantic Caching:</strong> Combine provider-level prompt prefix caching with embedding-based semantic caching to slash both p95 latency and token spend.</li>
+                <li>Stream partial outputs over Server-Sent Events (SSE) and show lightweight progress states so the interface feels alive immediately.</li>
+                <li>Combine prompt-prefix caching with Redis semantic caching for repeated or near-identical user questions.</li>
+                <li>Stop using a heavyweight model for everything. Fast distilled models handle classification, extraction, and short summaries at a fraction of the time and cost.</li>
             </ul>
 
-            <h2>Context Engineering vs. Giant Context Windows</h2>
-            <p>Multi-million-token context windows tempted teams into dumping entire knowledge bases into every prompt. In production, bloated contexts still hurt retrieval precision, inflate latency, and destroy unit economics.</p>
-            <p><strong>Hybrid Retrieval (BM25 + vector search + reranking)</strong> paired with disciplined <strong>context engineering</strong> remains the winning pattern. Spend 80% of your energy on data hygiene, chunking, metadata filtering, and retrieval quality—not endless prompt tweaking.</p>
+            <h2>Why Giant Context Windows Are Still a Trap</h2>
+            <p>Multi-million-token context windows tempted plenty of teams to skip retrieval and dump entire folders straight into the prompt. In real workloads, massive prompts still hurt recall on buried details, slow down time-to-first-token, and blow up unit costs.</p>
+            <p>Hybrid search (BM25 for exact codes and names paired with vector embeddings for meaning) plus a fast reranker consistently wins. Spend most of your engineering time on data hygiene, clean document chunking, metadata filters, and permission checks rather than tweaking adjectives in a system prompt.</p>
 
-            <h2>Where the Real Enterprise Moat Lives</h2>
-            <p>Thin UI wrappers around foundation APIs are features, not businesses. Durable value comes from <strong>proprietary domain data</strong>, <strong>closed-loop user feedback</strong>, and <strong>deep workflow integration</strong>—systems that don't merely chat about a customer problem, but inspect live state, draft verified actions, and trigger governed backend workflows.</p>
-
-            <h2>Conclusion</h2>
-            <p>Model releases will keep leapfrogging every quarter. Build model-agnostic orchestration, invest relentlessly in automated evals and data quality, and focus on measurable workflow outcomes. That is what compounds in production.</p>
+            <h2>What Actually Sticks</h2>
+            <p>Base models keep getting cheaper and smarter every few months. If your product is just a thin text box over an API, every model release chips away at your differentiation. The value that sticks comes from clean domain data, tight integrations with the systems your customers already rely on, and eval pipelines that prove your feature works reliably week after week.</p>
         `
     }
 ];

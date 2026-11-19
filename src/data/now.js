@@ -10,12 +10,12 @@ export const nowData = {
             icon: Crosshair,
             items: [
                 {
-                    text: "Productionizing multi-agent AI workflows at microDrive.",
-                    subtext: "Designing bounded tool-use architectures, automated eval pipelines, and deterministic verification loops that hold up under enterprise SLAs."
+                    text: "Getting multi-agent workflows ready for strict production SLAs at microDrive.",
+                    subtext: "Spending most of my technical time on tool permissions, eval regressions, and keeping latency predictable when agents hit real customer data."
                 },
                 {
-                    text: "Evolving our AI-native Platform Engineering & Product org.",
-                    subtext: "Raising engineering leverage through Internal Developer Platforms, golden paths, and AI-assisted delivery guardrails."
+                    text: "Growing our platform engineering group.",
+                    subtext: "Making CI faster, tightening security checks on PRs, and giving product teams cleaner defaults so they spend less time wrestling with infra."
                 }
             ]
         },
@@ -25,12 +25,12 @@ export const nowData = {
             icon: Code,
             items: [
                 {
-                    text: "Context engineering & Model Context Protocol (MCP) ecosystems.",
-                    subtext: "Standardizing how autonomous agents securely discover, invoke, and audit internal enterprise tools and data."
+                    text: "Model Context Protocol (MCP) and context management.",
+                    subtext: "Testing clean ways to expose internal services to agents with proper access control and audit trails."
                 },
                 {
-                    text: "Rust & WebAssembly for high-throughput data and edge inference.",
-                    subtext: "Exploring memory-safe streaming components and lightweight local model execution."
+                    text: "Rust and WebAssembly.",
+                    subtext: "Tinkering with Rust for high-throughput data workers and seeing how far small models can go running locally in the browser."
                 }
             ]
         },
@@ -41,11 +41,11 @@ export const nowData = {
             items: [
                 {
                     text: "AI Engineering",
-                    subtext: "Chip Huyen — Building reliable foundation-model applications from evals to production."
+                    subtext: "Chip Huyen. Practical guide to evals, retrieval, and operating foundation models without the fluff."
                 },
                 {
                     text: "Designing Data-Intensive Applications",
-                    subtext: "Martin Kleppmann — Still the gold standard reference for distributed systems trade-offs."
+                    subtext: "Martin Kleppmann. Still come back to chapters on replication and stream processing every year."
                 }
             ]
         },
@@ -56,11 +56,11 @@ export const nowData = {
             items: [
                 {
                     text: "Latent Space Podcast",
-                    subtext: "Deep technical conversations on AI engineering, agents, and infrastructure."
+                    subtext: "Good practitioner interviews on AI infra, agents, and what is actually working in prod."
                 },
                 {
                     text: "Acquired",
-                    subtext: "Play-by-play strategic breakdowns of generational technology companies."
+                    subtext: "Long-form company histories. Easy favorite for weekend drives."
                 }
             ]
         }

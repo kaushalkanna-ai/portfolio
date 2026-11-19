@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet-async';
 
 const SEO = ({ title, description, image, url, type = 'website' }) => {
     const siteTitle = 'Kaushal Dontula | Engineering & Product';
-    const siteDescription = 'Senior Engineering & Product Executive architecting scalable Agentic AI, Cloud, and Platform Engineering solutions. Explore case studies in AI systems, distributed architecture, and technical leadership.';
+    const siteDescription = 'Senior VP of Engineering & Product building production AI systems, cloud platforms, and distributed engineering teams. Case studies and notes on AI architecture, microservices, and leadership.';
     const siteUrl = 'https://dontula.com';
     const defaultImage = 'https://dontula.com/images/social-preview.webp';
 

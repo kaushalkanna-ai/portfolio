@@ -6,13 +6,13 @@ export const experiences = [
         location: "Tampa, FL",
         flag: "🇺🇸",
         points: [
-            "Architected and led the flagship **AI-powered social media intelligence platform**, combining **LLMs, NLP, and Machine Learning** to extract real-time audience insights and predictive signals from unstructured data.",
-            "Own the **AI-native product strategy and technical roadmap**, evolving core SaaS capabilities into **agentic workflows and predictive analytics engines** backed by automated evaluation and observability pipelines.",
-            "Led an enterprise-wide **microservices migration** from a legacy monolith using **Docker** and **Kubernetes**, compressing deployment cycles from weeks to hours and achieving **99.95% availability**.",
-            "Architected high-throughput **streaming & ML data pipeline infrastructure** in **Golang**, Python, **Kafka**, and **Redis**, processing **1M+ events per second** at **99.9% uptime** with horizontal scalability.",
-            "Built an internal **developer platform (IDP)** with AI-assisted code quality gates and automated security scanning, cutting PR review time by **50%** and catching **95% of vulnerabilities** pre-deployment.",
-            "Scaled cross-functional global engineering and product squads, aligning executive stakeholders, architectural governance, and Agile delivery cadence across high-visibility product launches.",
-            "Unified search, data, and CRM analytics across **PostgreSQL**, **ElasticSearch**, and **Salesforce**, delivering real-time executive dashboards and standardized enterprise data integrations."
+            "Designed and led our core **AI social media intelligence platform**, using **LLMs, NLP, and ML models** to pull real-time audience insights out of noisy social feeds.",
+            "Set the **AI and product roadmap**, shifting older marketing tools toward predictive analytics and automated agent workflows backed by evaluation checks.",
+            "Ran the company-wide move from a legacy monolith to **Docker and Kubernetes microservices**, cutting release cycles from weeks down to hours at **99.95% availability**.",
+            "Built high-throughput **streaming and ML data pipelines** with **Golang**, Python, **Kafka**, and **Redis**, handling **1M+ events per second** at **99.9% uptime**.",
+            "Rolled out an **internal developer platform** with automated code quality and security checks, cutting PR review time in half and catching **95% of vulnerabilities** before deploy.",
+            "Grew and managed cross-functional engineering and product teams, keeping technical architecture, hiring, and quarterly launches lined up with business goals.",
+            "Connected **PostgreSQL**, **ElasticSearch**, and **Salesforce** into clean reporting pipelines so leadership and account teams work off live numbers."
         ]
     },
     {
@@ -22,7 +22,7 @@ export const experiences = [
         location: "Düsseldorf, DE",
         flag: "🇩🇪",
         points: [
-            "Dedicated sabbatical focused on full-time parenting and family relocation."
+            "Took four months off for full-time parenting and relocating the family from Germany back to the US."
         ]
     },
     {
@@ -32,11 +32,11 @@ export const experiences = [
         location: "Cologne, DE",
         flag: "🇩🇪",
         points: [
-            "Spearheaded the rollout of an **AI-driven intelligent chat routing system**, leveraging **Machine Learning classifiers and NLP** to analyze customer intent and automate ticket assignment across global support teams.",
-            "Architected scalable cloud backends on **AWS (EC2, S3)** and tuned core database workloads for reliability under high-concurrency analytical traffic.",
-            "Built real-time data analytics applications and executive dashboards using **Python** and **Apache Spark**, enabling faster, data-backed product decisions.",
-            "Consolidated legacy services and refactored core Python/JavaScript applications, **reducing codebase size by 50%** while eliminating critical production defects and improving uptime.",
-            "Partnered with Product, Design, and QA to run user research, rapid prototyping, GAP analysis, and UAT/Go-No-Go readiness reviews for major platform releases."
+            "Led the build and rollout of an **AI chat routing system**, using **ML classifiers and NLP** to read customer intent and send tickets straight to the right support agent.",
+            "Designed **AWS (EC2, S3)** backend services and tuned heavy database queries to stay steady under peak analytical load.",
+            "Built real-time analytics tools and internal dashboards with **Python** and **Apache Spark** for product and operations teams.",
+            "Cleaned up legacy Python and JavaScript services, **cutting the codebase size by 50%** while fixing long-standing production bugs.",
+            "Worked directly with Product and QA on user research, prototypes, gap analysis, and release sign-off before major launches."
         ]
     },
     {
@@ -46,9 +46,9 @@ export const experiences = [
         location: "Cologne, DE",
         flag: "🇩🇪",
         points: [
-            "Engineered high-scale backend services in **Python (Django)**, optimizing data models and query patterns for **data-intensive SaaS applications**.",
-            "Built distributed asynchronous ingestion and processing pipelines with **Celery**, **ElasticSearch**, and **PostgreSQL** to handle large-scale social data workflows.",
-            "Elevated engineering quality across the team by expanding automated unit and integration test coverage with **PyTest** and enforcing strict **PEP-8** linting standards in CI."
+            "Built backend features in **Python (Django)** and reworked database models for faster queries across large social datasets.",
+            "Wrote distributed background ingestion jobs with **Celery**, **ElasticSearch**, and **PostgreSQL** to keep data pipelines moving reliably.",
+            "Raised test discipline across the team by expanding **PyTest** unit and integration coverage and enforcing **PEP-8** checks in CI."
         ]
     },
     {
@@ -58,8 +58,8 @@ export const experiences = [
         location: "Düsseldorf, DE",
         flag: "🇩🇪",
         points: [
-            "Served as primary engineering point of contact for **NetSuite** platform architecture, integrations, and operational support across European operations.",
-            "Rapidly prototyped and shipped custom workflows, data integrations, and executive reporting dashboards to close functional gaps as the business scaled."
+            "Acted as the go-to engineer for **NetSuite** configuration, custom integrations, and day-to-day operational support across Europe.",
+            "Prototyped custom workflows, fields, and reporting dashboards quickly to close operational gaps as the business grew."
         ]
     },
     {
@@ -69,7 +69,7 @@ export const experiences = [
         location: "Global",
         flag: "🌐",
         points: [
-            "Founded a home automation venture focused on simplifying cross-device IoT integration and unified consumer control experiences."
+            "Started an early-stage home automation company aimed at making mixed-vendor IoT setups easier for everyday homeowners."
         ]
     },
     {
@@ -79,9 +79,9 @@ export const experiences = [
         location: "Buffalo Grove, USA",
         flag: "🇺🇸",
         points: [
-            "Developed customer-facing e-commerce and internal full-stack applications using **Python**, JavaScript, HTML, CSS, and Bootstrap.",
-            "Redesigned and fine-tuned relational database schemas, **reducing query latency by 40%** and improving platform responsiveness.",
-            "Increased automated unit test coverage to **85%** across Python and JavaScript codebases within an Agile sprint cadence."
+            "Built customer-facing and internal web applications using **Python**, JavaScript, HTML, CSS, and Bootstrap.",
+            "Reworked relational database schemas and indexes, **cutting query times by 40%** on core pages.",
+            "Brought automated unit test coverage up to **85%** across our Python and JavaScript repositories."
         ]
     },
     {
@@ -91,8 +91,8 @@ export const experiences = [
         location: "Chicago, USA",
         flag: "🇺🇸",
         points: [
-            "Maintained departmental web platforms and academic course catalogs using **Drupal**, Site Studio, HTML, and CSS.",
-            "Managed student records via **BANNER** and built operational reporting dashboards using **Cognos** while supporting domestic and international student inquiries."
+            "Maintained departmental websites and course catalogs using **Drupal**, Site Studio, HTML, and CSS.",
+            "Updated student records in **BANNER**, built departmental reports in **Cognos**, and handled incoming student inquiries."
         ]
     },
     {
@@ -102,8 +102,8 @@ export const experiences = [
         location: "Bengaluru, IN",
         flag: "🇮🇳",
         points: [
-            "Designed, built, and shipped production **Android** applications across the full mobile lifecycle from architecture and unit testing to Play Store release.",
-            "Collaborated with cross-functional product and design teams to deliver reliable, responsive user experiences and adopt modern mobile tooling."
+            "Built and shipped **Android** apps from initial specs and unit tests through Google Play releases.",
+            "Worked closely with designers and backend developers to iron out edge cases and keep apps responsive on lower-end devices."
         ]
     }
 ];
