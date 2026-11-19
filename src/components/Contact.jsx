@@ -24,7 +24,7 @@ const Contact = () => {
                     transition={{ delay: 0.2, duration: 0.5 }}
                     className="text-lg text-gray-700 dark:text-slate-300 mb-12 max-w-2xl mx-auto leading-relaxed"
                 >
-                    Have a project in mind or just want to chat? Feel free to reach out. I'm always open to discussing new projects, creative ideas or opportunities to be part of your visions.
+                    Exploring executive engineering or product leadership, AI architecture advisory, or strategic collaboration? Drop a note—I'm always glad to connect with builders and leaders solving ambitious technical problems.
                 </motion.p>
 
                 <motion.div

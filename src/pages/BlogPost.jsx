@@ -29,7 +29,7 @@ const BlogPost = () => {
     return (
         <article className="min-h-screen bg-white dark:bg-slate-900 text-gray-900 dark:text-white pt-24 pb-20 relative">
             <SEO
-                title={`${article.title} | Kaushal Dontula`}
+                title={article.title}
                 description={article.summary}
                 url={`/writing/${article.slug}`}
                 type="article"

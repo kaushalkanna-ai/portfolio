@@ -3,20 +3,20 @@ import { Helmet } from 'react-helmet-async';
 
 const SEO = ({ title, description, image, url, type = 'website' }) => {
     const siteTitle = 'Kaushal Dontula | Engineering & Product';
-    const siteDescription = 'Senior Engineering Executive architecting scalable AI & Cloud solutions. View my portfolio for projects in Machine Learning, Microservices, and Strategic Leadership.';
+    const siteDescription = 'Senior Engineering & Product Executive architecting scalable Agentic AI, Cloud, and Platform Engineering solutions. Explore case studies in AI systems, distributed architecture, and technical leadership.';
     const siteUrl = 'https://dontula.com';
     const defaultImage = 'https://dontula.com/images/social-preview.webp';
 
     const fullTitle = title ? `${title} | Kaushal Dontula` : siteTitle;
     const metaDescription = description || siteDescription;
-    const metaImage = image ? (image.startsWith('http') ? image : `${siteUrl}${image.replace(/^\//, '')}`) : defaultImage;
-    const metaUrl = url ? `${siteUrl}${url.replace(/^\//, '')}` : siteUrl;
+    const metaImage = image ? (image.startsWith('http') ? image : `${siteUrl}/${image.replace(/^\//, '')}`) : defaultImage;
+    const metaUrl = url ? `${siteUrl}/${url.replace(/^\//, '')}` : siteUrl;
 
     const personSchema = {
         "@context": "https://schema.org",
         "@type": "Person",
         "name": "Kaushal Dontula",
-        "jobTitle": "Engineering & Product",
+        "jobTitle": "Senior Vice President of Engineering & Product",
         "description": metaDescription,
         "url": siteUrl,
         "image": metaImage,
@@ -25,9 +25,13 @@ const SEO = ({ title, description, image, url, type = 'website' }) => {
             "https://github.com/kaushalkanna-ai"
         ],
         "knowsAbout": [
+            "Agentic AI",
+            "LLM Orchestration",
             "Artificial Intelligence",
             "Machine Learning",
+            "Platform Engineering",
             "Cloud Architecture",
+            "Distributed Systems",
             "Microservices",
             "Product Strategy",
             "Engineering Leadership"

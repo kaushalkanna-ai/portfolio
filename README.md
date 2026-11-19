@@ -10,7 +10,7 @@
 
 This repository houses the source code for my personal executive portfolio. It is engineered to be a living dashboard of my work, combining engineering leadership case studies with strategic thought leadership in a unified, high-performance interface.
 
-[**View Live Site →**](https://kaushalkanna-ai.github.io/portfolio/)
+[**View Live Site →**](https://dontula.com/)
 
 ---
 

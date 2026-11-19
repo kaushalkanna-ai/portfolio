@@ -12,6 +12,7 @@ const ContactForm = () => {
     });
     const [status, setStatus] = useState('idle'); // idle, submitting, success, error
     const [errorMessage, setErrorMessage] = useState('');
+    const [submittedName, setSubmittedName] = useState('');
 
     // Access Key for Web3Forms
     const ACCESS_KEY = "5615857f-6dc4-4b6a-9bd9-1853feb303c1";
@@ -42,6 +43,7 @@ const ContactForm = () => {
             }).then((res) => res.json());
 
             if (res.success) {
+                setSubmittedName(formData.name);
                 setStatus('success');
                 setFormData({ name: '', email: '', message: '' });
                 trackFormSubmission('Contact Form', true);
@@ -54,7 +56,7 @@ const ContactForm = () => {
         } catch (error) {
             console.error(error);
             setStatus('error');
-            setErrorMessage("Failed to send message. Please checking your connection.");
+            setErrorMessage("Failed to send message. Please check your connection.");
             trackFormSubmission('Contact Form', false);
         }
     };
@@ -79,7 +81,7 @@ const ContactForm = () => {
                         </motion.div>
                         <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Message Sent!</h3>
                         <p className="text-gray-600 dark:text-gray-300">
-                            Thanks for reaching out, {formData.name}. I'll get back to you soon.
+                            Thanks for reaching out{submittedName ? `, ${submittedName}` : ''}. I'll get back to you soon.
                         </p>
                         <button
                             onClick={() => setStatus('idle')}
@@ -142,7 +144,7 @@ const ContactForm = () => {
                                 value={formData.message}
                                 onChange={handleChange}
                                 className="w-full px-4 py-3 rounded-lg bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-700 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all placeholder:text-gray-400 resize-none"
-                                placeholder="Tell me about your project..."
+                                placeholder="Tell me about what you're building or how we can collaborate..."
                             />
                         </div>
 

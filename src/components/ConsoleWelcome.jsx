@@ -32,7 +32,7 @@ const ConsoleWelcome = () => {
 `;
 
         console.log(
-            `%c${asciiArt}\n%c\n👋 Hacking around?\n\nI see you're checking under the hood! 🧐\n\nIf you're curious about a specific component or animation,\nI built this using React, Tailwind v4, and Framer Motion.\n\nFound a bug or just want to chat engineering?\nLet's connect: https://www.linkedin.com/in/kaushaldontula/\n`,
+            `%c${asciiArt}\n%c\n👋 Hacking around?\n\nI see you're checking under the hood! 🧐\n\nIf you're curious about a specific component or animation,\nI built this using React 19, Tailwind v4, and Framer Motion.\n\nFound a bug or want to talk AI systems & engineering leadership?\nLet's connect: https://www.linkedin.com/in/kaushaldontula/\n`,
             styleTitle,
             styleBody
         );

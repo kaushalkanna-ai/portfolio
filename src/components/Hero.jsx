@@ -7,9 +7,9 @@ const ParticleBackground = lazy(() => import('./ParticleBackground'));
 
 const phrases = [
     'Senior Engineering & Product Executive',
-    'Architecting Scalable AI & Cloud Solutions',
-    'Driving Product Strategy & Innovation',
-    'Building High-Performing Global Teams'
+    'Architecting Scalable Agentic AI & Cloud Platforms',
+    'Driving AI-Native Product Strategy & Execution',
+    'Scaling High-Velocity Global Engineering Orgs'
 ];
 
 const Hero = () => {
