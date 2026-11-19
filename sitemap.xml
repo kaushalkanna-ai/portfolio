@@ -12,6 +12,21 @@
   </url>
   <!-- Main Project Routes -->
   <url>
+    <loc>https://dontula.com/projects/multi-agent-workflow-orchestration</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://dontula.com/projects/enterprise-llm-gateway-router</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://dontula.com/projects/hybrid-rag-context-engine</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://dontula.com/projects/social-media-intelligence-platform</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -21,24 +36,70 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-   <url>
+  <url>
     <loc>https://dontula.com/projects/scalable-ml-pipeline</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-   <url>
+  <url>
     <loc>https://dontula.com/projects/real-time-analytics-dashboard</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-   <url>
+  <url>
     <loc>https://dontula.com/projects/microservices-architecture-migration</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-   <url>
+  <url>
     <loc>https://dontula.com/projects/automated-code-quality-platform</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <!-- Strategy & Writing Routes -->
+  <url>
+    <loc>https://dontula.com/writing/ai-unit-economics-saas-margins</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://dontula.com/writing/autonomous-agents-in-production</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dontula.com/writing/ai-native-product-roadmaps</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dontula.com/writing/platform-engineering-ai-era</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dontula.com/writing/eval-driven-product-development</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dontula.com/writing/scaling-engineering-teams</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://dontula.com/writing/roi-technical-debt</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://dontula.com/writing/microservices-retrospective</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://dontula.com/writing/ai-production-strategies</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 </urlset>
