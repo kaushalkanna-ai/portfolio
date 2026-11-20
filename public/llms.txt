@@ -1,0 +1,36 @@
+# Kaushal Dontula
+
+> Senior Vice President of Engineering & Product based in Tampa, FL. Over a decade of experience designing production AI systems, cloud platforms, and high-throughput backends while leading distributed engineering and product teams across the US, Europe, and India.
+
+## Core Pages
+- [Home](https://dontula.com/): Executive overview, career timeline, selected work, education, and contact.
+- [Now](https://dontula.com/now): Current focus at microDrive, active learning areas, reading, and listening.
+- [Resume (PDF)](https://dontula.com/Kaushal_Dontula_Resume.pdf): Two-page executive resume.
+- [Full Plain-Text Profile](https://dontula.com/llms-full.txt): Complete career history, case studies, and writing summaries in Markdown.
+
+## Engineering Case Studies
+- [Multi-Agent AI Workflow Orchestration Platform](https://dontula.com/projects/multi-agent-workflow-orchestration): Bounded multi-agent engine with MCP tool governance and trajectory evals (65% workflow automation, 99.2% policy compliance).
+- [Enterprise LLM Gateway & Intelligent Model Router](https://dontula.com/projects/enterprise-llm-gateway-router): Golang AI proxy routing between distilled vLLM clusters and frontier models with Redis caching (58% cost reduction, 3.2x faster p95).
+- [Hybrid RAG & Context Engineering Knowledge Engine](https://dontula.com/projects/hybrid-rag-context-engine): Permission-aware BM25 + vector search with cross-encoder reranking and citation checks (94% citation groundedness, -70% hallucinations).
+- [AI-Powered Social Media Intelligence Platform](https://dontula.com/projects/social-media-intelligence-platform): Real-time sentiment tracking and trend alerting across 50M+ daily posts (+35% sentiment accuracy).
+- [Intelligent Chat Routing System](https://dontula.com/projects/intelligent-chat-routing-system): NLP and ML intent triage reducing handle time by 25%, transfers by 40%, and improving first response by 60%.
+- [Scalable ML & AI Evaluation Infrastructure](https://dontula.com/projects/scalable-ml-pipeline): Kubernetes MLOps and eval platform cutting model deploys from weeks to hours across 15+ production models.
+- [Real-Time Data Analytics Dashboard](https://dontula.com/projects/real-time-analytics-dashboard): Golang stream processing and WebSocket observability handling 50k+ events/sec at <200ms latency.
+- [Microservices Architecture Migration](https://dontula.com/projects/microservices-architecture-migration): Zero-downtime Strangler Fig monolith breakup lifting uptime from 99.5% to 99.99% and doubling deploy frequency.
+- [Internal Developer & AI Code Quality Platform](https://dontula.com/projects/automated-code-quality-platform): Automated PR verification and Shift-Left security gates cutting review time by 50% and catching 95% of vulnerabilities pre-deploy.
+
+## Strategy & Leadership Writing
+- [AI Unit Economics: Protecting SaaS Gross Margins at Scale](https://dontula.com/writing/ai-unit-economics-saas-margins): Aligning model routing, caching, FinOps telemetry, and pricing for AI-native SaaS.
+- [From Copilots to Autonomous Agents in Production](https://dontula.com/writing/autonomous-agents-in-production): State machines, MCP tool permissions, approval gates, and trajectory evals.
+- [Designing AI-Native Product Roadmaps Beyond 'Bolt-On' Features](https://dontula.com/writing/ai-native-product-roadmaps): Moving from chat drawers to background intelligence, inline provenance, and feedback loops.
+- [Platform Engineering in the Era of AI-Assisted Development](https://dontula.com/writing/platform-engineering-ai-era): Turning CI into an automated verification engine as code generation speeds up.
+- [Eval-Driven Product Development: Replacing Vibes with Measurable Quality](https://dontula.com/writing/eval-driven-product-development): Co-authoring living eval suites between Product and Engineering.
+- [Scaling Engineering Teams from 5 to 50](https://dontula.com/writing/scaling-engineering-teams): Written RFCs, domain squads, calibrated hiring, and shifting management leverage.
+- [The ROI of Technical Debt](https://dontula.com/writing/roi-technical-debt): Framing debt in outage risk and delivery speed with a steady 20% maintenance budget.
+- [Microservices: A Retrospective](https://dontula.com/writing/microservices-retrospective): Avoiding distributed monoliths and defaulting to modular monoliths first.
+- [AI in Production: Beyond the Hype](https://dontula.com/writing/ai-production-strategies): Practical latency, cost, and hybrid retrieval patterns under real enterprise SLAs.
+
+## Contact
+- Email: kaushal.dontula@gmail.com
+- LinkedIn: https://www.linkedin.com/in/kaushaldontula/
+- Location: Tampa, FL (Open to Engineering Leadership & Product roles)
