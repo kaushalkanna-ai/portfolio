@@ -1,47 +1,66 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useTheme } from '../context/ThemeContext';
 
 const ThemeToggle = () => {
     const { theme, toggleTheme } = useTheme();
+    const [pulseKey, setPulseKey] = useState(0);
+    const isDark = theme === 'dark';
+
+    const handleClick = () => {
+        setPulseKey((prev) => prev + 1);
+        toggleTheme();
+    };
 
     return (
-        <button
-            onClick={toggleTheme}
-            className="theme-toggle relative w-10 h-10 rounded-full bg-slate-800/50 dark:bg-slate-800/50 backdrop-blur-md border border-white/10 hover:border-blue-500/50 transition-all duration-300 flex items-center justify-center group"
-            aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
+        <motion.button
+            type="button"
+            onClick={handleClick}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.92 }}
+            className="theme-toggle relative w-9 h-9 rounded-full bg-gray-100/90 dark:bg-slate-800/80 hover:bg-gray-200/80 dark:hover:bg-slate-700/80 border border-gray-200/90 dark:border-white/10 hover:border-blue-500/50 dark:hover:border-blue-400/50 text-slate-900 dark:text-slate-100 transition-colors duration-200 flex items-center justify-center cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+            aria-label={`Switch to ${isDark ? 'light' : 'dark'} mode`}
+            title={`Switch to ${isDark ? 'light' : 'dark'} mode`}
         >
-            <div className={`theme-icon relative w-5 h-5 transition-transform duration-500 ${theme === 'dark' ? 'rotate-180' : 'rotate-0'}`}>
-                {theme === 'light' ? (
-                    <svg
-                        className="w-5 h-5 text-yellow-500 group-hover:text-yellow-400 transition-colors"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                    >
-                        <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
-                        />
-                    </svg>
-                ) : (
-                    <svg
-                        className="w-5 h-5 text-blue-400 group-hover:text-blue-300 transition-colors"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                    >
-                        <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
-                        />
-                    </svg>
+            {/* Subtle expanding ring pulse on toggle */}
+            <AnimatePresence>
+                {pulseKey > 0 && (
+                    <motion.span
+                        key={pulseKey}
+                        initial={{ scale: 0.85, opacity: 0.55 }}
+                        animate={{ scale: 1.55, opacity: 0 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.45, ease: 'easeOut' }}
+                        className="pointer-events-none absolute inset-0 rounded-full border border-blue-500/50 dark:border-teal-400/50"
+                    />
                 )}
-            </div>
-        </button>
+            </AnimatePresence>
+
+            {/* Swiss / Linear-style Minimalist Split Contrast Dial */}
+            <motion.svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                aria-hidden="true"
+                initial={false}
+                animate={{ rotate: isDark ? 180 : 0 }}
+                transition={{ type: 'spring', stiffness: 360, damping: 24 }}
+                className="theme-icon"
+            >
+                <circle
+                    cx="12"
+                    cy="12"
+                    r="8.5"
+                    stroke="currentColor"
+                    strokeWidth="1.8"
+                />
+                <path
+                    d="M12 3.5A8.5 8.5 0 0 0 12 20.5V3.5Z"
+                    fill="currentColor"
+                />
+            </motion.svg>
+        </motion.button>
     );
 };
 
