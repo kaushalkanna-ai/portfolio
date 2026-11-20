@@ -1,0 +1,124 @@
+# Kaushal Dontula — Complete Portfolio Profile
+
+- **Title:** Senior Vice President of Engineering & Product
+- **Location:** Greater Tampa Bay Area, FL, United States
+- **Status:** Open to Engineering Leadership & Product roles
+- **Website:** https://dontula.com/
+- **Email:** kaushal.dontula@gmail.com
+- **LinkedIn:** https://www.linkedin.com/in/kaushaldontula/
+- **Resume PDF:** https://dontula.com/Kaushal_Dontula_Resume.pdf
+
+## Summary
+Senior Vice President of Engineering & Product with over a decade of hands-on systems architecture and executive leadership experience across the US, Europe, and India. Specializes in moving AI systems from prototypes to production SLAs: multi-agent workflows, LLM routing and FinOps controls, hybrid RAG, automated evaluation suites, distributed backends, cloud-native infrastructure, and internal developer platforms.
+
+## Core Capabilities
+- **AI & Agentic Systems:** Agentic AI, LLM Orchestration, AI Systems & Evals, MCP, Hybrid RAG, MLOps, NLP
+- **Cloud & Distributed Scale:** Cloud Architecture (AWS), Distributed Systems, Microservices, Platform Engineering (IDP), Golang, Python, Kafka, Redis, Kubernetes, Docker, ElasticSearch, PostgreSQL, OpenTelemetry
+- **Leadership & Product:** Technical Leadership, Product Strategy, Global Team Scaling, AI Unit Economics & FinOps, Agile Delivery
+
+## Career History
+
+### Senior Vice President of Engineering & Product — microDrive (Feb 2022 – Present | Tampa, FL)
+- Designed and led core AI social media intelligence platform using LLMs, NLP, and ML models to extract real-time audience insights from 50M+ daily posts.
+- Set AI and product roadmap, shifting legacy marketing tools toward predictive analytics and automated agent workflows backed by evaluation checks.
+- Ran company-wide migration from legacy monolith to Docker and Kubernetes microservices, cutting release cycles from weeks to hours at 99.95% availability.
+- Built high-throughput streaming and ML data pipelines with Golang, Python, Kafka, and Redis handling 1M+ events/sec at 99.9% uptime.
+- Rolled out an internal developer platform with automated code quality and security checks, cutting PR review time by 50% and catching 95% of vulnerabilities pre-deploy.
+- Grew and managed cross-functional global engineering and product teams across architecture, hiring, and quarterly launches.
+- Connected PostgreSQL, ElasticSearch, and Salesforce into live executive reporting pipelines.
+
+### Full-time Parenting (Career Break) — Self-Employed (Oct 2021 – Jan 2022 | Düsseldorf, DE)
+- Four-month sabbatical focused on full-time parenting and family relocation from Germany back to the US.
+
+### Vice President of Engineering — InfluencerDB (May 2020 – Oct 2021 | Cologne, DE)
+- Led build and rollout of an AI chat routing system using ML classifiers and NLP to analyze customer intent and route tickets to specialists.
+- Designed scalable AWS (EC2, S3) backends and tuned heavy database workloads for analytical traffic spikes.
+- Built real-time analytics applications and internal dashboards with Python and Apache Spark.
+- Cleaned up legacy Python and JavaScript services, cutting codebase size by 50% while fixing critical defects and improving uptime.
+- Partnered with Product and QA on user research, prototyping, gap analysis, and release sign-off.
+
+### Senior Software Engineer — InfluencerDB (Sep 2018 – May 2020 | Cologne, DE)
+- Built backend services in Python (Django) and optimized database models for large social datasets.
+- Built distributed background ingestion pipelines with Celery, ElasticSearch, and PostgreSQL.
+- Expanded automated PyTest unit/integration coverage and enforced PEP-8 checks in CI.
+
+### Software Engineer — Zoro Tools Europe GmbH (Jan 2018 – Aug 2018 | Düsseldorf, DE)
+- Primary engineer for NetSuite configuration, custom integrations, and European operational support.
+- Prototyped custom workflows and executive reporting dashboards.
+
+### Founder — Stealth Startup (Jul 2017 – Dec 2017 | Global)
+- Started an early-stage home automation venture simplifying mixed-vendor IoT integration.
+
+### Full Stack Developer — Zoro US (Feb 2015 – Jun 2017 | Buffalo Grove, IL)
+- Built customer-facing and internal web apps in Python, JavaScript, HTML, CSS, and Bootstrap.
+- Reworked relational database schemas and indexes, cutting query times by 40%.
+- Raised automated unit test coverage to 85% across Python and JavaScript repos.
+
+### Graduate Assistant (Web Developer) — Illinois Institute of Technology (Sep 2013 – Dec 2014 | Chicago, IL)
+- Maintained departmental sites (Drupal, Site Studio) and student reporting (BANNER, Cognos).
+
+### Android Developer — DataMine InfoTech (May 2012 – Jun 2013 | Bengaluru, IN)
+- Built and shipped production Android applications end-to-end through Google Play releases.
+
+## Engineering Case Studies
+
+1. **Multi-Agent AI Workflow Orchestration Platform** (`https://dontula.com/projects/multi-agent-workflow-orchestration`)
+   - **Impact:** 65% workflow automation · 99.2% policy compliance · <1.8s p95 step latency
+   - **Stack:** Python, MCP, LangGraph, Redis, OpenTelemetry
+   - **Summary:** Deterministic state-machine orchestrator wrapping bounded reasoning steps, centralized MCP tool gateway with per-tenant RBAC and audit logs, human-in-the-loop approval gates, and automated trajectory evals.
+
+2. **Enterprise LLM Gateway & Intelligent Model Router** (`https://dontula.com/projects/enterprise-llm-gateway-router`)
+   - **Impact:** 58% inference cost reduction · 3.2x faster p95 latency · 99.98% AI uptime
+   - **Stack:** Golang, Redis, vLLM, Kubernetes, OpenTelemetry
+   - **Summary:** Shared Golang proxy enforcing auth, PII redaction, Redis semantic/prefix caching, complexity-based routing across self-hosted distilled vLLM clusters and frontier APIs, plus automatic multi-provider failover.
+
+3. **Hybrid RAG & Context Engineering Knowledge Engine** (`https://dontula.com/projects/hybrid-rag-context-engine`)
+   - **Impact:** 94% citation groundedness · -70% hallucination rate · 450ms retrieval p95
+   - **Stack:** Python, PostgreSQL, ElasticSearch, Kafka, FastAPI
+   - **Summary:** Event-driven Kafka chunking and ACL sync feeding ElasticSearch BM25 + pgvector hybrid search, strict query-time permission filtering, cross-encoder reranking, and citation verification.
+
+4. **AI-Powered Social Media Intelligence Platform** (`https://dontula.com/projects/social-media-intelligence-platform`)
+   - **Impact:** 50M+ posts/day at sub-second latency · +35% sentiment accuracy
+   - **Stack:** Python, LLMs & NLP, Kafka, React, AWS
+   - **Summary:** Kappa streaming architecture (Kafka + Spark Streaming) feeding fine-tuned sentiment/NER transformers and selective LLM crisis briefings indexed in ElasticSearch.
+
+5. **Intelligent Chat Routing System** (`https://dontula.com/projects/intelligent-chat-routing-system`)
+   - **Impact:** -25% handle time · -40% transfers · +60% faster first response
+   - **Stack:** Python, FastAPI, NLP & ML, Redis, Docker
+   - **Summary:** Two-stage intent and sentiment triage pipeline matching live customer messages to the best available support specialist.
+
+6. **Scalable ML & AI Evaluation Infrastructure** (`https://dontula.com/projects/scalable-ml-pipeline`)
+   - **Impact:** Deployment cut from weeks to hours · 15+ production models
+   - **Stack:** Python, Kubernetes, Airflow, MLflow, Terraform
+   - **Summary:** Shared Kubernetes MLOps platform with a central Feature Store, GPU training pools, automated drift checks, and canary serving.
+
+7. **Real-Time Data Analytics Dashboard** (`https://dontula.com/projects/real-time-analytics-dashboard`)
+   - **Impact:** <200ms end-to-end latency · 50k+ events/sec · Zero downtime
+   - **Stack:** Golang, React, D3.js, InfluxDB, WebSocket
+   - **Summary:** High-concurrency Golang stream processor with statistical anomaly detection and live WebSocket UI updates.
+
+8. **Microservices Architecture Migration** (`https://dontula.com/projects/microservices-architecture-migration`)
+   - **Impact:** 99.99% uptime · 2x deployment frequency · Zero big-bang risk
+   - **Stack:** Java, Spring Boot, Docker, PostgreSQL, RabbitMQ
+   - **Summary:** Phased 9-month Strangler Fig breakup of a 10-year monolith behind an API Gateway with isolated per-domain schemas and async messaging.
+
+9. **Internal Developer & AI Code Quality Platform** (`https://dontula.com/projects/automated-code-quality-platform`)
+   - **Impact:** -50% PR review time · 95% pre-deploy vulnerability catch rate
+   - **Stack:** Python, CI/CD, SonarQube, Docker, DevSecOps
+   - **Summary:** Automated PR verification layer combining AST checks, SAST/CVE/secret gates, and historical defect risk scoring.
+
+## Strategy & Leadership Essays
+- **AI Unit Economics: Protecting SaaS Gross Margins at Scale** (Nov 2026) — `https://dontula.com/writing/ai-unit-economics-saas-margins`
+- **From Copilots to Autonomous Agents in Production** (Oct 2026) — `https://dontula.com/writing/autonomous-agents-in-production`
+- **Designing AI-Native Product Roadmaps Beyond 'Bolt-On' Features** (Sep 2026) — `https://dontula.com/writing/ai-native-product-roadmaps`
+- **Platform Engineering in the Era of AI-Assisted Development** (Jul 2026) — `https://dontula.com/writing/platform-engineering-ai-era`
+- **Eval-Driven Product Development: Replacing Vibes with Measurable Quality** (May 2026) — `https://dontula.com/writing/eval-driven-product-development`
+- **Scaling Engineering Teams from 5 to 50** (Dec 2025) — `https://dontula.com/writing/scaling-engineering-teams`
+- **The ROI of Technical Debt** (Nov 2025) — `https://dontula.com/writing/roi-technical-debt`
+- **Microservices: A Retrospective** (Oct 2025) — `https://dontula.com/writing/microservices-retrospective`
+- **AI in Production: Beyond the Hype** (Sep 2025) — `https://dontula.com/writing/ai-production-strategies`
+
+## Education & Volunteering
+- **Master of Science (MS), Computer Science** — Illinois Institute of Technology, Chicago, IL
+- **Bachelor of Technology (BTech), Information Technology** — Jawaharlal Nehru Technological University
+- **Volunteering:** YouthBuild USA — Education & Mentorship Support
