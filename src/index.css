@@ -158,6 +158,38 @@
         -webkit-transform: translateZ(0);
         transform: translateZ(0);
     }
+
+    ::selection {
+        background-color: rgba(59, 130, 246, 0.25);
+        color: inherit;
+    }
+}
+
+/* Cursor-tracking card spotlight (zero React re-renders) */
+.spotlight-card {
+    --mouse-x: 50%;
+    --mouse-y: 50%;
+}
+
+.spotlight-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    pointer-events: none;
+    background: radial-gradient(
+        520px circle at var(--mouse-x) var(--mouse-y),
+        rgba(59, 130, 246, 0.14),
+        rgba(20, 184, 166, 0.06) 35%,
+        transparent 65%
+    );
+    z-index: 1;
+}
+
+.spotlight-card:hover::before {
+    opacity: 1;
 }
 
 /* Hybrid Pulse-Glitch Loader - Global Styles */

@@ -9,32 +9,29 @@ describe('Experience Component', () => {
         expect(screen.getByText(/Experience/i)).toBeInTheDocument();
     });
 
-    it('renders experience cards from data', () => {
+    it('renders experience cards from data with current role expanded by default', () => {
         render(<Experience />);
 
-        // Check if the first company and role are displayed
         const firstExp = experiences[0];
         expect(screen.getByText(firstExp.company)).toBeInTheDocument();
         expect(screen.getByText(firstExp.role)).toBeInTheDocument();
-    });
+        expect(screen.getByText(/Current/i)).toBeInTheDocument();
 
-    it('toggles details on click', () => {
-        render(<Experience />);
-
-        // Find the "View Details" button for the first card
-        // Note: There are multiple "View Details" buttons, let's get the first one
-        const toggleButtons = screen.getAllByText(/View Details/i);
-        const firstButton = toggleButtons[0];
-
-        // Click to expand
-        fireEvent.click(firstButton);
-
-        // Text should change to "Close Details"
-        expect(firstButton).toHaveTextContent(/Close Details/i);
-
-        // Details should be visible (looking for a point from the first experience)
-        // We'll strip markdown for the check roughly, or just check that new list items appeared
         const listItems = screen.getAllByRole('listitem');
         expect(listItems.length).toBeGreaterThan(0);
+    });
+
+    it('toggles details on click and supports Expand All / Collapse All', () => {
+        render(<Experience />);
+
+        // Second card starts collapsed ("View Details")
+        const viewButtons = screen.getAllByText(/View Details/i);
+        fireEvent.click(viewButtons[0]);
+        expect(viewButtons[0]).toHaveTextContent(/Close Details/i);
+
+        // Expand All opens every role
+        const expandAllBtn = screen.getByRole('button', { name: /Expand All/i });
+        fireEvent.click(expandAllBtn);
+        expect(screen.getByRole('button', { name: /Collapse All/i })).toBeInTheDocument();
     });
 });

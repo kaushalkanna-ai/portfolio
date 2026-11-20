@@ -52,11 +52,11 @@ describe('Navbar Component', () => {
         );
 
         const nav = screen.getByRole('navigation');
-        expect(nav.className).toContain('bg-white/10');
+        expect(nav).toHaveAttribute('data-scrolled', 'false');
 
         fireEvent.scroll(window, { target: { scrollY: 100 } });
 
-        expect(nav.className).toContain('bg-white/70');
+        expect(nav).toHaveAttribute('data-scrolled', 'true');
     });
 
     it('scrolls to top when logo is clicked', () => {
